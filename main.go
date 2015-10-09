@@ -75,7 +75,7 @@ var requestMapping = map[string]RequestJson{
 var recordMapping = make(map[uint64]string)
 var log = logging.MustGetLogger("Xueqiu")
 var format = logging.MustStringFormatter(
-	"%{color}%{time:15:04:05.000} %{shortfunc} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
+	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
 )
 
 func _generateEnergy() map[string]RequestJson {
