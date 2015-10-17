@@ -31,12 +31,12 @@ var round = 1
 
 var requestMapping = map[string]RequestJson{
 	"晒宁鼻涕": RequestJson{
-		AuthToken:       "370797:1e14U59msRiuQpabh824AvS_Nyn3GVEURQYHC7VpaHA",
+		AuthToken:       "370797:brLVsx2TvTbhRyyq65GGEMvqxAvwnWJhrUK4Mu-TJiA",
 		ClientVersion:   "2.1.2",
 		ConvertedEnergy: 0,
 		Platform:        "ios",
-		Cookie:          "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTZkOWRmOGFmZGZiZTVjZDAzYjI4MzdlZmM3ZDMyOTMzBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--3f836cca06992ce1fb13967aafedd82a2e75163a; __cfduid=dadea9592d47162968e9ea796b02b94471444282410",
-		IfNoneMatch:     "d9fc109688943bb6373ff0131c683f00",
+		Cookie:          "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTEyNjU1ZTcwM2EyNDc0ZjcyM2EyYmExNDQxNTBiZTIxBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--e1d43233ff49eb0b4b2e9c319b002cc9254fa958; __cfduid=da3956cb9259cc276c09b648e0b58666a1444714024",
+		IfNoneMatch:     "23133a2904c8e76d7b68c8bb3d035c60",
 	},
 	"豆喵子": RequestJson{
 		AuthToken:       "370945:fcAGgjjCzt2pFEBNonnzWnr65fGyNYvCg9SUHFncsDQ",
@@ -52,7 +52,7 @@ var requestMapping = map[string]RequestJson{
 		ConvertedEnergy: 0,
 		Platform:        "ios",
 		Cookie:          "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTU5YTEwYjk4ZmVlOTc1MDA0ZjFiN2U2Y2YzOWNiNjQzBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--e3b0f65033b705e5097f81e595085b636e61f762; __cfduid=db6ae664c9929a7a2c1e400207b4e63c71443003916",
-		IfNoneMatch:     "",
+		IfNoneMatch:     "0b88a736758073d10aca6ed18851ba15",
 	},
 	"宅家白小猫": RequestJson{
 		AuthToken:       "477860:afL1_oamjPKvzjVEseBtASF7SwQhBKuEs-U41fyELHz",
@@ -68,6 +68,22 @@ var requestMapping = map[string]RequestJson{
 		ConvertedEnergy: 0,
 		Platform:        "ios",
 		Cookie:          "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWM4MjZlY2Q3ZGM1NjcxOWNmZjZhZTAzNTJhY2UxNzVkBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--ec3366d69081bf6199571e572df8d9c3624e1a8b; __cfduid=d8a93a59248eee274519aa0cd1c90d7e21444280520",
+		IfNoneMatch:     "f158c0be4aa2dd39ccee5fb4fc7ecb9d",
+	},
+	"宅家拉佛": RequestJson{
+		AuthToken:       "548754:DTXqwxKJshh_B9xjbXV3RFoxT5TA6rreK3-JBARkxiz",
+		ClientVersion:   "2.1.2",
+		ConvertedEnergy: 0,
+		Platform:        "ios",
+		Cookie:          "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWYwZGY2MDNlNmM5ZTdkMjA4OWQyNjk1NTVjZWFhYWU2BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--6e63077e6d5dbdf80b2030440f3402ca800300c1; __cfduid=de0eabb3c2a3bd360ac4d168bb59a7f7a1444647143",
+		IfNoneMatch:     "f158c0be4aa2dd39ccee5fb4fc7ecb9d",
+	},
+	"宅家琪萨": RequestJson{
+		AuthToken:       "549457:ACQ6b2sKxckyB1PmZdyoishsvVP7VZNoEqgDzuwMUP4",
+		ClientVersion:   "2.1.2",
+		ConvertedEnergy: 0,
+		Platform:        "ios",
+		Cookie:          "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTU4ODIxMGExZGExZWMzNDY3MGQwZDM0OTYyY2M4NDUwBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--919ef308fc20bb139f2ad107545bc768e00937f9; __cfduid=d5a8c09fb0e64413426b1b8fd6ad9e6621444711078",
 		IfNoneMatch:     "f158c0be4aa2dd39ccee5fb4fc7ecb9d",
 	},
 }
@@ -116,7 +132,7 @@ func MakeRequest() {
 			req.Header.Add("Content-Type", "application/json")
 			req.Header.Add("Host", "universe.walkrgame.com")
 			req.Header.Add("Accept", "*/*")
-			req.Header.Add("User-Agent", "Space Walk/2.1.2 (iPhone; iOS 9.0; Scale/2.00)")
+			req.Header.Add("User-Agent", "Space Walk/2.1.2 (iPhone; iOS 9.0.2; Scale/2.00)")
 			req.Header.Add("Accept-Language", "zh-Hans-CN;q=1, en-CN;q=0.9")
 
 			if resp, err := client.Do(req); err == nil {
