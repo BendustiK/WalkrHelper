@@ -4,16 +4,17 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"math/rand"
 	"net/http"
 	"net/url"
 	"os"
-	"runtime"
 	"sort"
 	"time"
 
+	"github.com/BurntSushi/toml"
 	goerrors "github.com/go-errors/errors"
 
 	"github.com/op/go-logging"
@@ -49,15 +50,6 @@ var LeaveComments = []string{
 	"「Saber」说: 祝您旅途愉快，单飞顺利括弧笑:)",
 	"「树蛙」说: 耗子和树蛙说 哎咦！我们都不会飞！吱～呱～ᶘ ᵒᴥᵒᶅ",
 	"「白树」说: Namárië! Nai hiruvalyë Valimar. Nai elyë hiruva. 愿伊鲁维塔与你同在(´-灬-‘)",
-}
-
-type RequestJson struct {
-	AuthToken     string `json:"auth_token"`
-	ClientVersion string `json:"client_version"`
-	Platform      string `json:"platform"`
-	Locale        string `json:"locale"`
-	Cookie        string `json:"-"`
-	IfNoneMatch   string `json:"-"`
 }
 
 type CommentRequest struct {
@@ -112,29 +104,24 @@ type BoolResponse struct {
 	Success bool
 }
 
-var round = 1
-
-var requestMapping = map[string]RequestJson{
-	"宅家豆浆": RequestJson{
-		AuthToken:     "473033:C4n9KGgivumMhFNqR29psHFsEZRA7CxxUokosDZExR4",
-		ClientVersion: "2.1.2",
-		Locale:        "zh-CN",
-		Platform:      "ios",
-		Cookie:        "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTU5YTEwYjk4ZmVlOTc1MDA0ZjFiN2U2Y2YzOWNiNjQzBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--e3b0f65033b705e5097f81e595085b636e61f762; __cfduid=db6ae664c9929a7a2c1e400207b4e63c71443003916",
-		IfNoneMatch:   "0b88a736758073d10aca6ed18851ba15",
-	},
-	// "豆喵子": RequestJson{
-	// 	AuthToken:     "370945:fcAGgjjCzt2pFEBNonnzWnr65fGyNYvCg9SUHFncsDQ",
-	// 	ClientVersion: "2.1.2",
-	// 	Locale:        "zh-CN",
-	// 	Platform:      "ios",
-	// 	Cookie:        "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTVhZGE2MGMzNzUxY2M0NjAxMmM0YzZkMDJiMTQ0NjYzBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--71742b31f176efac8ec0110ed3c619fac87f66e9; __cfduid=d534cd265cc169f784f80d48af2bafdf21444184209",
-	// 	IfNoneMatch:   "4ecbdbb0c9bfd061cfcbaccaa7a9bffa",
-	// },
+type PlayerInfo struct {
+	Name            string `json:"-"`
+	AuthToken       string `json:"auth_token"`
+	ClientVersion   string `json:"client_version"`
+	Platform        string `json:"platform"`
+	Locale          string `json:"locale"`
+	Cookie          string `json:"-"`
+	IfNoneMatch     string `json:"-"`
+	ConvertedEnergy int    `json:"-"`
 }
 
-var recordMapping = make(map[uint64]string)
-var log = logging.MustGetLogger("Xueqiu")
+type PlayerInfos struct {
+	PlayerInfo []PlayerInfo
+}
+
+var round = 1
+var config PlayerInfos
+var log = logging.MustGetLogger("Walkr")
 var format = logging.MustStringFormatter(
 	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
 )
@@ -160,8 +147,8 @@ func MakeRequest() {
 	// 3. 加入邀请的舰队
 	// 4. 留言说明几分钟退出
 	// 5. 退出舰队
-	for requestName, requestBody := range requestMapping {
-		log.Warning("=====================「%v」的第%v次循环 =====================", requestName, round)
+	for _, playerInfo := range config.PlayerInfo {
+		log.Warning("=====================「%v」的第%v次循环 =====================", playerInfo.Name, round)
 
 		// 获取传说列表
 		var resp *http.Response
@@ -169,12 +156,12 @@ func MakeRequest() {
 
 		// 每十轮判断是否有好友申请
 		if round%10 == 0 {
-			_checkFriendInvitation(requestBody)
+			_checkFriendInvitation(playerInfo)
 
 		}
 
 		// 获取传说列表
-		resp, err = _requestEpicList(requestBody)
+		resp, err = _requestEpicList(playerInfo)
 		if err != nil {
 			log.Error("获取传说列表失败: %v", err)
 			continue
@@ -191,7 +178,7 @@ func MakeRequest() {
 		}
 
 		// 如果有传说, 随便获取一个传说列表, 找到邀请的传说
-		resp, err = _requestFleetList(requestBody)
+		resp, err = _requestFleetList(playerInfo)
 		if err != nil {
 			log.Error("获取舰队列表失败: %v", err)
 			continue
@@ -207,7 +194,7 @@ func MakeRequest() {
 			continue
 		}
 
-		appliedOk := _applyInvitedFleet(requestBody, fleetId)
+		appliedOk := _applyInvitedFleet(playerInfo, fleetId)
 		if appliedOk == false {
 			log.Notice("加入舰队(%v)失败, 等待下次刷新", fleetId)
 			continue
@@ -216,19 +203,19 @@ func MakeRequest() {
 		// 更新加入同一舰队的数量
 		FleetInvitationCount[fleetId] = GetJoinedTimes(fleetId) + 1
 
-		_leaveComment(requestBody, fleetId, COMMENT_JOINED)
+		_leaveComment(playerInfo, fleetId, COMMENT_JOINED)
 
 		// 5分钟之后自动退出
 		time.Sleep(WaitDuration)
 
-		_leaveComment(requestBody, fleetId, COMMENT_LEAVE)
+		_leaveComment(playerInfo, fleetId, COMMENT_LEAVE)
 
 		leaveComment := LeaveComments[rand.New(rand.NewSource(time.Now().UnixNano())).Intn(len(LeaveComments))]
-		_leaveComment(requestBody, fleetId, leaveComment)
+		_leaveComment(playerInfo, fleetId, leaveComment)
 
 		leaveCount := 0
 		for leaveCount < 3 {
-			if leaveOk := _leaveFleet(requestBody, fleetId); leaveOk == true {
+			if leaveOk := _leaveFleet(playerInfo, fleetId); leaveOk == true {
 				break
 			} else {
 				leaveCount += 1
@@ -240,18 +227,18 @@ func MakeRequest() {
 	round += 1
 }
 
-func _requestNewFriendList(requestBody RequestJson) (*http.Response, error) {
+func _requestNewFriendList(playerInfo PlayerInfo) (*http.Response, error) {
 	log.Debug("查看是否有好友申请")
 
 	client := &http.Client{}
 	v := url.Values{}
-	v.Add("platform", requestBody.Platform)
-	v.Add("auth_token", requestBody.AuthToken)
-	v.Add("client_version", requestBody.ClientVersion)
+	v.Add("platform", playerInfo.Platform)
+	v.Add("auth_token", playerInfo.AuthToken)
+	v.Add("client_version", playerInfo.ClientVersion)
 
 	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/users/friend_invitations?%v", v.Encode())
 
-	req, err := _generateRequest(requestBody, host, "GET", nil)
+	req, err := _generateRequest(playerInfo, host, "GET", nil)
 	if req == nil {
 		return nil, err
 	}
@@ -260,8 +247,8 @@ func _requestNewFriendList(requestBody RequestJson) (*http.Response, error) {
 
 }
 
-func _checkFriendInvitation(requestBody RequestJson) bool {
-	resp, err := _requestNewFriendList(requestBody)
+func _checkFriendInvitation(playerInfo PlayerInfo) bool {
+	resp, err := _requestNewFriendList(playerInfo)
 	if err != nil {
 		return false
 	}
@@ -285,7 +272,7 @@ func _checkFriendInvitation(requestBody RequestJson) bool {
 
 	for _, friend := range records.Data {
 		log.Debug("新的好友申请['%v':%v]", friend.Name, friend.Id)
-		if _confirmFriend(requestBody, friend.Id) == true {
+		if _confirmFriend(playerInfo, friend.Id) == true {
 			log.Debug("添加好友['%v':%v]成功", friend.Name, friend.Id)
 		} else {
 			log.Error("添加好友['%v':%v]失败", friend.Name, friend.Id)
@@ -295,13 +282,13 @@ func _checkFriendInvitation(requestBody RequestJson) bool {
 	return true
 }
 
-func _confirmFriend(requestBody RequestJson, friendId int) bool {
+func _confirmFriend(playerInfo PlayerInfo, friendId int) bool {
 	client := &http.Client{}
 
 	confirmFriendRequestJson := ConfirmFriendRequest{
-		AuthToken:     requestBody.AuthToken,
-		ClientVersion: requestBody.ClientVersion,
-		Platform:      requestBody.Platform,
+		AuthToken:     playerInfo.AuthToken,
+		ClientVersion: playerInfo.ClientVersion,
+		Platform:      playerInfo.Platform,
 		UserId:        friendId,
 	}
 	b, err := json.Marshal(confirmFriendRequestJson)
@@ -311,7 +298,7 @@ func _confirmFriend(requestBody RequestJson, friendId int) bool {
 	}
 
 	host := "https://universe.walkrgame.com/api/v1/users/confirm_friend"
-	req, err := _generateRequest(requestBody, host, "POST", bytes.NewBuffer([]byte(b)))
+	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
 	}
@@ -336,16 +323,16 @@ func _confirmFriend(requestBody RequestJson, friendId int) bool {
 	return false
 }
 
-func _requestEpicList(requestBody RequestJson) (*http.Response, error) {
+func _requestEpicList(playerInfo PlayerInfo) (*http.Response, error) {
 	client := &http.Client{}
 	v := url.Values{}
-	v.Add("locale", requestBody.Locale)
-	v.Add("platform", requestBody.Platform)
-	v.Add("auth_token", requestBody.AuthToken)
-	v.Add("client_version", requestBody.ClientVersion)
+	v.Add("locale", playerInfo.Locale)
+	v.Add("platform", playerInfo.Platform)
+	v.Add("auth_token", playerInfo.AuthToken)
+	v.Add("client_version", playerInfo.ClientVersion)
 
 	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/epics?%v", v.Encode())
-	req, err := _generateRequest(requestBody, host, "GET", nil)
+	req, err := _generateRequest(playerInfo, host, "GET", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -354,13 +341,13 @@ func _requestEpicList(requestBody RequestJson) (*http.Response, error) {
 
 }
 
-func _requestFleetList(requestBody RequestJson) (*http.Response, error) {
+func _requestFleetList(playerInfo PlayerInfo) (*http.Response, error) {
 	client := &http.Client{}
 	v := url.Values{}
-	v.Add("locale", requestBody.Locale)
-	v.Add("platform", requestBody.Platform)
-	v.Add("auth_token", requestBody.AuthToken)
-	v.Add("client_version", requestBody.ClientVersion)
+	v.Add("locale", playerInfo.Locale)
+	v.Add("platform", playerInfo.Platform)
+	v.Add("auth_token", playerInfo.AuthToken)
+	v.Add("client_version", playerInfo.ClientVersion)
 	v.Add("country_code", "US")
 	v.Add("epic_id", "14")
 	v.Add("limit", "30")
@@ -368,7 +355,7 @@ func _requestFleetList(requestBody RequestJson) (*http.Response, error) {
 	v.Add("offset", "0")
 
 	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets?%v", v.Encode())
-	req, err := _generateRequest(requestBody, host, "GET", nil)
+	req, err := _generateRequest(playerInfo, host, "GET", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -376,16 +363,16 @@ func _requestFleetList(requestBody RequestJson) (*http.Response, error) {
 	return client.Do(req)
 }
 
-func _applyInvitedFleet(requestBody RequestJson, fleetId int) bool {
+func _applyInvitedFleet(playerInfo PlayerInfo, fleetId int) bool {
 	client := &http.Client{}
-	b, err := json.Marshal(requestBody)
+	b, err := json.Marshal(playerInfo)
 	if err != nil {
 		log.Error("Json Marshal error for %v", err)
 		return false
 	}
 
 	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/apply", fleetId)
-	req, err := _generateRequest(requestBody, host, "POST", bytes.NewBuffer([]byte(b)))
+	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
 	}
@@ -413,14 +400,14 @@ func _applyInvitedFleet(requestBody RequestJson, fleetId int) bool {
 	return false
 }
 
-func _leaveComment(requestBody RequestJson, fleetId int, comment string) bool {
+func _leaveComment(playerInfo PlayerInfo, fleetId int, comment string) bool {
 	client := &http.Client{}
 
 	commentRequestJson := CommentRequest{
-		AuthToken:     requestBody.AuthToken,
-		ClientVersion: requestBody.ClientVersion,
-		Platform:      requestBody.Platform,
-		Locale:        requestBody.Locale,
+		AuthToken:     playerInfo.AuthToken,
+		ClientVersion: playerInfo.ClientVersion,
+		Platform:      playerInfo.Platform,
+		Locale:        playerInfo.Locale,
 		Text:          comment,
 	}
 	b, err := json.Marshal(commentRequestJson)
@@ -430,7 +417,7 @@ func _leaveComment(requestBody RequestJson, fleetId int, comment string) bool {
 	}
 
 	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/comment", fleetId)
-	req, err := _generateRequest(requestBody, host, "POST", bytes.NewBuffer([]byte(b)))
+	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
 	}
@@ -457,17 +444,17 @@ func _leaveComment(requestBody RequestJson, fleetId int, comment string) bool {
 	return false
 }
 
-func _leaveFleet(requestBody RequestJson, fleetId int) bool {
+func _leaveFleet(playerInfo PlayerInfo, fleetId int) bool {
 	client := &http.Client{}
 
-	b, err := json.Marshal(requestBody)
+	b, err := json.Marshal(playerInfo)
 	if err != nil {
 		log.Error("Json Marshal error for %v", err)
 		return false
 	}
 
 	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/leave", fleetId)
-	req, err := _generateRequest(requestBody, host, "POST", bytes.NewBuffer([]byte(b)))
+	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
 	}
@@ -560,7 +547,7 @@ func _getInvitationFleetId(resp *http.Response) int {
 	return 0
 }
 
-func _generateRequest(requestBody RequestJson, host string, method string, requestBytes *bytes.Buffer) (*http.Request, error) {
+func _generateRequest(playerInfo PlayerInfo, host string, method string, requestBytes *bytes.Buffer) (*http.Request, error) {
 	var req *http.Request
 	var err error
 	if requestBytes == nil {
@@ -572,9 +559,9 @@ func _generateRequest(requestBody RequestJson, host string, method string, reque
 		return nil, errors.New("创建Request失败")
 	}
 
-	req.Header.Set("Cookie", requestBody.Cookie)
-	if requestBody.IfNoneMatch != "" {
-		req.Header.Add("If-None-Match", requestBody.IfNoneMatch)
+	req.Header.Set("Cookie", playerInfo.Cookie)
+	if playerInfo.IfNoneMatch != "" {
+		req.Header.Add("If-None-Match", playerInfo.IfNoneMatch)
 	}
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Host", "universe.walkrgame.com")
@@ -586,11 +573,30 @@ func _generateRequest(requestBody RequestJson, host string, method string, reque
 }
 
 func main() {
-	runtime.GOMAXPROCS(3)
+	// 初始化Log
 	stdOutput := logging.NewLogBackend(os.Stderr, "", 0)
 	stdOutputFormatter := logging.NewBackendFormatter(stdOutput, format)
 
 	logging.SetBackend(stdOutputFormatter)
+
+	// 读取参数来获得配置文件的名称
+	argCount := len(os.Args)
+	if argCount == 0 {
+		log.Warning("需要输入配置文件名称: 格式 '-c fileName'")
+		return
+	}
+
+	cmd := flag.String("c", "help", "配置文件名称")
+	flag.Parse()
+	if *cmd == "help" {
+		log.Warning("需要输入配置文件名称: 格式 '-c fileName'")
+		return
+	}
+
+	if _, err := toml.DecodeFile(*cmd, &config); err != nil {
+		log.Error("配置文件有问题: %v", err)
+		return
+	}
 
 	for true {
 		MakeRequest()
