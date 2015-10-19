@@ -115,22 +115,22 @@ type BoolResponse struct {
 var round = 1
 
 var requestMapping = map[string]RequestJson{
-	"宅家豆浆": RequestJson{
-		AuthToken:     "473033:C4n9KGgivumMhFNqR29psHFsEZRA7CxxUokosDZExR4",
-		ClientVersion: "2.1.2",
-		Locale:        "zh-CN",
-		Platform:      "ios",
-		Cookie:        "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTU5YTEwYjk4ZmVlOTc1MDA0ZjFiN2U2Y2YzOWNiNjQzBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--e3b0f65033b705e5097f81e595085b636e61f762; __cfduid=db6ae664c9929a7a2c1e400207b4e63c71443003916",
-		IfNoneMatch:   "0b88a736758073d10aca6ed18851ba15",
-	},
-	// "豆喵子": RequestJson{
-	// 	AuthToken:     "370945:fcAGgjjCzt2pFEBNonnzWnr65fGyNYvCg9SUHFncsDQ",
+	// "宅家豆浆": RequestJson{
+	// 	AuthToken:     "473033:C4n9KGgivumMhFNqR29psHFsEZRA7CxxUokosDZExR4",
 	// 	ClientVersion: "2.1.2",
 	// 	Locale:        "zh-CN",
 	// 	Platform:      "ios",
-	// 	Cookie:        "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTVhZGE2MGMzNzUxY2M0NjAxMmM0YzZkMDJiMTQ0NjYzBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--71742b31f176efac8ec0110ed3c619fac87f66e9; __cfduid=d534cd265cc169f784f80d48af2bafdf21444184209",
-	// 	IfNoneMatch:   "4ecbdbb0c9bfd061cfcbaccaa7a9bffa",
+	// 	Cookie:        "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTU5YTEwYjk4ZmVlOTc1MDA0ZjFiN2U2Y2YzOWNiNjQzBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--e3b0f65033b705e5097f81e595085b636e61f762; __cfduid=db6ae664c9929a7a2c1e400207b4e63c71443003916",
+	// 	IfNoneMatch:   "0b88a736758073d10aca6ed18851ba15",
 	// },
+	"豆喵子": RequestJson{
+		AuthToken:     "370945:fcAGgjjCzt2pFEBNonnzWnr65fGyNYvCg9SUHFncsDQ",
+		ClientVersion: "2.1.2",
+		Locale:        "zh-CN",
+		Platform:      "ios",
+		Cookie:        "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTVhZGE2MGMzNzUxY2M0NjAxMmM0YzZkMDJiMTQ0NjYzBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--71742b31f176efac8ec0110ed3c619fac87f66e9; __cfduid=d534cd265cc169f784f80d48af2bafdf21444184209",
+		IfNoneMatch:   "4ecbdbb0c9bfd061cfcbaccaa7a9bffa",
+	},
 }
 
 var recordMapping = make(map[uint64]string)
