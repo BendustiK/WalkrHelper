@@ -30,26 +30,8 @@ const (
 	COMMENT_LEAVE  = "关于离开舰队, 大家有话说."
 )
 
-var LeaveComments = []string{
-	"「晒宁」说: 0110 0001 0110 0000 1011 0001 1111 1000",
-	"「卷儿」说: 萌萌的我要走啦, 不要想念我, 开启你星辰大海的征途吧ε==(づ′▽`)づ",
-	"「天选」说: 距离飞船爆炸还有30秒, 我就先走啦",
-	"「抹香」说: 虽然我很想跟你一起飞下去, 但是卷卷老婆叫我回家吃饭了, 所以拜拜啦(*￣3￣)╭",
-	"「露露」说: 本宝宝要去吃饭啦(^○^)不要想念我, 你们加油哦（＾∇＾）",
-	"「露露」还说: 哈喽, 豆浆帮飞开始了～duang！",
-	"「那啥」说: 本公举不是轻易帮飞的, 帮你飞了记得回报我洗白白去吧, 我先去床上等你了(￣^￣)ゞ",
-	"「那啥」还说: 一路顺风欢迎下次使用; 豆浆牌帮飞, 就是香; 天选那个棒; 容我思考一下.",
-	"「那啥」正经说: あなたのことが好きだけどもうあきらめます じゃさよなら",
-	"「肥兔纸」说: _ . . .  _ . _ _  .",
-	"「大空」说: Have a good time～୧(๑•̀⌄•́๑)૭",
-	"「桃乐丝」说: 啊朋友再见, 啊朋友再见吧再见吧再见吧~",
-	"「大河」说: 海阔天空任你浪, 良辰不奉陪了ε=ε=ε=ε=ε=ε=┌(;￣◇￣)┘",
-	"「七大喵」说: 虽然我貌美如花, 人见人爱, 花见花开. 可是我就如春风一样无法被抓住…so~白白了, 放手!再见!",
-	"「会长」说: 任务已完成, AI5102号关闭.",
-	"「花仙子小太阳」说: 美丽的警察姐姐温馨提示: 右侧通行 限速30 (*´ｪ`*)",
-	"「Saber」说: 祝您旅途愉快，单飞顺利括弧笑:)",
-	"「树蛙」说: 耗子和树蛙说 哎咦！我们都不会飞！吱～呱～ᶘ ᵒᴥᵒᶅ",
-	"「白树」说: Namárië! Nai hiruvalyë Valimar. Nai elyë hiruva. 愿伊鲁维塔与你同在(´-灬-‘)",
+type LeaveComments struct {
+	List []string
 }
 
 type CommentRequest struct {
@@ -210,8 +192,13 @@ func MakeRequest() {
 
 		_leaveComment(playerInfo, fleetId, COMMENT_LEAVE)
 
-		leaveComment := LeaveComments[rand.New(rand.NewSource(time.Now().UnixNano())).Intn(len(LeaveComments))]
-		_leaveComment(playerInfo, fleetId, leaveComment)
+		var leaveComments LeaveComments
+		if _, err := toml.DecodeFile("comments.toml", &leaveComments); err != nil {
+			log.Error("解析留言列表有问题: %v", err)
+		} else {
+			leaveComment := leaveComments.List[rand.New(rand.NewSource(time.Now().UnixNano())).Intn(len(leaveComments.List))]
+			_leaveComment(playerInfo, fleetId, leaveComment)
+		}
 
 		leaveCount := 0
 		for leaveCount < 3 {
@@ -601,6 +588,7 @@ func main() {
 	for true {
 		MakeRequest()
 		time.Sleep(RoundDuration)
+
 	}
 
 }
