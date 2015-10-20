@@ -67,3 +67,13 @@
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTU4ODIxMGExZGExZWMzNDY3MGQwZDM0OTYyY2M4NDUwBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--919ef308fc20bb139f2ad107545bc768e00937f9; __cfduid=d5a8c09fb0e64413426b1b8fd6ad9e6621444711078"
 	IfNoneMatch = "f158c0be4aa2dd39ccee5fb4fc7ecb9d"
 	ConvertedEnergy = 0
+	
+[[PlayerInfo]]
+	Name = "宅家豆腐"
+	AuthToken = "556918:syGGPx_zWMbAr4kiGrT6RJ-wye366TgH8h1hLFw4xdx"
+	ClientVersion = "2.1.2"
+	Locale = "zh-CN"
+	Platform = "ios"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWQ2MWM2YWQ3ZTQyN2NkMjlkNjIxYWI1NzEzNjRmYmRlBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--182e955907490fd69366f753231bb7876a404f1b; __cfduid=d385a1676f696030d3430f735eb9b54101445334119"
+	IfNoneMatch = "f158c0be4aa2dd39ccee5fb4fc7ecb9d"
+	ConvertedEnergy = 0
