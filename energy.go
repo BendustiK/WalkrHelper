@@ -100,7 +100,7 @@ func MakeRequest() {
 			if record.Success == true {
 				log.Notice("「%v」刷新能量成功, 转换能量%v", playerInfo.Name, playerInfo.ConvertedEnergy)
 			} else {
-				log.Warning("「%v」刷新能量成功, 转换能量%v", playerInfo.Name, playerInfo.ConvertedEnergy)
+				log.Warning("「%v」刷新能量失败, 转换能量%v", playerInfo.Name, playerInfo.ConvertedEnergy)
 
 			}
 
