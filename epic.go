@@ -137,9 +137,8 @@ func MakeRequest() {
 		var err error
 
 		// 每十轮判断是否有好友申请
-		if round%10 == 0 {
+		if round%5 == 0 {
 			_checkFriendInvitation(playerInfo)
-
 		}
 
 		// 获取传说列表
@@ -170,39 +169,39 @@ func MakeRequest() {
 
 		}
 
-		fleetId := _getInvitationFleetId(resp)
-		if fleetId <= 0 {
+		fleet := _getInvitationFleet(resp)
+		if fleet == nil {
 			log.Notice("当前没有邀请的舰队, 等待下次刷新")
 			continue
 		}
 
-		appliedOk := _applyInvitedFleet(playerInfo, fleetId)
+		appliedOk := _applyInvitedFleet(playerInfo, fleet)
 		if appliedOk == false {
-			log.Notice("加入舰队(%v)失败, 等待下次刷新", fleetId)
+			log.Notice("加入舰队[%v:%v]失败, 等待下次刷新", fleet.Name, fleet.Id)
 			continue
 		}
 
 		// 更新加入同一舰队的数量
-		FleetInvitationCount[fleetId] = GetJoinedTimes(fleetId) + 1
+		FleetInvitationCount[fleet.Id] = GetJoinedTimes(fleet.Id) + 1
 
-		_leaveComment(playerInfo, fleetId, COMMENT_JOINED)
+		_leaveComment(playerInfo, fleet, COMMENT_JOINED)
 
 		// 5分钟之后自动退出
 		time.Sleep(WaitDuration)
 
-		_leaveComment(playerInfo, fleetId, COMMENT_LEAVE)
+		_leaveComment(playerInfo, fleet, COMMENT_LEAVE)
 
 		var leaveComments LeaveComments
 		if _, err := toml.DecodeFile("comments.toml", &leaveComments); err != nil {
 			log.Error("解析留言列表有问题: %v", err)
 		} else {
 			leaveComment := leaveComments.List[rand.New(rand.NewSource(time.Now().UnixNano())).Intn(len(leaveComments.List))]
-			_leaveComment(playerInfo, fleetId, leaveComment)
+			_leaveComment(playerInfo, fleet, leaveComment)
 		}
 
 		leaveCount := 0
 		for leaveCount < 3 {
-			if leaveOk := _leaveFleet(playerInfo, fleetId); leaveOk == true {
+			if leaveOk := _leaveFleet(playerInfo, fleet); leaveOk == true {
 				break
 			} else {
 				leaveCount += 1
@@ -350,7 +349,7 @@ func _requestFleetList(playerInfo PlayerInfo) (*http.Response, error) {
 	return client.Do(req)
 }
 
-func _applyInvitedFleet(playerInfo PlayerInfo, fleetId int) bool {
+func _applyInvitedFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 	client := &http.Client{}
 	b, err := json.Marshal(playerInfo)
 	if err != nil {
@@ -358,7 +357,7 @@ func _applyInvitedFleet(playerInfo PlayerInfo, fleetId int) bool {
 		return false
 	}
 
-	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/apply", fleetId)
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/apply", fleet.Id)
 	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
@@ -379,7 +378,7 @@ func _applyInvitedFleet(playerInfo PlayerInfo, fleetId int) bool {
 			return false
 		}
 
-		log.Notice("已经加入舰队[%v], 等待起飞", fleetId)
+		log.Notice("已经加入舰队[%v:%v], 等待起飞", fleet.Name, fleet.Id)
 
 		return record.Success
 	}
@@ -387,7 +386,7 @@ func _applyInvitedFleet(playerInfo PlayerInfo, fleetId int) bool {
 	return false
 }
 
-func _leaveComment(playerInfo PlayerInfo, fleetId int, comment string) bool {
+func _leaveComment(playerInfo PlayerInfo, fleet *Fleet, comment string) bool {
 	client := &http.Client{}
 
 	commentRequestJson := CommentRequest{
@@ -403,7 +402,7 @@ func _leaveComment(playerInfo PlayerInfo, fleetId int, comment string) bool {
 		return false
 	}
 
-	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/comment", fleetId)
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/comment", fleet.Id)
 	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
@@ -431,7 +430,7 @@ func _leaveComment(playerInfo PlayerInfo, fleetId int, comment string) bool {
 	return false
 }
 
-func _leaveFleet(playerInfo PlayerInfo, fleetId int) bool {
+func _leaveFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 	client := &http.Client{}
 
 	b, err := json.Marshal(playerInfo)
@@ -440,7 +439,7 @@ func _leaveFleet(playerInfo PlayerInfo, fleetId int) bool {
 		return false
 	}
 
-	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/leave", fleetId)
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/leave", fleet.Id)
 	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
@@ -461,7 +460,7 @@ func _leaveFleet(playerInfo PlayerInfo, fleetId int) bool {
 			return false
 		}
 
-		log.Notice("退出舰队[%v]成功", fleetId)
+		log.Notice("退出舰队[%v:%v]成功", fleet.Name, fleet.Id)
 		return record.Success
 	}
 
@@ -493,19 +492,17 @@ func _checkInvitationCount(resp *http.Response) bool {
 	return isInvitation
 }
 
-func _getInvitationFleetId(resp *http.Response) int {
-	fleetId := 0
-
+func _getInvitationFleet(resp *http.Response) *Fleet {
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Error("读取返回数据失败: %v", err)
-		return fleetId
+		return nil
 	}
 
 	var records FleetListResponse
 	if err := json.Unmarshal([]byte(body), &records); err != nil {
 		log.Error("解析传说列表数据失败: %v", err)
-		return fleetId
+		return nil
 	}
 
 	var fleets Fleets
@@ -528,10 +525,10 @@ func _getInvitationFleetId(resp *http.Response) int {
 
 		firstFleet := fleets[0]
 		log.Notice("舰队[%v:%v] by (%v): 正在邀请, 优先度(%v)", firstFleet.Name, firstFleet.Id, firstFleet.Captain.Name, firstFleet.Quality)
-		return firstFleet.Id
+		return &firstFleet
 	}
 
-	return 0
+	return nil
 }
 
 func _generateRequest(playerInfo PlayerInfo, host string, method string, requestBytes *bytes.Buffer) (*http.Request, error) {
