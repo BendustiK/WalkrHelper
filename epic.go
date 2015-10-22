@@ -387,7 +387,9 @@ func _applyInvitedFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 
 		log.Notice("已经加入舰队[%v:%v], 等待起飞", fleet.Name, fleet.Id)
 
-		_saveAppliedFleetInfo(fleet)
+		// BI: 加入的舰队信息
+		_setFleetTime(fleet, "joinedTime")
+
 		return record.Success
 	}
 
@@ -473,7 +475,7 @@ func _leaveFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 		log.Notice("退出舰队[%v:%v]成功", fleet.Name, fleet.Id)
 
 		// BI: 为舰队设置离开标志
-		redis.HSet(fmt.Sprintf("epic:applied_fleet:%v:info", fleet.Id), "finished", "1")
+		_setFleetTime(fleet, "leaveTime")
 
 		return record.Success
 	}
@@ -541,7 +543,7 @@ func _getInvitationFleet(resp *http.Response) *Fleet {
 		log.Notice("舰队[%v:%v] by (%v): 正在邀请, 优先度(%v)", firstFleet.Name, firstFleet.Id, firstFleet.Captain.Name, firstFleet.Quality)
 
 		// BI: 设置邀请的舰队信息
-		_saveInvitedFleetInfo(firstFleet)
+		_saveFleetInfo(firstFleet)
 		return firstFleet
 	}
 
@@ -599,14 +601,13 @@ func _incrJoinedTimes(fleetId int) {
 	redis.HIncrBy("epic:fleet:times", fmt.Sprintf("%v", fleetId), 1)
 }
 
-func _saveInvitedFleetInfo(fleet *Fleet) {
-	fleetKey := fmt.Sprintf("epic:invited_fleet:%v:info", fleet.Id)
-	redis.HMSet(fleetKey, "id", fmt.Sprintf("%v", fleet.Id), "fleetName", fleet.Name, "captainName", fleet.Captain.Name, "quality", fmt.Sprintf("%v", fleet.Quality), "time", fmt.Sprintf("%v", time.Now().UTC().Unix()), "round", fmt.Sprintf("%v", _getRound()))
+func _saveFleetInfo(fleet *Fleet) {
+	fleetKey := fmt.Sprintf("epic:fleet:%v:info", fleet.Id)
+	redis.HMSet(fleetKey, "id", fmt.Sprintf("%v", fleet.Id), "fleetName", fleet.Name, "captainName", fleet.Captain.Name, "quality", fmt.Sprintf("%v", fleet.Quality), "round", fmt.Sprintf("%v", _getRound()), "invitedTime", fmt.Sprintf("%v", time.Now().UTC().Unix()), "joinedTime", "0", "leaveTime", "0")
 }
-
-func _saveAppliedFleetInfo(fleet *Fleet) {
-	fleetKey := fmt.Sprintf("epic:applied_fleet:%v:info", fleet.Id)
-	redis.HMSet(fleetKey, "id", fmt.Sprintf("%v", fleet.Id), "fleetName", fleet.Name, "captainName", fleet.Captain.Name, "quality", fmt.Sprintf("%v", fleet.Quality), "time", fmt.Sprintf("%v", time.Now().UTC().Unix()), "round", fmt.Sprintf("%v", _getRound()), "finished", "0")
+func _setFleetTime(fleet *Fleet, field string) {
+	fleetKey := fmt.Sprintf("epic:fleet:%v:info", fleet.Id)
+	redis.HSet(fleetKey, field, fmt.Sprintf("%v", time.Now().UTC().Unix()))
 }
 
 func _saveComment(fleet *Fleet, comment string) {
