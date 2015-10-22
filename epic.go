@@ -535,7 +535,7 @@ func _getInvitationFleet(resp *http.Response) *Fleet {
 		if fleet.IsInvited == true {
 			fleet.Quality = _getJoinedTimes(fleet.Id)
 
-			if fleet.Quality < MAX_JOIN_TIMES {
+			if fleet.Quality <= MAX_JOIN_TIMES {
 				fleets = append(fleets, fleet)
 
 				// BI: Round信息
