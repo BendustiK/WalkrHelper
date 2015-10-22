@@ -1,7 +1,7 @@
 [[PlayerInfo]]
 	Name = "宅家豆浆"
 	AuthToken = "473033:C4n9KGgivumMhFNqR29psHFsEZRA7CxxUokosDZExR4"
-	ClientVersion = "2.1.2"
+	ClientVersion = "2.1.3"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTU5YTEwYjk4ZmVlOTc1MDA0ZjFiN2U2Y2YzOWNiNjQzBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--e3b0f65033b705e5097f81e595085b636e61f762; __cfduid=db6ae664c9929a7a2c1e400207b4e63c71443003916"

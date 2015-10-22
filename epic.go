@@ -553,7 +553,7 @@ func _generateRequest(playerInfo PlayerInfo, host string, method string, request
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Host", "universe.walkrgame.com")
 	req.Header.Add("Accept", "*/*")
-	req.Header.Add("User-Agent", "Space Walk/2.1.2 (iPhone; iOS 9.0.2; Scale/2.00)")
+	req.Header.Add("User-Agent", "Space Walk/2.1.3 (iPhone; iOS 9.0.2; Scale/2.00)")
 	req.Header.Add("Accept-Language", "zh-Hans-CN;q=1")
 
 	return req, nil
