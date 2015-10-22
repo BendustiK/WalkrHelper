@@ -12,10 +12,12 @@ import (
 	"net/url"
 	"os"
 	"sort"
+	"strconv"
 	"time"
 
 	"github.com/BurntSushi/toml"
 	goerrors "github.com/go-errors/errors"
+	goredis "gopkg.in/redis.v2"
 
 	"github.com/op/go-logging"
 )
@@ -24,6 +26,19 @@ var RoundDuration = 2 * time.Minute
 var WaitDuration = 5 * time.Minute
 var MAX_JOIN_TIMES = 5
 var FleetInvitationCount = make(map[int]int)
+var redis *goredis.Client
+
+var redisConf = &goredis.Options{
+	Network:      "tcp",
+	Addr:         "localhost:6379",
+	Password:     "",
+	DB:           0,
+	DialTimeout:  5 * time.Second,
+	ReadTimeout:  5 * time.Second,
+	WriteTimeout: 5 * time.Second,
+	PoolSize:     20,
+	IdleTimeout:  60 * time.Second,
+}
 
 const (
 	COMMENT_JOINED = "我进来啦，我会在五分钟之后自动退队。如果退队的时候还没有捐献完毕，不要着急，重新邀请就好。不过请记住，同一舰队邀请数量达到五次，我会忽略邀请的。谢谢!"
@@ -101,20 +116,11 @@ type PlayerInfos struct {
 	PlayerInfo []PlayerInfo
 }
 
-var round = 1
 var config PlayerInfos
 var log = logging.MustGetLogger("Walkr")
 var format = logging.MustStringFormatter(
 	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
 )
-
-func GetJoinedTimes(fleetId int) int {
-	if times, isOk := FleetInvitationCount[fleetId]; isOk == true {
-		return times
-	}
-
-	return 0
-}
 
 func MakeRequest() {
 	defer func() {
@@ -130,14 +136,15 @@ func MakeRequest() {
 	// 4. 留言说明几分钟退出
 	// 5. 退出舰队
 	for _, playerInfo := range config.PlayerInfo {
-		log.Warning("=====================「%v」的第%v次循环 =====================", playerInfo.Name, round)
+		currentRound := _getRound()
+		log.Warning("=====================「%v」的第%v次循环 =====================", playerInfo.Name, currentRound)
 
 		// 获取传说列表
 		var resp *http.Response
 		var err error
 
 		// 每十轮判断是否有好友申请
-		if round%5 == 0 {
+		if currentRound%5 == 0 {
 			_checkFriendInvitation(playerInfo)
 		}
 
@@ -181,8 +188,8 @@ func MakeRequest() {
 			continue
 		}
 
-		// 更新加入同一舰队的数量
-		FleetInvitationCount[fleet.Id] = GetJoinedTimes(fleet.Id) + 1
+		// BI: 更新加入同一舰队的数量
+		_incrJoinedTimes(fleet.Id)
 
 		_leaveComment(playerInfo, fleet, COMMENT_JOINED)
 
@@ -210,7 +217,7 @@ func MakeRequest() {
 
 	}
 
-	round += 1
+	_incrRound()
 }
 
 func _requestNewFriendList(playerInfo PlayerInfo) (*http.Response, error) {
@@ -380,6 +387,7 @@ func _applyInvitedFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 
 		log.Notice("已经加入舰队[%v:%v], 等待起飞", fleet.Name, fleet.Id)
 
+		_saveAppliedFleetInfo(fleet)
 		return record.Success
 	}
 
@@ -424,6 +432,8 @@ func _leaveComment(playerInfo PlayerInfo, fleet *Fleet, comment string) bool {
 		}
 
 		log.Notice("已经留言(%v)", comment)
+
+		_saveComment(fleet, comment)
 		return record.Success
 	}
 
@@ -461,6 +471,10 @@ func _leaveFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 		}
 
 		log.Notice("退出舰队[%v:%v]成功", fleet.Name, fleet.Id)
+
+		// BI: 为舰队设置离开标志
+		redis.HSet(fmt.Sprintf("epic:applied_fleet:%v:info", fleet.Id), "finished", "1")
+
 		return record.Success
 	}
 
@@ -508,7 +522,7 @@ func _getInvitationFleet(resp *http.Response) *Fleet {
 	var fleets Fleets
 	for _, fleet := range records.Fleets {
 		if fleet.IsInvited == true {
-			fleet.Quality = GetJoinedTimes(fleet.Id)
+			fleet.Quality = _getJoinedTimes(fleet.Id)
 
 			if fleet.Quality < MAX_JOIN_TIMES {
 				fleets = append(fleets, fleet)
@@ -523,9 +537,12 @@ func _getInvitationFleet(resp *http.Response) *Fleet {
 		// 加入次数少的队伍优先进入, 防止恶意邀请阻塞进程
 		sort.Sort(fleets)
 
-		firstFleet := fleets[0]
+		firstFleet := &fleets[0]
 		log.Notice("舰队[%v:%v] by (%v): 正在邀请, 优先度(%v)", firstFleet.Name, firstFleet.Id, firstFleet.Captain.Name, firstFleet.Quality)
-		return &firstFleet
+
+		// BI: 设置邀请的舰队信息
+		_saveInvitedFleetInfo(firstFleet)
+		return firstFleet
 	}
 
 	return nil
@@ -556,12 +573,55 @@ func _generateRequest(playerInfo PlayerInfo, host string, method string, request
 	return req, nil
 }
 
+// BI相关
+func _getRound() int {
+	currentRound, err := strconv.Atoi(redis.Get("epic:round").Val())
+	if err != nil || currentRound <= 0 {
+		currentRound = 1
+	}
+
+	return currentRound
+}
+func _incrRound() {
+	redis.Incr("epic:round")
+}
+
+func _getJoinedTimes(fleetId int) int {
+	times, err := strconv.Atoi(redis.HGet("epic:fleet:times", fmt.Sprintf("%v", fleetId)).Val())
+	if err != nil || times <= 0 {
+		times = 0
+	}
+
+	return times
+}
+
+func _incrJoinedTimes(fleetId int) {
+	redis.HIncrBy("epic:fleet:times", fmt.Sprintf("%v", fleetId), 1)
+}
+
+func _saveInvitedFleetInfo(fleet *Fleet) {
+	fleetKey := fmt.Sprintf("epic:invited_fleet:%v:info", fleet.Id)
+	redis.HMSet(fleetKey, "id", fmt.Sprintf("%v", fleet.Id), "fleetName", fleet.Name, "captainName", fleet.Captain.Name, "quality", fmt.Sprintf("%v", fleet.Quality), "time", fmt.Sprintf("%v", time.Now().UTC().Unix()), "round", fmt.Sprintf("%v", _getRound()))
+}
+
+func _saveAppliedFleetInfo(fleet *Fleet) {
+	fleetKey := fmt.Sprintf("epic:applied_fleet:%v:info", fleet.Id)
+	redis.HMSet(fleetKey, "id", fmt.Sprintf("%v", fleet.Id), "fleetName", fleet.Name, "captainName", fleet.Captain.Name, "quality", fmt.Sprintf("%v", fleet.Quality), "time", fmt.Sprintf("%v", time.Now().UTC().Unix()), "round", fmt.Sprintf("%v", _getRound()), "finished", "0")
+}
+
+func _saveComment(fleet *Fleet, comment string) {
+	fleetKey := fmt.Sprintf("epic:fleet:%v:comments", fleet.Id)
+	redis.LPush(fleetKey, comment)
+}
+
 func main() {
 	// 初始化Log
 	stdOutput := logging.NewLogBackend(os.Stderr, "", 0)
 	stdOutputFormatter := logging.NewBackendFormatter(stdOutput, format)
 
 	logging.SetBackend(stdOutputFormatter)
+
+	redis = goredis.NewClient(redisConf)
 
 	// 读取参数来获得配置文件的名称
 	argCount := len(os.Args)
