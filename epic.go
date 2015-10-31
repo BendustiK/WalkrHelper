@@ -327,6 +327,9 @@ func _confirmFriend(playerInfo PlayerInfo, friendId int) bool {
 		}
 
 		return record.Success
+	} else {
+		log.Error("请求添加用户失败: %v", err)
+
 	}
 	return false
 }
@@ -409,6 +412,9 @@ func _applyInvitedFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 		redis.HMSet(_roundInfoKey(), "joinedFleetId", fmt.Sprintf("%v", fleet.Id), "joinedTime", fmt.Sprintf("%v", time.Now().UTC().Unix()))
 
 		return record.Success
+	} else {
+		log.Error("请求加入舰队失败: %v", err)
+
 	}
 
 	return false
@@ -456,6 +462,9 @@ func _leaveComment(playerInfo PlayerInfo, fleet *Fleet, comment string) bool {
 
 		_saveComment(fleet, comment)
 		return record.Success
+	} else {
+		log.Error("请求用户留言失败: %v", err)
+
 	}
 
 	return false
@@ -499,6 +508,9 @@ func _leaveFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 		redis.HMSet(_roundInfoKey(), "leaveTime", fmt.Sprintf("%v", time.Now().UTC().Unix()))
 
 		return record.Success
+	} else {
+		log.Error("请求离开舰队失败: %v", err)
+
 	}
 
 	return false
