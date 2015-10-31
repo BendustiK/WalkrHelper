@@ -104,6 +104,8 @@ func MakeRequest() {
 
 			}
 
+		} else {
+			log.Error("创建请求失败: %v", err)
 		}
 
 	}
