@@ -69,6 +69,7 @@ type EpicListResponse struct {
 	Epics []Epic `json:"epics"`
 }
 type Epic struct {
+	Id               int    `json:"id"`
 	Name             string `json:"name"`
 	InvitationCounts int    `json:"invitation_counts"`
 }
@@ -88,7 +89,19 @@ type Captain struct {
 	Name string `json:"name"`
 }
 
-// 3. 好友申请
+// 3. 舰队详细信息
+type FleetDetailInfo struct {
+	Id      int      `json:"id"`
+	Name    string   `json:"name"`
+	EpicId  int      `json:"epic_id"`
+	Members []Member `json:"members"`
+}
+type Member struct {
+	Id   int    `json:"id"`
+	Name string `json:"name"`
+}
+
+// 4. 好友申请
 type NewFriendListResponse struct {
 	Data []Friend `json:"data"`
 }
@@ -207,11 +220,13 @@ func MakeRequest() {
 		}
 
 		leaveCount := 0
-		for leaveCount < 3 {
+		for leaveCount < 5 {
 			if leaveOk := _leaveFleet(playerInfo, fleet); leaveOk == true {
 				break
 			} else {
+				log.Error("尝试第%v次离开舰队失败，稍后尝试", leaveCount)
 				leaveCount += 1
+				time.Sleep(time.Duration(5) * time.Second)
 			}
 		}
 
@@ -418,6 +433,7 @@ func _leaveComment(playerInfo PlayerInfo, fleet *Fleet, comment string) bool {
 	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/comment", fleet.Id)
 	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
 	if err != nil {
+		log.Error("请求留言失败 %v", err)
 		return false
 	}
 
