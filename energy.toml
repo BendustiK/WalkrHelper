@@ -80,10 +80,10 @@
 	
 [[PlayerInfo]]
 	Name = "宅家豆汁"
-	AuthToken = "557451:L_ksssfBQf2ah3mDeGpU4nhjG7scF3k4FswjxbyLyBo"
+	AuthToken = "557451:FSzj-3dv4CTLzChySdrd12aV8TCd6AmFsBsebaJb3Gz"
 	ClientVersion = "2.1.3"
 	Locale = "zh-CN"
 	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTE5MGUxYTBjNmY0MDg4ZWFhY2M3MzZmYzk2YmY5NjA1BjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--0db0d57e7f49ce316b8f30f49086cfbabfac5b8c; __cfduid=d41dca8c4fd176e27a717cd304480892c1445392637"
-	IfNoneMatch = "d0574ed44fa878cd9c6232d3455c19d4"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWI5Y2Y5ZTQyOGM1NWIzYjA5ODVkY2M1MTlmZTMyYmJhBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--e430b23e01e49eed7ba8280b18e169a9e4a5470a; __cfduid=d9bedef3b5764bb7bca057d3fd8a106fd1446451594"
+	IfNoneMatch = "eeffc0ec523790a4977aab85d39ad16e"
 	ConvertedEnergy = 0
