@@ -167,15 +167,14 @@ func MakeRequest() {
 			log.Error("获取传说列表失败: %v", err)
 			continue
 		}
-		if resp.Body != nil {
-			defer resp.Body.Close()
-
-		}
 
 		hasInvitation := _checkInvitationCount(resp)
 		if hasInvitation == false {
 			log.Notice("当前没有邀请的传说, 等待下一次刷新")
 			continue
+		}
+		if resp.Body != nil {
+			resp.Body.Close()
 		}
 
 		// 如果有传说, 随便获取一个传说列表, 找到邀请的传说
@@ -184,15 +183,14 @@ func MakeRequest() {
 			log.Error("获取舰队列表失败: %v", err)
 			continue
 		}
-		if resp.Body != nil {
-			defer resp.Body.Close()
-
-		}
 
 		fleet := _getInvitationFleet(resp)
 		if fleet == nil {
 			log.Notice("当前没有邀请的舰队, 等待下次刷新")
 			continue
+		}
+		if resp.Body != nil {
+			resp.Body.Close()
 		}
 
 		appliedOk := _applyInvitedFleet(playerInfo, fleet)
