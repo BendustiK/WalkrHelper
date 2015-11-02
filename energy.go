@@ -83,7 +83,6 @@ func MakeRequest() {
 		}
 
 		if resp, err := client.Do(req); err == nil {
-			defer resp.Body.Close()
 
 			body, err := ioutil.ReadAll(resp.Body)
 			if err != nil {
@@ -104,6 +103,7 @@ func MakeRequest() {
 
 			}
 
+			resp.Body.Close()
 		} else {
 			log.Error("创建请求失败: %v", err)
 		}
