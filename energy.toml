@@ -1,11 +1,11 @@
 [[PlayerInfo]]
 	Name = "晒宁鼻涕"
-	AuthToken = "370797:shAXbQ8KM4ut_QxKiqFL52gjzHUYTZZQB-8-qVecd5M"
+	AuthToken = "370797:L3uiJUzUN_r-hq7_ayyJtB9YQsHqj1gdN7zJn1CGXTM"
 	ClientVersion = "2.1.3"
 	Locale = "zh-CN"
 	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTU2NjFkNWYyYjc5YmE2YzMzMTNmZDE0Nzc3N2NmNTdhBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--2142fdbdcc8ba67fa834f17a7ba37f0c47d0e3c3; __cfduid=df1005e9536db3906806c7407c7a25aef1446453236"
-	IfNoneMatch = "b0505fcb96c461aa0062d790fab55655"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTZjODUwOTllZmU0ZDZmYmZhYTdmMDllMTQwYjMyMDAzBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--e6b2e6eb4c22c419d00cb41f01a7ff1d161e2225; __cfduid=d513f5dbbeac3b0e325b4befa580a61d11446798378"
+	IfNoneMatch = "dd2c9a5561dbcefe170ff41db6ccd320"
 	ConvertedEnergy = 0
 
 [[PlayerInfo]]
