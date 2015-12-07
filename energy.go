@@ -47,7 +47,7 @@ var format = logging.MustStringFormatter(
 
 func _generateEnergy() {
 	for index, playerInfo := range config.PlayerInfo {
-		playerInfo.ConvertedEnergy = rand.New(rand.NewSource(time.Now().UnixNano())).Intn(10000) + 40000
+		playerInfo.ConvertedEnergy = rand.New(rand.NewSource(time.Now().UnixNano())).Intn(10000) + 50000
 		config.PlayerInfo[index] = playerInfo
 	}
 }
