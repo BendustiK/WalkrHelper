@@ -153,9 +153,9 @@ func MakeRequest() {
 
 		// 每十轮判断是否有好友申请
 		_checkFriendInvitation(playerInfo)
-		currentRound += 1
-	}
 
+	}
+	currentRound += 1
 }
 
 func _requestNewFriendList(playerInfo PlayerInfo) (*http.Response, error) {
