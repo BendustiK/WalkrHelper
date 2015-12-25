@@ -15,10 +15,13 @@ import (
 	"github.com/elazarl/goproxy"
 )
 
+// 领取舰桥能量
 type ConvertedEnergyResponse struct {
 	Success       bool `json:"success"`
 	CheckedEnergy int  `json:"checked_energy"`
 }
+
+// 舰桥列表
 type PilotListResponse struct {
 	Success bool    `json:"success"`
 	Pilots  []Pilot `json:"pilots"`
@@ -33,6 +36,35 @@ type Pilot struct {
 	PlanetsCount    int     `json:"planets_count"`
 	Position        int     `json:"position"`
 	Rsvp            *string `json:"rsvp"`
+}
+
+// 传说奖励
+type CheckEpicRewardResponse struct {
+	Success bool            `json:"success"`
+	Data    CheckEpicReward `json:"data"`
+}
+type CheckEpicReward struct {
+	User         User       `json:"user"`
+	IsFirstTime  bool       `json:"is_first_time"`
+	IsChecked    bool       `json:"is_checked"`
+	Reward       CubeReward `json:"reward"`
+	Contribution CoinReward `json:"contribution"`
+}
+type User struct {
+	Id        int    `json:"id"`
+	Name      string `json:"name"`
+	Avatar    string `json:"avatar"`
+	Level     int    `json:"level"`
+	Spaceship string `json:"spaceship"`
+}
+type CubeReward struct {
+	Type  string `json:"type"`
+	Value string `json:"value"`
+}
+type CoinReward struct {
+	Rate  float64 `json:"rate"`
+	Type  string  `json:"type"`
+	Value int     `json:"value"`
 }
 
 func main() {
@@ -76,6 +108,27 @@ func main() {
 		record := &ConvertedEnergyResponse{Success: true, CheckedEnergy: 60000}
 		dx, _ := json.Marshal(record)
 		resp.Body = ioutil.NopCloser(bytes.NewBuffer(dx))
+		return resp
+
+	})
+
+	// https://universe.walkrgame.com/api/v1/fleets/443091/check_reward
+	proxy.OnResponse(goproxy.UrlMatches(regexp.MustCompile("^.*v1/fleets/(.*)/check_reward$"))).DoFunc(func(resp *http.Response, ctx *goproxy.ProxyCtx) *http.Response {
+		if body, err := ioutil.ReadAll(resp.Body); err == nil {
+			var record CheckEpicRewardResponse
+			if err := json.Unmarshal([]byte(body), &record); err == nil {
+				record.Data.IsChecked = false
+				record.Data.IsFirstTime = true
+				dx, _ := json.Marshal(record)
+				resp.Body = ioutil.NopCloser(bytes.NewBuffer(dx))
+			} else {
+				fmt.Println("Unmarshal Err", err)
+
+			}
+		} else {
+			fmt.Println("Read body Err", err)
+		}
+
 		return resp
 
 	})
