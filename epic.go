@@ -158,7 +158,7 @@ func MakeRequest() {
 		var err error
 
 		// 每十轮判断是否有好友申请
-		if currentRound%5 == 0 {
+		if currentRound%2 == 0 {
 			_checkFriendInvitation(playerInfo)
 		}
 
@@ -229,8 +229,8 @@ func MakeRequest() {
 			}
 		}
 
-		_incrRound(playerInfo)
 	}
+	_incrRound(playerInfo)
 
 }
 
