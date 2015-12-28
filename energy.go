@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"flag"
+	"fmt"
 	"io/ioutil"
 	"math/rand"
 	"net/http"
@@ -38,34 +39,41 @@ type BoolResponse struct {
 	Success bool
 }
 
-var round = 1
+// var round = 1
 var config PlayerInfos
 var log = logging.MustGetLogger("Walkr")
 var format = logging.MustStringFormatter(
 	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
 )
 
-func _generateEnergy() {
-	for index, playerInfo := range config.PlayerInfo {
-		playerInfo.ConvertedEnergy = rand.New(rand.NewSource(time.Now().UnixNano())).Intn(10000) + 50000
-		config.PlayerInfo[index] = playerInfo
-	}
+func _generateEnergy(playerInfo PlayerInfo) PlayerInfo {
+	playerInfo.ConvertedEnergy = rand.New(rand.NewSource(time.Now().UnixNano())).Intn(10000) + 50000
+	return playerInfo
 }
 
-func MakeRequest() {
-	defer func() {
-		if r := recover(); r != nil {
-			msg := goerrors.Wrap(r, 2).ErrorStack()
-			log.Error("程序挂了: %v", msg)
+func MakeRequest(playerInfo PlayerInfo, ch chan int) {
+	curRound := 1
+	for {
+		select {
+		case <-ch:
+			fmt.Println("exiting...")
+			ch <- 1
+			break
+		default:
 		}
-	}()
 
-	log.Notice("===================== 第%v轮 =====================", round)
+		defer func() {
+			if r := recover(); r != nil {
+				msg := goerrors.Wrap(r, 2).ErrorStack()
+				log.Error("程序挂了: %v", msg)
+				return
+			}
+		}()
+		// log.Notice("===================== 第%v轮 =====================", curRound)
 
-	_generateEnergy()
-	// for key, requestBody := range requestValues {
-	for _, playerInfo := range config.PlayerInfo {
-		log.Debug("开始刷新「%v」", playerInfo.Name)
+		playerInfo = _generateEnergy(playerInfo)
+		// for key, requestBody := range requestValues {
+		// log.Debug("开始刷新「%v」", playerInfo.Name)
 
 		b, err := json.Marshal(playerInfo)
 		if err != nil {
@@ -97,7 +105,7 @@ func MakeRequest() {
 			}
 
 			if record.Success == true {
-				log.Notice("「%v」刷新能量成功, 转换能量%v", playerInfo.Name, playerInfo.ConvertedEnergy)
+				log.Notice("第%v轮「%v」刷新能量成功, 转换能量%v", curRound, playerInfo.Name, playerInfo.ConvertedEnergy)
 			} else {
 				log.Warning("「%v」刷新能量失败, 转换能量%v", playerInfo.Name, playerInfo.ConvertedEnergy)
 
@@ -107,12 +115,11 @@ func MakeRequest() {
 		} else {
 			log.Error("创建请求失败: %v", err)
 		}
-
+		curRound += 1
+		time.Sleep(RoundDuration)
 	}
 
-	round += 1
 }
-
 func _generateRequest(playerInfo PlayerInfo, host string, method string, requestBytes *bytes.Buffer) (*http.Request, error) {
 	var req *http.Request
 	var err error
@@ -137,8 +144,9 @@ func _generateRequest(playerInfo PlayerInfo, host string, method string, request
 
 	return req, nil
 }
-
 func main() {
+	ch := make(chan int, 10)
+
 	// 初始化Log
 	stdOutput := logging.NewLogBackend(os.Stderr, "", 0)
 	stdOutputFormatter := logging.NewBackendFormatter(stdOutput, format)
@@ -163,10 +171,9 @@ func main() {
 		log.Error("配置文件有问题: %v", err)
 		return
 	}
-
-	for true {
-		MakeRequest()
-		time.Sleep(RoundDuration)
+	for _, playerInfo := range config.PlayerInfo {
+		go MakeRequest(playerInfo, ch)
 	}
+	<-ch
 
 }
