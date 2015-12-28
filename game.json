@@ -1,15 +1,15 @@
 {
 	"success": true,
 	"data": {
-		"coins": 7302982,
-		"cubes": 1249,
-		"energy": 44192,
-		"fed_times": "1451001980,1451002059,1451001981,1451001981,1451001982,1451001982,1451002060,1451001983,1451001984,1451001984,1451001985,1451002061,1451002061,1451001986,1451001986,1451001987,1451001988,1451001988,1451001989,1451001989,1451002062,1451001990,1451001991,1451001991,1451001992,1451001992,1451002062,1451001993,1451001993,1451002063,1451001994,1451001995,1451001995,1451001998,1451002064,1451001998,1451001999,1451002064,1451002065,1451002000,1451002001,1451002001,1451002002,1451002003,1451002003,1451002004,1451002005,1451002066,1451002006,1451002066,1451002006,1451002007,1451002008,1451002067,1451002008,1451002009,1451002010,1451002011,1451002011,1451002012,1451002013,1451002014,1451002068,1451002015,1451002015,1451002069,1451002016,1451002069,1451002017,1451002018,1451002019,1451002020,1451002070,1451002020,1451002021,1451002022,1451002023,1451002071,1451002024,1451002025,1451002043,1451002027,1451002043,1451002044,1451002045,1451002028,1451002029,1451002045,1451002046,1451002049,1451002029,1451002050,1451002051,1451002052,1451002031,1451002053,1451002054,1451002054,1451002033,1451002055,1451002056,1451002035,1451002073,1451002076,1451002074,1451002037,1451002075,0,1451002076,1451002039,1451002040,1451002041,1451002041,1451002042",
-		"food": 22239,
-		"harvested_times": "1450878288,1451002059,1450878288,1450878288,1450878288,1450878288,1451002060,1450878288,1450878288,1450878288,1450878288,1451002061,1451002061,1450878288,1450878288,1450878288,1450878288,1450878288,1450878288,1450878288,1451002062,1450878288,1450878289,1450878289,1450878289,1450878289,1451002062,1450878289,1450878289,1451002063,1450878289,1450878289,1450878289,1450878289,1451002064,1450878289,1450878289,1451002064,1451002065,1450878289,1450878289,1450878289,1450878289,1450878289,1450878289,1450878289,1450878289,1451002066,1450878289,1451002066,1450878289,1450878289,1450878289,1451002067,1450878289,1450878289,1450878289,1450878289,1450878289,1450878289,1450878289,1450878289,1451002068,1450878289,1450878289,1451002069,1450878289,1451002069,1450878289,1450878289,1450878289,1450878289,1451002070,1450878289,1450878289,1450878289,1450878289,1451002071,1450878289,1450878289,1450878289,1451002027,1450878289,1450878289,1450878289,1451002028,1451002029,1450878289,1450878289,1450878289,1451002029,1450878289,1450878289,1451002030,1451002031,1451002031,1451002032,1451002033,1451002033,1451002034,1451002035,1451002035,1451002036,1450878289,1451002037,1451002037,1451002038,1450929445,1451002038,1451002039,1451002040,1451002041,1451002041,1451002042",
-		"level": 45,
+		"coins": 10788057,
+		"cubes": 1735,
+		"energy": 16593,
+		"fed_times": "1451039681,1451216357,1451039689,1451039698,1451037918,1451216357,1451036252,1451039606,1451037919,1451216358,1451037920,1451036252,1451036252,1451216359,1451037920,1451037921,1451037922,1451216360,1451037922,1451037923,1451036252,1451216360,1451037923,1451037924,1451037924,1451216361,1451036252,1451037926,1451037900,1451216362,1451037901,1451037901,1451037902,1451216362,1451036252,1451037902,1451037903,1451216363,1451036252,1451037903,1451037904,1451216364,1451037905,1451037905,1451037906,1451216364,1451037906,1451036252,1451037907,1451216365,1451037907,1451037908,1451037910,1451216366,1451037911,1451037912,1451037912,1451216367,1451037913,1451037913,1451037914,1451216368,1451036252,1451037915,1451040547,1451216369,1451037915,1451037916,1451039115,1451216370,1451055135,1451002020,1451040548,1451216372,1451002021,1451042472,1451042473,1451216374,1451002024,1451002025,1451055093,1451216376,1451002043,1451002044,1451002045,1451182534,1451002029,1451002045,1451002046,1451182537,1451002029,1451002050,1451002051,1451182570,1451002031,1451039115,1451039609,1451182571,1451040541,1451040543,1451040766,1451182571,1451002013,1451042475,1451002014,1451182572,1451040545,1451040545,1451002016,1451182572,1451002040,1451182573,1451182574,1451182574",
+		"food": 54000,
+		"harvested_times": "1451182581,1451216357,1451182581,1451182581,1451182581,1451216357,1451182581,1451182581,1451182581,1451216358,1451182581,1451182581,1451182581,1451216359,1451182581,1451182581,1451182581,1451216360,1451182581,1451182581,1451182581,1451216360,1451182581,1451182581,1451182581,1451216361,1451182581,1451182581,1451182581,1451216362,1451182581,1451182581,1451182581,1451216362,1451182581,1451182581,1451182581,1451216363,1451182581,1451182581,1451182581,1451216364,1451182581,1451182581,1451182581,1451216364,1451182581,1451182581,1451182581,1451216365,1451182581,1451182581,1451182581,1451216366,1451182581,1451182581,1451182581,1451216367,1451182581,1451182581,1451182581,1451216368,1451182581,1451182581,1451182581,1451216369,1451182581,1451182581,1451182581,1451216370,1451182581,1451182581,1451182581,1451216372,1451182581,1451182581,1451182581,1451216374,1451182582,1451182582,1451182582,1451216376,1451182582,1451182582,1451182582,1451182534,1451182582,1451182582,1451182582,1451182537,1451182582,1451182582,1451182582,1451182570,1451182582,1451039114,1451039608,1451182571,1451040541,1451040543,1451040765,1451182571,1451039647,1451042475,1451182582,1451182572,1451039343,1451039358,1451039580,1451182572,1451002040,1451182573,1451182574,1451182574",
+		"level": 64,
 		"ltvalue": 2.98,
-		"population": 1377,
+		"population": 1379,
 		"spaceship": "airship-royal",
 		"colonies": [{
 			"category": "element",
@@ -22,9 +22,9 @@
 			"level": 7,
 			"offset_x": 0.622209,
 			"offset_y": 1.21505,
-			"process_time": 1800.0,
+			"process_time": 1800,
 			"processed_at": "2015-06-11 04:48:38",
-			"updated_at": "2015-06-24 12:07:02",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 2.98517,
 			"z_rotation": 0.145591,
 			"satellites": [{
@@ -39,16 +39,14 @@
 			"galaxy_id": 1,
 			"identifier": "blender",
 			"level": 8,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 2.99231,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-06-29 15:10:06",
-			"updated_at": "2015-06-29 15:19:09",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.63435,
 			"z_rotation": 0.516175,
-			"satellites": [
-
-			]
+			"satellites": []
 		}, {
 			"category": "element",
 			"colony_order": 3,
@@ -58,12 +56,12 @@
 			"galaxy_id": 1,
 			"identifier": "stone",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 4.45767,
-			"process_time": 3780.0,
+			"process_time": 3780,
 			"processed_at": "2015-06-12 08:13:48",
-			"updated_at": "2015-08-03 04:44:32",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.198207,
 			"satellites": [{
 				"identifier": "artificial_satellite"
@@ -77,12 +75,12 @@
 			"galaxy_id": 1,
 			"identifier": "flame",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 5.73312,
-			"process_time": 771.0,
+			"process_time": 771,
 			"processed_at": "2015-06-18 14:49:33",
-			"updated_at": "2015-07-23 23:57:21",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.363297,
 			"satellites": [{
 				"identifier": "fireball"
@@ -98,9 +96,9 @@
 			"level": 7,
 			"offset_x": 0.0908753,
 			"offset_y": 7.0925,
-			"process_time": 8280.0,
+			"process_time": 8280,
 			"processed_at": "2015-06-23 13:50:00",
-			"updated_at": "2015-07-23 23:57:21",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.27363,
 			"z_rotation": 0.0336891,
 			"satellites": [{
@@ -114,17 +112,15 @@
 			"discovered_at": "2015-06-07 08:11:37",
 			"galaxy_id": 1,
 			"identifier": "dragonboat",
-			"level": 7,
+			"level": 8,
 			"offset_x": 0.995513,
 			"offset_y": 8.66094,
-			"process_time": 10800.0,
+			"process_time": 0,
 			"processed_at": "2015-06-28 14:25:52",
-			"updated_at": "2015-11-06 08:57:40",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.68532,
-			"z_rotation": 0.0,
-			"satellites": [{
-				"identifier": "sachet"
-			}]
+			"z_rotation": 0,
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 7,
@@ -133,17 +129,17 @@
 			"discovered_at": "2015-06-07 08:41:20",
 			"galaxy_id": 1,
 			"identifier": "blender",
-			"level": 8,
-			"offset_x": 1.0,
+			"level": 7,
+			"offset_x": 1,
 			"offset_y": 9.7761,
-			"process_time": 12600.0,
+			"process_time": 12600,
 			"processed_at": "2015-06-29 15:10:51",
-			"updated_at": "2015-06-29 19:37:11",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.154444,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "sachet"
+			}]
 		}, {
 			"category": "animal",
 			"colony_order": 8,
@@ -153,13 +149,13 @@
 			"galaxy_id": 1,
 			"identifier": "sheep",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 11.2014,
-			"process_time": 13500.0,
+			"process_time": 13500,
 			"processed_at": "2015-07-02 07:47:40",
-			"updated_at": "2015-11-06 08:57:40",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.26699,
-			"z_rotation": 0.0,
+			"z_rotation": 0,
 			"satellites": [{
 				"identifier": "hubble_telescope"
 			}]
@@ -172,13 +168,13 @@
 			"galaxy_id": 1,
 			"identifier": "bulb",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 12.4871,
-			"process_time": 16380.0,
+			"process_time": 16380,
 			"processed_at": "2015-07-10 11:37:25",
-			"updated_at": "2015-07-23 23:57:21",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.9555,
-			"z_rotation": 0.0,
+			"z_rotation": 0,
 			"satellites": [{
 				"identifier": "plug"
 			}]
@@ -190,17 +186,15 @@
 			"discovered_at": "2015-06-08 07:03:53",
 			"galaxy_id": 1,
 			"identifier": "fern",
-			"level": 7,
-			"offset_x": 1.0,
+			"level": 8,
+			"offset_x": 1,
 			"offset_y": 14.0551,
-			"process_time": 19440.0,
+			"process_time": 0,
 			"processed_at": "2015-07-18 08:03:19",
-			"updated_at": "2015-08-03 04:44:32",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.205048,
-			"satellites": [{
-				"identifier": "space_garbage"
-			}]
+			"satellites": []
 		}, {
 			"category": "plant",
 			"colony_order": 11,
@@ -212,13 +206,13 @@
 			"level": 7,
 			"offset_x": -0.216476,
 			"offset_y": 15.2427,
-			"process_time": 22680.0,
+			"process_time": 22680,
 			"processed_at": "2015-07-17 00:07:10",
-			"updated_at": "2015-11-06 08:57:41",
-			"z_position": 4.0,
-			"z_rotation": 0.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
+			"z_rotation": 0,
 			"satellites": [{
-				"identifier": "armillary_sphere"
+				"identifier": "space_garbage"
 			}]
 		}, {
 			"category": null,
@@ -228,17 +222,17 @@
 			"discovered_at": "2015-06-08 16:06:54",
 			"galaxy_id": 1,
 			"identifier": "toaster",
-			"level": 8,
+			"level": 7,
 			"offset_x": 0.38776,
 			"offset_y": 16.8846,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-06-30 03:05:12",
-			"updated_at": "2015-06-30 06:20:35",
-			"z_position": 4.0,
-			"z_rotation": 0.0,
-			"satellites": [
-
-			]
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
+			"z_rotation": 0,
+			"satellites": [{
+				"identifier": "armillary_sphere"
+			}]
 		}, {
 			"category": null,
 			"colony_order": 13,
@@ -247,17 +241,17 @@
 			"discovered_at": "2015-06-08 16:58:34",
 			"galaxy_id": 1,
 			"identifier": "ricecooking",
-			"level": 8,
+			"level": 7,
 			"offset_x": -0.176084,
 			"offset_y": 17.8942,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-06-30 03:05:17",
-			"updated_at": "2015-06-30 06:42:13",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.30792,
-			"z_rotation": 0.0,
-			"satellites": [
-
-			]
+			"z_rotation": 0,
+			"satellites": [{
+				"identifier": "snow_ball"
+			}]
 		}, {
 			"category": "element",
 			"colony_order": 14,
@@ -266,17 +260,15 @@
 			"discovered_at": "2015-06-09 04:31:29",
 			"galaxy_id": 1,
 			"identifier": "snow",
-			"level": 7,
-			"offset_x": -1.0,
+			"level": 8,
+			"offset_x": -1,
 			"offset_y": 19.1922,
-			"process_time": 26100.0,
+			"process_time": 0,
 			"processed_at": "2015-07-19 03:50:10",
-			"updated_at": "2015-07-19 11:10:01",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.91431,
-			"z_rotation": 0.0,
-			"satellites": [{
-				"identifier": "snow_ball"
-			}]
+			"z_rotation": 0,
+			"satellites": []
 		}, {
 			"category": "element",
 			"colony_order": 15,
@@ -288,11 +280,11 @@
 			"level": 7,
 			"offset_x": 0.321625,
 			"offset_y": 20.7939,
-			"process_time": 29700.0,
+			"process_time": 29700,
 			"processed_at": "2015-07-30 02:26:01",
-			"updated_at": "2015-11-06 08:57:41",
-			"z_position": 4.0,
-			"z_rotation": 0.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
+			"z_rotation": 0,
 			"satellites": [{
 				"identifier": "arc_net_shield"
 			}]
@@ -305,13 +297,13 @@
 			"galaxy_id": 1,
 			"identifier": "forest",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 22.3182,
-			"process_time": 33480.0,
+			"process_time": 33480,
 			"processed_at": "2015-07-30 15:25:23",
-			"updated_at": "2015-11-06 08:57:41",
-			"z_position": 4.0,
-			"z_rotation": 0.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
+			"z_rotation": 0,
 			"satellites": [{
 				"identifier": "flower_ball"
 			}]
@@ -326,9 +318,9 @@
 			"level": 7,
 			"offset_x": 0.290397,
 			"offset_y": 23.7777,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-08-03 02:09:51",
-			"updated_at": "2015-11-06 08:57:41",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.63739,
 			"z_rotation": 0.286262,
 			"satellites": [{
@@ -342,17 +334,15 @@
 			"discovered_at": "2015-06-11 01:22:24",
 			"galaxy_id": 1,
 			"identifier": "cactus",
-			"level": 7,
-			"offset_x": 1.0,
+			"level": 8,
+			"offset_x": 1,
 			"offset_y": 25.103,
-			"process_time": 41580.0,
+			"process_time": 0,
 			"processed_at": "2015-08-15 10:26:03",
-			"updated_at": "2015-08-16 00:21:34",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 2.93123,
 			"z_rotation": 0.0695635,
-			"satellites": [{
-				"identifier": "yellow_light_ball"
-			}]
+			"satellites": []
 		}, {
 			"category": "cuisine",
 			"colony_order": 19,
@@ -364,13 +354,13 @@
 			"level": 7,
 			"offset_x": 0.402563,
 			"offset_y": 26.5382,
-			"process_time": 45900.0,
+			"process_time": 45900,
 			"processed_at": "2015-08-28 02:23:47",
-			"updated_at": "2015-08-28 15:35:05",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.48471,
-			"z_rotation": 0.0,
+			"z_rotation": 0,
 			"satellites": [{
-				"identifier": "lollipop"
+				"identifier": "yellow_light_ball"
 			}]
 		}, {
 			"category": "special",
@@ -381,15 +371,15 @@
 			"galaxy_id": 1,
 			"identifier": "crystal",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 27.7279,
-			"process_time": 50400.0,
+			"process_time": 50400,
 			"processed_at": "2015-08-28 02:23:51",
-			"updated_at": "2015-08-28 16:29:25",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.261406,
 			"satellites": [{
-				"identifier": "amber"
+				"identifier": "lollipop"
 			}]
 		}, {
 			"category": null,
@@ -399,17 +389,17 @@
 			"discovered_at": "2015-06-13 01:23:20",
 			"galaxy_id": 1,
 			"identifier": "toaster",
-			"level": 8,
+			"level": 7,
 			"offset_x": -0.320238,
 			"offset_y": 29.1091,
 			"process_time": 11955.7,
 			"processed_at": "2015-06-30 03:05:23",
-			"updated_at": "2015-06-30 06:42:13",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.0652238,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "amber"
+			}]
 		}, {
 			"category": "animal",
 			"colony_order": 22,
@@ -418,17 +408,15 @@
 			"discovered_at": "2015-06-13 02:34:44",
 			"galaxy_id": 1,
 			"identifier": "beehive",
-			"level": 7,
+			"level": 8,
 			"offset_x": 0.958565,
 			"offset_y": 30.2986,
-			"process_time": 55080.0,
+			"process_time": 0,
 			"processed_at": "2015-09-10 00:00:43",
-			"updated_at": "2015-09-10 16:20:04",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.66005,
 			"z_rotation": 0.364967,
-			"satellites": [{
-				"identifier": "honey_dipper"
-			}]
+			"satellites": []
 		}, {
 			"category": "special",
 			"colony_order": 23,
@@ -438,15 +426,15 @@
 			"galaxy_id": 1,
 			"identifier": "soccer",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 31.9744,
 			"process_time": 48090.3,
 			"processed_at": "2015-09-10 00:00:48",
-			"updated_at": "2015-09-10 13:27:33",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.2661,
-			"z_rotation": 0.0,
+			"z_rotation": 0,
 			"satellites": [{
-				"identifier": "soccer"
+				"identifier": "honey_dipper"
 			}]
 		}, {
 			"category": "animal",
@@ -457,15 +445,15 @@
 			"galaxy_id": 1,
 			"identifier": "nest",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 33.6814,
-			"process_time": 64980.0,
+			"process_time": 64980,
 			"processed_at": "2015-09-10 00:00:53",
-			"updated_at": "2015-09-10 23:53:36",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.76227,
 			"z_rotation": 0.345694,
 			"satellites": [{
-				"identifier": "feather_ball"
+				"identifier": "soccer"
 			}]
 		}, {
 			"category": "special",
@@ -478,13 +466,13 @@
 			"level": 7,
 			"offset_x": 0.410373,
 			"offset_y": 34.7728,
-			"process_time": 70200.0,
+			"process_time": 70200,
 			"processed_at": "2015-09-11 08:21:01",
-			"updated_at": "2015-11-06 08:57:41",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.50671,
 			"satellites": [{
-				"identifier": "game_girl"
+				"identifier": "feather_ball"
 			}]
 		}, {
 			"category": "plant",
@@ -494,17 +482,15 @@
 			"discovered_at": "2015-06-15 14:33:13",
 			"galaxy_id": 1,
 			"identifier": "wheat",
-			"level": 7,
-			"offset_x": 1.0,
+			"level": 8,
+			"offset_x": 1,
 			"offset_y": 36.1408,
-			"process_time": 75600.0,
+			"process_time": 0,
 			"processed_at": "2015-09-22 23:58:48",
-			"updated_at": "2015-11-06 08:57:41",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.203934,
-			"satellites": [{
-				"identifier": "scarecrow"
-			}]
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 27,
@@ -513,17 +499,17 @@
 			"discovered_at": "2015-06-16 09:43:44",
 			"galaxy_id": 1,
 			"identifier": "blender",
-			"level": 8,
-			"offset_x": 1.0,
+			"level": 7,
+			"offset_x": 1,
 			"offset_y": 37.6033,
 			"process_time": 11974.3,
 			"processed_at": "2015-06-30 03:05:27",
-			"updated_at": "2015-06-30 06:42:13",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.465761,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "game_girl"
+			}]
 		}, {
 			"category": "animal",
 			"colony_order": 28,
@@ -533,15 +519,15 @@
 			"galaxy_id": 1,
 			"identifier": "deer",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 39.1286,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-09-23 06:14:40",
-			"updated_at": "2015-11-06 08:57:41",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.47412,
 			"z_rotation": 0.712678,
 			"satellites": [{
-				"identifier": "magic_cube"
+				"identifier": "scarecrow"
 			}]
 		}, {
 			"category": "plant",
@@ -554,13 +540,13 @@
 			"level": 7,
 			"offset_x": -0.134595,
 			"offset_y": 40.5616,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-09-23 06:14:58",
-			"updated_at": "2015-09-23 06:24:52",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.98692,
 			"z_rotation": 0.956209,
 			"satellites": [{
-				"identifier": "ruby"
+				"identifier": "magic_cube"
 			}]
 		}, {
 			"category": null,
@@ -573,14 +559,12 @@
 			"level": 8,
 			"offset_x": -0.989084,
 			"offset_y": 42.1768,
-			"process_time": 11955.6,
+			"process_time": 0,
 			"processed_at": "2015-06-30 03:05:32",
-			"updated_at": "2015-06-30 06:42:13",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.695223,
-			"satellites": [
-
-			]
+			"satellites": []
 		}, {
 			"category": "animal",
 			"colony_order": 31,
@@ -592,13 +576,13 @@
 			"level": 7,
 			"offset_x": -0.423571,
 			"offset_y": 43.3646,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-09-23 06:15:10",
-			"updated_at": "2015-11-06 08:57:41",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.60419,
 			"z_rotation": 0.525395,
 			"satellites": [{
-				"identifier": "rat"
+				"identifier": "ruby"
 			}]
 		}, {
 			"category": "plant",
@@ -611,13 +595,13 @@
 			"level": 7,
 			"offset_x": 0.493009,
 			"offset_y": 44.4932,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-09-23 06:15:26",
-			"updated_at": "2015-09-23 06:24:52",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.151922,
 			"satellites": [{
-				"identifier": "snacks"
+				"identifier": "rat"
 			}]
 		}, {
 			"category": "cuisine",
@@ -630,13 +614,13 @@
 			"level": 7,
 			"offset_x": -0.896449,
 			"offset_y": 45.613,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-21 08:30:37",
-			"updated_at": "2015-11-06 08:57:41",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.351782,
 			"satellites": [{
-				"identifier": "crown"
+				"identifier": "snacks"
 			}]
 		}, {
 			"category": "cuisine",
@@ -646,17 +630,15 @@
 			"discovered_at": "2015-06-22 02:11:42",
 			"galaxy_id": 1,
 			"identifier": "chocolate",
-			"level": 7,
-			"offset_x": -1.0,
+			"level": 8,
+			"offset_x": -1,
 			"offset_y": 46.76,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-21 08:30:50",
-			"updated_at": "2015-10-21 08:37:32",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.37312,
-			"z_rotation": 0.0,
-			"satellites": [{
-				"identifier": "cotton_candy"
-			}]
+			"z_rotation": 0,
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 35,
@@ -665,17 +647,17 @@
 			"discovered_at": "2015-06-23 06:04:55",
 			"galaxy_id": 1,
 			"identifier": "juicer",
-			"level": 8,
+			"level": 7,
 			"offset_x": -0.0277891,
 			"offset_y": 48.1412,
-			"process_time": 12600.0,
+			"process_time": 12600,
 			"processed_at": "2015-06-29 15:11:15",
-			"updated_at": "2015-06-29 19:37:11",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 2.83956,
 			"z_rotation": 0.204541,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "crown"
+			}]
 		}, {
 			"category": "animal",
 			"colony_order": 36,
@@ -685,15 +667,15 @@
 			"galaxy_id": 1,
 			"identifier": "coral",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 49.6877,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-21 08:31:07",
-			"updated_at": "2015-11-06 08:57:41",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 2.22783,
 			"z_rotation": 0.382495,
 			"satellites": [{
-				"identifier": "pearl"
+				"identifier": "cotton_candy"
 			}]
 		}, {
 			"category": "cuisine",
@@ -706,13 +688,13 @@
 			"level": 7,
 			"offset_x": -0.14487,
 			"offset_y": 50.8701,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-21 08:31:17",
-			"updated_at": "2015-11-06 08:57:41",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 2.74191,
 			"z_rotation": 0.232378,
 			"satellites": [{
-				"identifier": "bottle_of_milk"
+				"identifier": "pearl"
 			}]
 		}, {
 			"category": null,
@@ -723,16 +705,14 @@
 			"galaxy_id": 1,
 			"identifier": "toaster",
 			"level": 8,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 52.6154,
-			"process_time": 9582.6,
+			"process_time": 0,
 			"processed_at": "2015-06-30 03:04:55",
-			"updated_at": "2015-06-30 06:02:46",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.44228,
-			"z_rotation": 0.0,
-			"satellites": [
-
-			]
+			"z_rotation": 0,
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 39,
@@ -741,17 +721,17 @@
 			"discovered_at": "2015-06-25 23:33:25",
 			"galaxy_id": 1,
 			"identifier": "toaster",
-			"level": 8,
-			"offset_x": -1.0,
+			"level": 7,
+			"offset_x": -1,
 			"offset_y": 54.341,
 			"process_time": 4.96624,
 			"processed_at": "2015-06-30 03:04:41",
-			"updated_at": "2015-06-30 03:09:45",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.225802,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "bottle_of_milk"
+			}]
 		}, {
 			"category": "element",
 			"colony_order": 40,
@@ -763,10 +743,10 @@
 			"level": 7,
 			"offset_x": -0.0823539,
 			"offset_y": 55.6211,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-21 08:31:36",
-			"updated_at": "2015-10-21 08:37:32",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.0243449,
 			"satellites": [{
 				"identifier": "snow_flower"
@@ -780,12 +760,12 @@
 			"galaxy_id": 1,
 			"identifier": "burger",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 57.0367,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-21 08:31:54",
-			"updated_at": "2015-10-21 08:37:32",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.388517,
 			"satellites": [{
 				"identifier": "coke"
@@ -798,17 +778,15 @@
 			"discovered_at": "2015-06-27 07:50:58",
 			"galaxy_id": 1,
 			"identifier": "beetle",
-			"level": 7,
-			"offset_x": -1.0,
+			"level": 8,
+			"offset_x": -1,
 			"offset_y": 58.6816,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-21 08:32:11",
-			"updated_at": "2015-10-21 08:37:32",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.558744,
-			"satellites": [{
-				"identifier": "gummy_bear"
-			}]
+			"satellites": []
 		}, {
 			"category": "cuisine",
 			"colony_order": 43,
@@ -818,15 +796,15 @@
 			"galaxy_id": 1,
 			"identifier": "jelly",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 59.7471,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-21 08:32:27",
-			"updated_at": "2015-10-21 08:37:32",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:28",
+			"z_position": 4,
 			"z_rotation": 0.741337,
 			"satellites": [{
-				"identifier": "popsicle"
+				"identifier": "gummy_bear"
 			}]
 		}, {
 			"category": "element",
@@ -839,13 +817,13 @@
 			"level": 7,
 			"offset_x": -0.484364,
 			"offset_y": 61.2356,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-21 08:32:47",
-			"updated_at": "2015-10-21 08:37:32",
+			"updated_at": "2015-12-25 10:35:28",
 			"z_position": 3.60701,
 			"z_rotation": 0.412789,
 			"satellites": [{
-				"identifier": "drilling_machine"
+				"identifier": "popsicle"
 			}]
 		}, {
 			"category": "festival",
@@ -858,13 +836,13 @@
 			"level": 7,
 			"offset_x": 0.566425,
 			"offset_y": 62.2417,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-24 04:57:26",
-			"updated_at": "2015-11-06 08:57:41",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:29",
+			"z_position": 4,
 			"z_rotation": 0.679502,
 			"satellites": [{
-				"identifier": "magic_rune"
+				"identifier": "drilling_machine"
 			}]
 		}, {
 			"category": "special",
@@ -874,17 +852,15 @@
 			"discovered_at": "2015-07-02 07:46:40",
 			"galaxy_id": 1,
 			"identifier": "virus",
-			"level": 7,
-			"offset_x": 1.0,
+			"level": 8,
+			"offset_x": 1,
 			"offset_y": 63.6079,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-24 04:57:46",
-			"updated_at": "2015-10-24 04:59:32",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:29",
+			"z_position": 4,
 			"z_rotation": 0.931457,
-			"satellites": [{
-				"identifier": "spacecraft_of_dr_evil"
-			}]
+			"satellites": []
 		}, {
 			"category": "special",
 			"colony_order": 47,
@@ -896,13 +872,13 @@
 			"level": 7,
 			"offset_x": 0.0294667,
 			"offset_y": 64.6617,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-24 04:58:06",
-			"updated_at": "2015-11-06 08:57:42",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:29",
+			"z_position": 4,
 			"z_rotation": 0.652324,
 			"satellites": [{
-				"identifier": "space_priates_battleship"
+				"identifier": "magic_rune"
 			}]
 		}, {
 			"category": null,
@@ -912,17 +888,17 @@
 			"discovered_at": "2015-07-05 08:01:16",
 			"galaxy_id": 1,
 			"identifier": "toaster",
-			"level": 8,
+			"level": 7,
 			"offset_x": -0.998167,
 			"offset_y": 65.6953,
 			"process_time": 7568.74,
 			"processed_at": "2015-07-06 14:03:17",
-			"updated_at": "2015-07-06 16:15:20",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.44099,
 			"z_rotation": 0.813294,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "spacecraft_of_dr_evil"
+			}]
 		}, {
 			"category": "special",
 			"colony_order": 49,
@@ -932,15 +908,15 @@
 			"galaxy_id": 1,
 			"identifier": "artifact",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 67.3005,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-24 04:58:28",
-			"updated_at": "2015-11-06 08:57:42",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.76457,
 			"z_rotation": 0.597169,
 			"satellites": [{
-				"identifier": "scoutship"
+				"identifier": "space_priates_battleship"
 			}]
 		}, {
 			"category": null,
@@ -951,16 +927,14 @@
 			"galaxy_id": 1,
 			"identifier": "coffee",
 			"level": 8,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 68.8734,
-			"process_time": 5.68808,
+			"process_time": 0,
 			"processed_at": "2015-07-06 23:49:03",
-			"updated_at": "2015-07-07 01:07:37",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.31873,
 			"z_rotation": 0.970084,
-			"satellites": [
-
-			]
+			"satellites": []
 		}, {
 			"category": "plant",
 			"colony_order": 51,
@@ -970,15 +944,15 @@
 			"galaxy_id": 1,
 			"identifier": "mushroom",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 70.5128,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-24 04:58:53",
-			"updated_at": "2015-10-24 04:59:32",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.67141,
-			"z_rotation": 1.0,
+			"z_rotation": 1,
 			"satellites": [{
-				"identifier": "sapphire"
+				"identifier": "scoutship"
 			}]
 		}, {
 			"category": "animal",
@@ -989,15 +963,15 @@
 			"galaxy_id": 1,
 			"identifier": "pig",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 72.2217,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-02 10:38:50",
-			"updated_at": "2015-11-02 10:44:11",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:29",
+			"z_position": 4,
 			"z_rotation": 0.690081,
 			"satellites": [{
-				"identifier": "hami_ham"
+				"identifier": "sapphire"
 			}]
 		}, {
 			"category": "cuisine",
@@ -1010,13 +984,13 @@
 			"level": 7,
 			"offset_x": -0.180751,
 			"offset_y": 73.7773,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-02 10:39:10",
-			"updated_at": "2015-11-02 10:44:11",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.26162,
 			"z_rotation": 0.366072,
 			"satellites": [{
-				"identifier": "juicer"
+				"identifier": "hami_ham"
 			}]
 		}, {
 			"category": null,
@@ -1029,14 +1003,12 @@
 			"level": 8,
 			"offset_x": 0.917099,
 			"offset_y": 75.2587,
-			"process_time": 12600.0,
+			"process_time": 0,
 			"processed_at": "2015-07-12 00:43:48",
-			"updated_at": "2015-07-12 05:43:11",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.64559,
 			"z_rotation": 0.688785,
-			"satellites": [
-
-			]
+			"satellites": []
 		}, {
 			"category": "special",
 			"colony_order": 55,
@@ -1048,13 +1020,13 @@
 			"level": 7,
 			"offset_x": -0.309601,
 			"offset_y": 76.679,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-02 10:39:56",
-			"updated_at": "2015-11-02 10:44:11",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.05299,
 			"z_rotation": 0.352223,
 			"satellites": [{
-				"identifier": "drip_machine"
+				"identifier": "juicer"
 			}]
 		}, {
 			"category": "special",
@@ -1067,13 +1039,13 @@
 			"level": 7,
 			"offset_x": 0.233056,
 			"offset_y": 78.1769,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-02 10:40:17",
-			"updated_at": "2015-11-02 10:44:11",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.78515,
 			"z_rotation": 0.710382,
 			"satellites": [{
-				"identifier": "roman_helmet"
+				"identifier": "drip_machine"
 			}]
 		}, {
 			"category": "special",
@@ -1086,13 +1058,13 @@
 			"level": 7,
 			"offset_x": -0.299811,
 			"offset_y": 79.8214,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-02 10:40:38",
-			"updated_at": "2015-11-06 08:57:42",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.27499,
 			"z_rotation": 0.905109,
 			"satellites": [{
-				"identifier": "bat"
+				"identifier": "roman_helmet"
 			}]
 		}, {
 			"category": "special",
@@ -1102,17 +1074,15 @@
 			"discovered_at": "2015-07-17 03:35:52",
 			"galaxy_id": 1,
 			"identifier": "music",
-			"level": 7,
-			"offset_x": -1.0,
+			"level": 8,
+			"offset_x": -1,
 			"offset_y": 80.9036,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-06 08:21:35",
-			"updated_at": "2015-11-06 08:28:53",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.66843,
-			"z_rotation": 1.0,
-			"satellites": [{
-				"identifier": "bell"
-			}]
+			"z_rotation": 1,
+			"satellites": []
 		}, {
 			"category": "special",
 			"colony_order": 59,
@@ -1122,15 +1092,15 @@
 			"galaxy_id": 1,
 			"identifier": "star",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 82.0111,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-06 08:21:55",
-			"updated_at": "2015-11-06 08:28:53",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.11999,
-			"z_rotation": 1.0,
+			"z_rotation": 1,
 			"satellites": [{
-				"identifier": "christmas_star"
+				"identifier": "bat"
 			}]
 		}, {
 			"category": "element",
@@ -1143,13 +1113,13 @@
 			"level": 7,
 			"offset_x": -0.147034,
 			"offset_y": 83.4303,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-06 08:22:07",
-			"updated_at": "2015-11-06 08:28:53",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.84822,
-			"z_rotation": 1.0,
+			"z_rotation": 1,
 			"satellites": [{
-				"identifier": "diamond"
+				"identifier": "bell"
 			}]
 		}, {
 			"category": "cuisine",
@@ -1162,13 +1132,13 @@
 			"level": 7,
 			"offset_x": -0.923995,
 			"offset_y": 84.9022,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-06 08:22:26",
-			"updated_at": "2015-11-06 08:28:53",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.41898,
-			"z_rotation": 1.0,
+			"z_rotation": 1,
 			"satellites": [{
-				"identifier": "dvd"
+				"identifier": "christmas_star"
 			}]
 		}, {
 			"category": "cuisine",
@@ -1178,17 +1148,15 @@
 			"discovered_at": "2015-07-24 00:00:16",
 			"galaxy_id": 1,
 			"identifier": "banana",
-			"level": 7,
-			"offset_x": -1.0,
+			"level": 8,
+			"offset_x": -1,
 			"offset_y": 86.6244,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-06 08:23:19",
-			"updated_at": "2015-11-06 08:28:53",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.99735,
 			"z_rotation": 0.781119,
-			"satellites": [{
-				"identifier": "lettle_umbrella"
-			}]
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 63,
@@ -1197,17 +1165,17 @@
 			"discovered_at": "2015-07-26 06:53:34",
 			"galaxy_id": 1,
 			"identifier": "ricecooking",
-			"level": 8,
-			"offset_x": -1.0,
+			"level": 7,
+			"offset_x": -1,
 			"offset_y": 88.2308,
-			"process_time": 12600.0,
+			"process_time": 12600,
 			"processed_at": "2015-07-27 05:23:25",
-			"updated_at": "2015-07-27 09:04:07",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.35063,
 			"z_rotation": 0.492759,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "diamond"
+			}]
 		}, {
 			"category": "plant",
 			"colony_order": 64,
@@ -1217,15 +1185,15 @@
 			"galaxy_id": 1,
 			"identifier": "grass",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 89.395,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-06 08:23:40",
-			"updated_at": "2015-11-06 08:28:53",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.75313,
 			"z_rotation": 0.623446,
 			"satellites": [{
-				"identifier": "emerald"
+				"identifier": "dvd"
 			}]
 		}, {
 			"category": "cuisine",
@@ -1238,13 +1206,13 @@
 			"level": 7,
 			"offset_x": -0.213334,
 			"offset_y": 90.7582,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-13 09:31:12",
-			"updated_at": "2015-11-13 09:42:58",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.48087,
 			"z_rotation": 0.961813,
 			"satellites": [{
-				"identifier": "candy_cane"
+				"identifier": "lettle_umbrella"
 			}]
 		}, {
 			"category": null,
@@ -1255,16 +1223,14 @@
 			"galaxy_id": 1,
 			"identifier": "juicer",
 			"level": 8,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 92.0196,
-			"process_time": 12600.0,
+			"process_time": 0,
 			"processed_at": "2015-08-02 11:50:57",
-			"updated_at": "2015-08-02 15:49:25",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.19789,
-			"z_rotation": 1.0,
-			"satellites": [
-
-			]
+			"z_rotation": 1,
+			"satellites": []
 		}, {
 			"category": "special",
 			"colony_order": 67,
@@ -1276,13 +1242,13 @@
 			"level": 7,
 			"offset_x": 0.474123,
 			"offset_y": 93.4994,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-13 09:32:13",
-			"updated_at": "2015-11-13 09:42:58",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.73924,
 			"z_rotation": 0.788337,
 			"satellites": [{
-				"identifier": "tire"
+				"identifier": "emerald"
 			}]
 		}, {
 			"category": null,
@@ -1292,17 +1258,17 @@
 			"discovered_at": "2015-08-02 12:56:56",
 			"galaxy_id": 1,
 			"identifier": "blender",
-			"level": 8,
+			"level": 7,
 			"offset_x": -0.318178,
 			"offset_y": 94.8048,
 			"process_time": 4092.16,
 			"processed_at": "2015-08-03 04:46:53",
-			"updated_at": "2015-08-03 06:19:07",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.19954,
 			"z_rotation": 0.46595,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "candy_cane"
+			}]
 		}, {
 			"category": "special",
 			"colony_order": 69,
@@ -1312,15 +1278,15 @@
 			"galaxy_id": 1,
 			"identifier": "gear",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 95.9175,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-13 09:32:34",
-			"updated_at": "2015-11-13 09:42:58",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.80663,
 			"z_rotation": 0.686528,
 			"satellites": [{
-				"identifier": "gear"
+				"identifier": "tire"
 			}]
 		}, {
 			"category": "festival",
@@ -1330,17 +1296,15 @@
 			"discovered_at": "2015-08-05 23:28:01",
 			"galaxy_id": 1,
 			"identifier": "father",
-			"level": 7,
+			"level": 8,
 			"offset_x": 0.386012,
 			"offset_y": 97.025,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-13 09:33:06",
-			"updated_at": "2015-11-13 09:42:58",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.20667,
 			"z_rotation": 0.418328,
-			"satellites": [{
-				"identifier": "pipe"
-			}]
+			"satellites": []
 		}, {
 			"category": "element",
 			"colony_order": 71,
@@ -1352,13 +1316,13 @@
 			"level": 7,
 			"offset_x": -0.970352,
 			"offset_y": 98.6024,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-13 09:33:37",
-			"updated_at": "2015-11-13 09:42:58",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 1.54069,
 			"z_rotation": 0.073995,
 			"satellites": [{
-				"identifier": "magic_stone"
+				"identifier": "gear"
 			}]
 		}, {
 			"category": "element",
@@ -1369,15 +1333,15 @@
 			"galaxy_id": 1,
 			"identifier": "bone",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 99.6496,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-13 09:34:01",
-			"updated_at": "2015-11-13 09:42:58",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 1.84389,
 			"z_rotation": 0.283047,
 			"satellites": [{
-				"identifier": "dog_bowl"
+				"identifier": "pipe"
 			}]
 		}, {
 			"category": null,
@@ -1387,17 +1351,17 @@
 			"discovered_at": "2015-08-14 03:39:28",
 			"galaxy_id": 1,
 			"identifier": "ricecooking",
-			"level": 8,
+			"level": 7,
 			"offset_x": -0.13606,
 			"offset_y": 100.969,
-			"process_time": 12600.0,
+			"process_time": 12600,
 			"processed_at": "2015-08-15 13:06:34",
-			"updated_at": "2015-08-16 00:21:34",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.50517,
 			"z_rotation": 0.558317,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "magic_stone"
+			}]
 		}, {
 			"category": "animal",
 			"colony_order": 74,
@@ -1406,17 +1370,15 @@
 			"discovered_at": "2015-08-14 03:39:44",
 			"galaxy_id": 1,
 			"identifier": "cow",
-			"level": 7,
-			"offset_x": 1.0,
+			"level": 8,
+			"offset_x": 1,
 			"offset_y": 102.661,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-18 09:05:25",
-			"updated_at": "2015-11-18 09:12:46",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.97323,
 			"z_rotation": 0.713754,
-			"satellites": [{
-				"identifier": "cheese"
-			}]
+			"satellites": []
 		}, {
 			"category": "animal",
 			"colony_order": 75,
@@ -1426,15 +1388,15 @@
 			"galaxy_id": 1,
 			"identifier": "octopus",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 103.979,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-18 09:05:49",
-			"updated_at": "2015-11-18 09:12:46",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.62001,
 			"z_rotation": 0.444005,
 			"satellites": [{
-				"identifier": "sinked_boat"
+				"identifier": "dog_bowl"
 			}]
 		}, {
 			"category": "animal",
@@ -1445,15 +1407,15 @@
 			"galaxy_id": 1,
 			"identifier": "fishpot",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 105.05,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-18 09:06:35",
-			"updated_at": "2015-11-18 09:12:46",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 1.95012,
 			"z_rotation": 0.116511,
 			"satellites": [{
-				"identifier": "buccinidae"
+				"identifier": "cheese"
 			}]
 		}, {
 			"category": "plant",
@@ -1466,13 +1428,13 @@
 			"level": 7,
 			"offset_x": -0.0214676,
 			"offset_y": 106.395,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-18 09:07:09",
-			"updated_at": "2015-11-18 09:12:46",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 1.46803,
 			"z_rotation": 0.32888,
 			"satellites": [{
-				"identifier": "blue_light_ball"
+				"identifier": "sinked_boat"
 			}]
 		}, {
 			"category": null,
@@ -1483,16 +1445,14 @@
 			"galaxy_id": 1,
 			"identifier": "toaster",
 			"level": 8,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 108.125,
-			"process_time": 5.18005,
+			"process_time": 0,
 			"processed_at": "2015-08-25 04:28:56",
-			"updated_at": "2015-08-25 05:07:29",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 1.21064,
-			"z_rotation": 0.0,
-			"satellites": [
-
-			]
+			"z_rotation": 0,
+			"satellites": []
 		}, {
 			"category": "special",
 			"colony_order": 79,
@@ -1504,13 +1464,13 @@
 			"level": 7,
 			"offset_x": -0.263331,
 			"offset_y": 109.808,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-18 09:07:42",
-			"updated_at": "2015-11-18 09:12:46",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 1.70702,
 			"z_rotation": 0.304618,
 			"satellites": [{
-				"identifier": "detector"
+				"identifier": "buccinidae"
 			}]
 		}, {
 			"category": "cuisine",
@@ -1523,13 +1483,13 @@
 			"level": 7,
 			"offset_x": 0.48535,
 			"offset_y": 111.037,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-18 09:08:22",
-			"updated_at": "2015-11-18 09:12:46",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.26063,
 			"z_rotation": 0.677555,
 			"satellites": [{
-				"identifier": "macaron"
+				"identifier": "blue_light_ball"
 			}]
 		}, {
 			"category": "plant",
@@ -1540,15 +1500,15 @@
 			"galaxy_id": 1,
 			"identifier": "swamp",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 112.578,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-25 09:14:43",
-			"updated_at": "2015-11-25 09:59:10",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.8892,
 			"z_rotation": 0.35528,
 			"satellites": [{
-				"identifier": "fish_eyeball"
+				"identifier": "detector"
 			}]
 		}, {
 			"category": null,
@@ -1561,14 +1521,12 @@
 			"level": 8,
 			"offset_x": 0.178722,
 			"offset_y": 114.181,
-			"process_time": 59.673,
+			"process_time": 0,
 			"processed_at": "2015-08-29 08:11:28",
-			"updated_at": "2015-08-29 08:25:33",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.21913,
 			"z_rotation": 0.107225,
-			"satellites": [
-
-			]
+			"satellites": []
 		}, {
 			"category": "element",
 			"colony_order": 83,
@@ -1580,13 +1538,13 @@
 			"level": 7,
 			"offset_x": -0.90856,
 			"offset_y": 115.48,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-25 09:15:30",
-			"updated_at": "2015-11-25 09:59:10",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.62987,
 			"z_rotation": 0.24509,
 			"satellites": [{
-				"identifier": "raven"
+				"identifier": "macaron"
 			}]
 		}, {
 			"category": "festival",
@@ -1598,14 +1556,14 @@
 			"identifier": "mother",
 			"level": 7,
 			"offset_x": 0.072448,
-			"offset_y": 117.0,
-			"process_time": 0.0,
+			"offset_y": 117,
+			"process_time": 0,
 			"processed_at": "2015-11-25 09:16:01",
-			"updated_at": "2015-11-25 09:59:10",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.04604,
 			"z_rotation": 0.39652,
 			"satellites": [{
-				"identifier": "sweet_heart"
+				"identifier": "fish_eyeball"
 			}]
 		}, {
 			"category": "festival",
@@ -1618,13 +1576,13 @@
 			"level": 7,
 			"offset_x": 0.894119,
 			"offset_y": 118.182,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-25 09:16:31",
-			"updated_at": "2015-11-25 09:59:10",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.44742,
 			"z_rotation": 0.0836895,
 			"satellites": [{
-				"identifier": "moon_cake"
+				"identifier": "raven"
 			}]
 		}, {
 			"category": null,
@@ -1635,16 +1593,14 @@
 			"galaxy_id": 1,
 			"identifier": "toaster",
 			"level": 8,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 119.53,
-			"process_time": 6845.34,
+			"process_time": 0,
 			"processed_at": "2015-09-08 00:11:07",
-			"updated_at": "2015-09-08 02:54:02",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.91072,
-			"z_rotation": 0.0,
-			"satellites": [
-
-			]
+			"z_rotation": 0,
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 87,
@@ -1653,17 +1609,17 @@
 			"discovered_at": "2015-09-07 05:06:07",
 			"galaxy_id": 1,
 			"identifier": "juicer",
-			"level": 8,
+			"level": 7,
 			"offset_x": 0.489328,
 			"offset_y": 120.642,
-			"process_time": 9537.0,
+			"process_time": 9537,
 			"processed_at": "2015-09-08 00:11:03",
-			"updated_at": "2015-09-08 02:54:02",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.62721,
 			"z_rotation": 0.347926,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "sweet_heart"
+			}]
 		}, {
 			"category": "festival",
 			"colony_order": 88,
@@ -1673,15 +1629,15 @@
 			"galaxy_id": 1,
 			"identifier": "easter",
 			"level": 7,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 122.362,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-25 09:17:09",
-			"updated_at": "2015-11-25 09:59:10",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.04022,
 			"z_rotation": 0.143961,
 			"satellites": [{
-				"identifier": "easter_egg"
+				"identifier": "moon_cake"
 			}]
 		}, {
 			"category": "festival",
@@ -1694,13 +1650,13 @@
 			"level": 7,
 			"offset_x": 0.483029,
 			"offset_y": 123.698,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-25 09:17:30",
-			"updated_at": "2015-11-25 09:59:10",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.5806,
-			"z_rotation": 0.0,
+			"z_rotation": 0,
 			"satellites": [{
-				"identifier": "magic_circle"
+				"identifier": "easter_egg"
 			}]
 		}, {
 			"category": "festival",
@@ -1710,17 +1666,15 @@
 			"discovered_at": "2015-09-17 04:12:48",
 			"galaxy_id": 1,
 			"identifier": "thanksgiving",
-			"level": 7,
+			"level": 8,
 			"offset_x": -0.705597,
 			"offset_y": 125.163,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-25 09:17:57",
-			"updated_at": "2015-11-25 09:59:10",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.29254,
 			"z_rotation": 0.230514,
-			"satellites": [{
-				"identifier": "turkey_feather"
-			}]
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 91,
@@ -1729,17 +1683,17 @@
 			"discovered_at": "2015-09-21 22:47:46",
 			"galaxy_id": 1,
 			"identifier": "blender",
-			"level": 8,
-			"offset_x": -1.0,
+			"level": 7,
+			"offset_x": -1,
 			"offset_y": 126.505,
-			"process_time": 12600.0,
+			"process_time": 12600,
 			"processed_at": "2015-09-23 09:21:36",
-			"updated_at": "2015-09-23 14:08:24",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 2.54714,
-			"z_rotation": 0.0,
-			"satellites": [
-
-			]
+			"z_rotation": 0,
+			"satellites": [{
+				"identifier": "magic_circle"
+			}]
 		}, {
 			"category": "festival",
 			"colony_order": 92,
@@ -1749,15 +1703,15 @@
 			"galaxy_id": 1,
 			"identifier": "christmas",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 127.551,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-25 09:18:32",
-			"updated_at": "2015-11-25 09:59:10",
+			"updated_at": "2015-12-25 10:35:29",
 			"z_position": 3.03659,
 			"z_rotation": 0.360685,
 			"satellites": [{
-				"identifier": "xmas_gift"
+				"identifier": "turkey_feather"
 			}]
 		}, {
 			"category": "special",
@@ -1768,15 +1722,15 @@
 			"galaxy_id": 1,
 			"identifier": "library",
 			"level": 7,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 128.588,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-25 09:19:05",
-			"updated_at": "2015-11-25 09:59:10",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 2.50882,
 			"z_rotation": 0.604416,
 			"satellites": [{
-				"identifier": "dictionary"
+				"identifier": "xmas_gift"
 			}]
 		}, {
 			"category": "element",
@@ -1786,17 +1740,15 @@
 			"discovered_at": "2015-09-23 06:11:44",
 			"galaxy_id": 1,
 			"identifier": "ocean",
-			"level": 4,
-			"offset_x": -1.0,
+			"level": 8,
+			"offset_x": -1,
 			"offset_y": 130.235,
-			"process_time": 176800.0,
+			"process_time": 0,
 			"processed_at": "2015-12-04 10:55:01",
-			"updated_at": "2015-12-06 12:05:23",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 1.77677,
 			"z_rotation": 0.950999,
-			"satellites": [{
-				"identifier": "blige_plug"
-			}]
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 95,
@@ -1805,17 +1757,17 @@
 			"discovered_at": "2015-09-23 06:12:15",
 			"galaxy_id": 1,
 			"identifier": "juicer",
-			"level": 8,
-			"offset_x": -1.0,
+			"level": 7,
+			"offset_x": -1,
 			"offset_y": 131.393,
-			"process_time": 12600.0,
+			"process_time": 12600,
 			"processed_at": "2015-09-25 05:26:15",
-			"updated_at": "2015-09-25 09:40:18",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 2.24023,
 			"z_rotation": 0.736796,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "dictionary"
+			}]
 		}, {
 			"category": "animal",
 			"colony_order": 96,
@@ -1825,15 +1777,15 @@
 			"galaxy_id": 1,
 			"identifier": "panda",
 			"level": 4,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 132.491,
-			"process_time": 124231.0,
+			"process_time": 124231,
 			"processed_at": "2015-12-05 01:30:47",
-			"updated_at": "2015-12-06 12:05:23",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 1.8182,
 			"z_rotation": 0.538797,
 			"satellites": [{
-				"identifier": "bamboo"
+				"identifier": "blige_plug"
 			}]
 		}, {
 			"category": "plant",
@@ -1844,15 +1796,15 @@
 			"galaxy_id": 1,
 			"identifier": "ruins",
 			"level": 4,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 134.033,
-			"process_time": 438340.0,
+			"process_time": 438340,
 			"processed_at": "2015-11-25 10:00:35",
-			"updated_at": "2015-11-30 11:51:56",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 2.45517,
 			"z_rotation": 0.260478,
 			"satellites": [{
-				"identifier": "rune_stone"
+				"identifier": "bamboo"
 			}]
 		}, {
 			"category": "special",
@@ -1862,17 +1814,15 @@
 			"discovered_at": "2015-09-23 06:16:38",
 			"galaxy_id": 1,
 			"identifier": "portal",
-			"level": 4,
-			"offset_x": -1.0,
+			"level": 8,
+			"offset_x": -1,
 			"offset_y": 135.057,
-			"process_time": 26644.7,
+			"process_time": 0,
 			"processed_at": "2015-12-16 00:14:22",
-			"updated_at": "2015-12-16 13:13:22",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 2.0246,
 			"z_rotation": 0.00233349,
-			"satellites": [{
-				"identifier": "energy_stone"
-			}]
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 99,
@@ -1881,17 +1831,17 @@
 			"discovered_at": "2015-09-23 06:17:10",
 			"galaxy_id": 1,
 			"identifier": "toaster",
-			"level": 8,
+			"level": 4,
 			"offset_x": -0.205656,
 			"offset_y": 136.849,
-			"process_time": 12600.0,
+			"process_time": 12600,
 			"processed_at": "2015-09-24 02:10:23",
-			"updated_at": "2015-09-24 02:13:49",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 1.52708,
 			"z_rotation": 0.218532,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "rune_stone"
+			}]
 		}, {
 			"category": "special",
 			"colony_order": 100,
@@ -1903,13 +1853,13 @@
 			"level": 4,
 			"offset_x": 0.308171,
 			"offset_y": 138.216,
-			"process_time": 438337.0,
+			"process_time": 438337,
 			"processed_at": "2015-11-25 10:00:54",
-			"updated_at": "2015-11-30 11:51:56",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 2.23519,
-			"z_rotation": 0.0,
+			"z_rotation": 0,
 			"satellites": [{
-				"identifier": "malayan_tapir"
+				"identifier": "energy_stone"
 			}]
 		}, {
 			"category": "festival",
@@ -1922,13 +1872,13 @@
 			"level": 4,
 			"offset_x": -0.687921,
 			"offset_y": 139.306,
-			"process_time": 665280.0,
+			"process_time": 665280,
 			"processed_at": "2015-12-06 23:54:41",
-			"updated_at": "2015-12-14 23:50:38",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 2.82478,
-			"z_rotation": 0.0,
+			"z_rotation": 0,
 			"satellites": [{
-				"identifier": "toy_blocks"
+				"identifier": "malayan_tapir"
 			}]
 		}, {
 			"category": "blueprint",
@@ -1941,14 +1891,12 @@
 			"level": 8,
 			"offset_x": 0.00105515,
 			"offset_y": 140.702,
-			"process_time": 12600.0,
+			"process_time": 0,
 			"processed_at": "2015-10-05 15:39:03",
-			"updated_at": "2015-10-06 02:16:06",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 3.18404,
-			"z_rotation": 0.0,
-			"satellites": [
-
-			]
+			"z_rotation": 0,
+			"satellites": []
 		}, {
 			"category": "festival",
 			"colony_order": 103,
@@ -1958,15 +1906,15 @@
 			"galaxy_id": 1,
 			"identifier": "newyear",
 			"level": 4,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 141.71,
-			"process_time": 239348.0,
+			"process_time": 239348,
 			"processed_at": "2015-11-27 17:13:45",
-			"updated_at": "2015-11-30 11:51:56",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 3.74485,
-			"z_rotation": 0.0,
+			"z_rotation": 0,
 			"satellites": [{
-				"identifier": "chinese_dragon"
+				"identifier": "toy_blocks"
 			}]
 		}, {
 			"category": "festival",
@@ -1976,16 +1924,16 @@
 			"discovered_at": "2015-10-13 05:35:45",
 			"galaxy_id": 1,
 			"identifier": "valentine",
-			"level": 7,
+			"level": 4,
 			"offset_x": 0.332724,
 			"offset_y": 143.314,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-18 09:04:59",
-			"updated_at": "2015-11-18 09:12:46",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:30",
+			"z_position": 4,
 			"z_rotation": 0.231328,
 			"satellites": [{
-				"identifier": "love_letter"
+				"identifier": "chinese_dragon"
 			}]
 		}, {
 			"category": "plant",
@@ -1995,16 +1943,16 @@
 			"discovered_at": "2015-10-20 04:33:14",
 			"galaxy_id": 1,
 			"identifier": "tomb",
-			"level": 4,
-			"offset_x": 1.0,
+			"level": 7,
+			"offset_x": 1,
 			"offset_y": 144.593,
-			"process_time": 109949.0,
+			"process_time": 109949,
 			"processed_at": "2015-12-19 00:03:44",
-			"updated_at": "2015-12-20 11:47:47",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:30",
+			"z_position": 4,
 			"z_rotation": 0.0421632,
 			"satellites": [{
-				"identifier": "monument"
+				"identifier": "love_letter"
 			}]
 		}, {
 			"category": null,
@@ -2015,16 +1963,14 @@
 			"galaxy_id": 1,
 			"identifier": "toaster",
 			"level": 8,
-			"offset_x": 1.0,
+			"offset_x": 1,
 			"offset_y": 146.237,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-21 08:47:02",
-			"updated_at": "2015-10-21 08:49:57",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 3.74361,
-			"z_rotation": 0.0,
-			"satellites": [
-
-			]
+			"z_rotation": 0,
+			"satellites": []
 		}, {
 			"category": "animal",
 			"colony_order": 107,
@@ -2036,13 +1982,13 @@
 			"level": 4,
 			"offset_x": 0.398745,
 			"offset_y": 147.997,
-			"process_time": 333884.0,
+			"process_time": 333884,
 			"processed_at": "2015-12-12 10:48:55",
-			"updated_at": "2015-12-16 13:13:22",
-			"z_position": 4.0,
-			"z_rotation": 0.0,
+			"updated_at": "2015-12-25 10:35:30",
+			"z_position": 4,
+			"z_rotation": 0,
 			"satellites": [{
-				"identifier": "rune_plate"
+				"identifier": "monument"
 			}]
 		}, {
 			"category": "plant",
@@ -2052,16 +1998,16 @@
 			"discovered_at": "2015-10-20 06:12:49",
 			"galaxy_id": 1,
 			"identifier": "viking",
-			"level": 5,
+			"level": 4,
 			"offset_x": -0.785552,
 			"offset_y": 149.11,
-			"process_time": 745380.0,
+			"process_time": 745380,
 			"processed_at": "2015-12-24 03:57:27",
-			"updated_at": "2015-12-24 07:00:55",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 3.6567,
 			"z_rotation": 0.271068,
 			"satellites": [{
-				"identifier": "horn"
+				"identifier": "rune_plate"
 			}]
 		}, {
 			"category": "animal",
@@ -2072,15 +2018,15 @@
 			"galaxy_id": 1,
 			"identifier": "dragon",
 			"level": 5,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 150.405,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-13 09:30:49",
-			"updated_at": "2015-11-13 09:42:58",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:30",
+			"z_position": 4,
 			"z_rotation": 0.533987,
 			"satellites": [{
-				"identifier": "knight_shield"
+				"identifier": "horn"
 			}]
 		}, {
 			"category": null,
@@ -2091,16 +2037,14 @@
 			"galaxy_id": 1,
 			"identifier": "coffee",
 			"level": 8,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 151.872,
-			"process_time": 12600.0,
+			"process_time": 0,
 			"processed_at": "2015-10-22 06:06:09",
-			"updated_at": "2015-10-22 09:58:47",
-			"z_position": 4.0,
+			"updated_at": "2015-12-25 10:35:30",
+			"z_position": 4,
 			"z_rotation": 0.699463,
-			"satellites": [
-
-			]
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 111,
@@ -2109,17 +2053,17 @@
 			"discovered_at": "2015-10-24 12:52:23",
 			"galaxy_id": 1,
 			"identifier": "blender",
-			"level": 8,
+			"level": 5,
 			"offset_x": 0.0125974,
 			"offset_y": 153.458,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-10-25 01:40:01",
-			"updated_at": "2015-10-25 01:46:45",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 3.66458,
 			"z_rotation": 0.859812,
-			"satellites": [
-
-			]
+			"satellites": [{
+				"identifier": "knight_shield"
+			}]
 		}, {
 			"category": null,
 			"colony_order": 112,
@@ -2129,16 +2073,14 @@
 			"galaxy_id": 1,
 			"identifier": "toaster",
 			"level": 8,
-			"offset_x": -1.0,
+			"offset_x": -1,
 			"offset_y": 154.749,
-			"process_time": 6283.59,
+			"process_time": 0,
 			"processed_at": "2015-10-25 09:28:19",
-			"updated_at": "2015-10-26 00:11:45",
-			"z_position": 4.0,
-			"z_rotation": 1.0,
-			"satellites": [
-
-			]
+			"updated_at": "2015-12-25 10:35:30",
+			"z_position": 4,
+			"z_rotation": 1,
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 113,
@@ -2150,14 +2092,12 @@
 			"level": 8,
 			"offset_x": -0.263957,
 			"offset_y": 155.853,
-			"process_time": 0.0,
+			"process_time": 0,
 			"processed_at": "2015-11-03 09:11:44",
-			"updated_at": "2015-11-03 11:52:11",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 3.59131,
 			"z_rotation": 0.636276,
-			"satellites": [
-
-			]
+			"satellites": []
 		}, {
 			"category": null,
 			"colony_order": 114,
@@ -2169,23 +2109,21 @@
 			"level": 8,
 			"offset_x": -0.904776,
 			"offset_y": 157.057,
-			"process_time": 12600.0,
+			"process_time": 0,
 			"processed_at": "2015-11-10 07:44:52",
-			"updated_at": "2015-11-10 11:22:13",
+			"updated_at": "2015-12-25 10:35:30",
 			"z_position": 3.2756,
 			"z_rotation": 0.805608,
-			"satellites": [
-
-			]
+			"satellites": []
 		}],
 		"satellites": [{
-			"colony_id": 12524663,
+			"colony_id": 12832989,
 			"identifier": "sinked_boat",
-			"updated_at": "2015-11-06 08:57:42"
+			"updated_at": "2015-12-25 09:49:17"
 		}, {
-			"colony_id": 11823150,
+			"colony_id": 12066917,
 			"identifier": "gear",
-			"updated_at": "2015-11-06 08:57:42"
+			"updated_at": "2015-12-25 09:49:16"
 		}, {
 			"colony_id": null,
 			"identifier": "ball_of_yarn",
@@ -2193,75 +2131,75 @@
 		}, {
 			"colony_id": 9181705,
 			"identifier": "hubble_telescope",
-			"updated_at": "2015-11-06 08:57:40"
+			"updated_at": "2015-12-25 09:49:12"
 		}, {
-			"colony_id": 12953267,
+			"colony_id": 13108831,
 			"identifier": "fish_eyeball",
-			"updated_at": "2015-08-28 12:18:09"
+			"updated_at": "2015-12-25 09:49:17"
 		}, {
-			"colony_id": 14788819,
+			"colony_id": 15167125,
 			"identifier": "chinese_dragon",
-			"updated_at": "2015-10-21 08:57:22"
+			"updated_at": "2015-12-25 09:49:18"
 		}, {
 			"colony_id": 9249034,
 			"identifier": "flower_ball",
-			"updated_at": "2015-11-06 08:57:41"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
-			"colony_id": 9358223,
+			"colony_id": 9373862,
 			"identifier": "soccer",
-			"updated_at": "2015-06-14 08:17:56"
-		}, {
-			"colony_id": 10506427,
-			"identifier": "juicer",
-			"updated_at": "2015-08-03 04:44:34"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
 			"colony_id": 10659567,
+			"identifier": "juicer",
+			"updated_at": "2015-12-25 09:49:15"
+		}, {
+			"colony_id": 10761624,
 			"identifier": "drip_machine",
-			"updated_at": "2015-08-03 04:44:34"
+			"updated_at": "2015-12-25 09:49:15"
 		}, {
-			"colony_id": 12832989,
+			"colony_id": 12912167,
 			"identifier": "blue_light_ball",
-			"updated_at": "2015-08-25 05:07:29"
+			"updated_at": "2015-12-25 09:49:17"
 		}, {
-			"colony_id": 9207845,
+			"colony_id": 9216666,
 			"identifier": "armillary_sphere",
-			"updated_at": "2015-11-06 08:57:41"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
 			"colony_id": 9192806,
 			"identifier": "plug",
-			"updated_at": "2015-07-23 23:57:21"
+			"updated_at": "2015-12-25 09:49:12"
 		}, {
-			"colony_id": 9898456,
+			"colony_id": 9975554,
 			"identifier": "popsicle",
-			"updated_at": "2015-08-03 04:44:33"
-		}, {
-			"colony_id": 9529332,
-			"identifier": "snacks",
-			"updated_at": "2015-07-23 23:57:22"
+			"updated_at": "2015-12-25 09:49:15"
 		}, {
 			"colony_id": 9562258,
+			"identifier": "snacks",
+			"updated_at": "2015-12-25 09:49:14"
+		}, {
+			"colony_id": 9632476,
 			"identifier": "crown",
-			"updated_at": "2015-11-06 08:57:41"
+			"updated_at": "2015-12-25 09:49:14"
 		}, {
-			"colony_id": 9373862,
+			"colony_id": 9391816,
 			"identifier": "feather_ball",
-			"updated_at": "2015-06-15 00:09:24"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
-			"colony_id": 11194718,
+			"colony_id": 11439112,
 			"identifier": "diamond",
-			"updated_at": "2015-08-03 04:44:35"
+			"updated_at": "2015-12-25 09:49:16"
 		}, {
-			"colony_id": 10400279,
+			"colony_id": 10403981,
 			"identifier": "sapphire",
-			"updated_at": "2015-08-03 04:44:34"
+			"updated_at": "2015-12-25 09:49:15"
 		}, {
-			"colony_id": 9595605,
+			"colony_id": 9632477,
 			"identifier": "cotton_candy",
-			"updated_at": "2015-08-03 04:44:33"
+			"updated_at": "2015-12-25 09:49:14"
 		}, {
-			"colony_id": 12720422,
+			"colony_id": 12846586,
 			"identifier": "buccinidae",
-			"updated_at": "2015-08-25 05:07:29"
+			"updated_at": "2015-12-25 09:49:17"
 		}, {
 			"colony_id": null,
 			"identifier": "olive_tree",
@@ -2269,87 +2207,87 @@
 		}, {
 			"colony_id": 9158981,
 			"identifier": "artificial_satellite",
-			"updated_at": "2015-08-03 04:44:32"
+			"updated_at": "2015-12-25 09:49:12"
 		}, {
 			"colony_id": 9237152,
 			"identifier": "arc_net_shield",
-			"updated_at": "2015-11-06 08:57:41"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
-			"colony_id": 11539121,
+			"colony_id": 11810381,
 			"identifier": "candy_cane",
-			"updated_at": "2015-08-03 04:44:35"
+			"updated_at": "2015-12-25 09:49:16"
 		}, {
-			"colony_id": 11077797,
+			"colony_id": 11243443,
 			"identifier": "christmas_star",
-			"updated_at": "2015-08-03 04:44:34"
+			"updated_at": "2015-12-25 09:49:16"
 		}, {
 			"colony_id": null,
 			"identifier": "yellow_juicer",
 			"updated_at": "2015-06-22 02:47:02"
 		}, {
-			"colony_id": 9227782,
+			"colony_id": 9217420,
 			"identifier": "snow_ball",
-			"updated_at": "2015-06-20 02:57:53"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
-			"colony_id": 9975554,
+			"colony_id": 10058007,
 			"identifier": "drilling_machine",
-			"updated_at": "2015-08-03 04:44:34"
+			"updated_at": "2015-12-25 09:49:15"
 		}, {
-			"colony_id": 10136044,
+			"colony_id": 10312726,
 			"identifier": "spacecraft_of_dr_evil",
-			"updated_at": "2015-07-03 06:27:08"
+			"updated_at": "2015-12-25 09:49:15"
 		}, {
-			"colony_id": 9314250,
+			"colony_id": 9337278,
 			"identifier": "amber",
-			"updated_at": "2015-08-03 04:44:32"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
 			"colony_id": 9158978,
 			"identifier": "letter_in_the_bottle",
-			"updated_at": "2015-06-24 12:07:02"
+			"updated_at": "2015-12-25 09:49:12"
 		}, {
 			"colony_id": null,
 			"identifier": "grass_ball",
 			"updated_at": "2015-07-23 23:57:22"
 		}, {
-			"colony_id": 9338406,
+			"colony_id": 9358223,
 			"identifier": "honey_dipper",
-			"updated_at": "2015-06-26 06:44:09"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
-			"colony_id": 11243443,
+			"colony_id": 11439113,
 			"identifier": "dvd",
-			"updated_at": "2015-07-24 00:13:57"
+			"updated_at": "2015-12-25 09:49:16"
 		}, {
-			"colony_id": 10969357,
+			"colony_id": 11194718,
 			"identifier": "bell",
-			"updated_at": "2015-08-03 04:44:34"
+			"updated_at": "2015-12-25 09:49:16"
+		}, {
+			"colony_id": 9501787,
+			"identifier": "ruby",
+			"updated_at": "2015-12-25 09:49:14"
+		}, {
+			"colony_id": 12953267,
+			"identifier": "detector",
+			"updated_at": "2015-12-25 09:49:17"
+		}, {
+			"colony_id": 15513613,
+			"identifier": "love_letter",
+			"updated_at": "2015-12-25 09:49:18"
+		}, {
+			"colony_id": 13101585,
+			"identifier": "macaron",
+			"updated_at": "2015-12-25 09:49:17"
+		}, {
+			"colony_id": 9430428,
+			"identifier": "game_girl",
+			"updated_at": "2015-12-25 09:49:14"
 		}, {
 			"colony_id": 9454206,
-			"identifier": "ruby",
-			"updated_at": "2015-08-03 04:44:33"
-		}, {
-			"colony_id": 12846586,
-			"identifier": "detector",
-			"updated_at": "2015-11-06 08:57:42"
-		}, {
-			"colony_id": 15167125,
-			"identifier": "love_letter",
-			"updated_at": "2015-11-06 08:57:43"
-		}, {
-			"colony_id": 12912167,
-			"identifier": "macaron",
-			"updated_at": "2015-08-28 12:18:09"
-		}, {
-			"colony_id": 9391816,
-			"identifier": "game_girl",
-			"updated_at": "2015-11-06 08:57:41"
-		}, {
-			"colony_id": 9431438,
 			"identifier": "magic_cube",
-			"updated_at": "2015-11-06 08:57:41"
+			"updated_at": "2015-12-25 09:49:14"
 		}, {
 			"colony_id": 9165028,
 			"identifier": "rainbow",
-			"updated_at": "2015-07-23 23:57:21"
+			"updated_at": "2015-12-25 09:49:12"
 		}, {
 			"colony_id": null,
 			"identifier": "invisible_walkr",
@@ -2359,181 +2297,181 @@
 			"identifier": "battery",
 			"updated_at": "2015-07-23 23:57:22"
 		}, {
-			"colony_id": 12066917,
+			"colony_id": 12373127,
 			"identifier": "magic_stone",
-			"updated_at": "2015-11-06 08:57:42"
+			"updated_at": "2015-12-25 09:49:16"
 		}, {
-			"colony_id": 10403981,
+			"colony_id": 10506427,
 			"identifier": "hami_ham",
-			"updated_at": "2015-07-21 13:46:52"
+			"updated_at": "2015-12-25 09:49:15"
 		}, {
-			"colony_id": 9281214,
+			"colony_id": 9289295,
 			"identifier": "yellow_light_ball",
-			"updated_at": "2015-07-23 23:57:21"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
 			"colony_id": 9801144,
 			"identifier": "coke",
-			"updated_at": "2015-07-23 23:57:22"
+			"updated_at": "2015-12-25 09:49:14"
 		}, {
-			"colony_id": 11439113,
+			"colony_id": 11695662,
 			"identifier": "emerald",
-			"updated_at": "2015-07-28 07:00:41"
+			"updated_at": "2015-12-25 09:49:16"
 		}, {
-			"colony_id": 11318358,
+			"colony_id": 11539121,
 			"identifier": "lettle_umbrella",
-			"updated_at": "2015-07-26 06:53:49"
+			"updated_at": "2015-12-25 09:49:16"
 		}, {
-			"colony_id": 9289295,
+			"colony_id": 9314250,
 			"identifier": "lollipop",
-			"updated_at": "2015-08-03 04:44:32"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
 			"colony_id": 9158982,
 			"identifier": "fireball",
-			"updated_at": "2015-07-23 23:57:21"
+			"updated_at": "2015-12-25 09:49:12"
 		}, {
-			"colony_id": 12229513,
+			"colony_id": 12524663,
 			"identifier": "dog_bowl",
-			"updated_at": "2015-08-14 03:39:45"
+			"updated_at": "2015-12-25 09:49:16"
 		}, {
 			"colony_id": 9764292,
 			"identifier": "snow_flower",
-			"updated_at": "2015-08-03 04:44:33"
+			"updated_at": "2015-12-25 09:49:14"
 		}, {
-			"colony_id": 9202773,
+			"colony_id": 9207845,
 			"identifier": "space_garbage",
-			"updated_at": "2015-08-03 04:44:32"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
-			"colony_id": 9834395,
+			"colony_id": 9898456,
 			"identifier": "gummy_bear",
-			"updated_at": "2015-08-03 04:44:33"
-		}, {
-			"colony_id": 10761624,
-			"identifier": "roman_helmet",
-			"updated_at": "2015-08-03 04:44:34"
-		}, {
-			"colony_id": 9410762,
-			"identifier": "scarecrow",
-			"updated_at": "2015-11-06 08:57:41"
-		}, {
-			"colony_id": 13514319,
-			"identifier": "easter_egg",
-			"updated_at": "2015-11-06 08:57:42"
-		}, {
-			"colony_id": 10193943,
-			"identifier": "space_priates_battleship",
-			"updated_at": "2015-11-06 08:57:42"
-		}, {
-			"colony_id": 13101585,
-			"identifier": "raven",
-			"updated_at": "2015-11-06 08:57:42"
-		}, {
-			"colony_id": 9676438,
-			"identifier": "bottle_of_milk",
-			"updated_at": "2015-11-06 08:57:41"
+			"updated_at": "2015-12-25 09:49:15"
 		}, {
 			"colony_id": 10861715,
-			"identifier": "bat",
-			"updated_at": "2015-11-06 08:57:42"
+			"identifier": "roman_helmet",
+			"updated_at": "2015-12-25 09:49:15"
+		}, {
+			"colony_id": 9431438,
+			"identifier": "scarecrow",
+			"updated_at": "2015-12-25 09:49:14"
+		}, {
+			"colony_id": 13757101,
+			"identifier": "easter_egg",
+			"updated_at": "2015-12-25 09:49:17"
 		}, {
 			"colony_id": 10312727,
+			"identifier": "space_priates_battleship",
+			"updated_at": "2015-12-25 09:49:15"
+		}, {
+			"colony_id": 13288924,
+			"identifier": "raven",
+			"updated_at": "2015-12-25 09:49:17"
+		}, {
+			"colony_id": 9755666,
+			"identifier": "bottle_of_milk",
+			"updated_at": "2015-12-25 09:49:14"
+		}, {
+			"colony_id": 11077797,
+			"identifier": "bat",
+			"updated_at": "2015-12-25 09:49:16"
+		}, {
+			"colony_id": 10400279,
 			"identifier": "scoutship",
-			"updated_at": "2015-11-06 08:57:42"
+			"updated_at": "2015-12-25 09:49:15"
 		}, {
 			"colony_id": 9261974,
 			"identifier": "red_juicer",
-			"updated_at": "2015-11-06 08:57:41"
+			"updated_at": "2015-12-25 09:49:13"
 		}, {
-			"colony_id": 9501787,
+			"colony_id": 9529332,
 			"identifier": "rat",
-			"updated_at": "2015-11-06 08:57:41"
+			"updated_at": "2015-12-25 09:49:14"
 		}, {
-			"colony_id": 12373128,
+			"colony_id": 12720422,
 			"identifier": "cheese",
-			"updated_at": "2015-08-28 12:18:09"
+			"updated_at": "2015-12-25 09:49:17"
 		}, {
-			"colony_id": 9632477,
+			"colony_id": 9676438,
 			"identifier": "pearl",
-			"updated_at": "2015-11-06 08:57:41"
+			"updated_at": "2015-12-25 09:49:14"
 		}, {
-			"colony_id": 11695662,
+			"colony_id": 11823150,
 			"identifier": "tire",
-			"updated_at": "2015-11-06 08:57:42"
+			"updated_at": "2015-12-25 09:49:16"
 		}, {
-			"colony_id": 14448576,
+			"colony_id": 14788819,
 			"identifier": "toy_blocks",
-			"updated_at": "2015-10-21 08:57:22"
-		}, {
-			"colony_id": 14123536,
-			"identifier": "xmas_gift",
-			"updated_at": "2015-11-06 08:57:43"
-		}, {
-			"colony_id": 11976556,
-			"identifier": "pipe",
-			"updated_at": "2015-11-06 08:57:42"
-		}, {
-			"colony_id": 13288924,
-			"identifier": "moon_cake",
-			"updated_at": "2015-11-06 08:57:42"
-		}, {
-			"colony_id": 10058007,
-			"identifier": "magic_rune",
-			"updated_at": "2015-11-06 08:57:41"
-		}, {
-			"colony_id": 9175868,
-			"identifier": "sachet",
-			"updated_at": "2015-11-06 08:57:40"
-		}, {
-			"colony_id": 14179381,
-			"identifier": "blige_plug",
-			"updated_at": "2015-10-05 17:56:15"
-		}, {
-			"colony_id": 15513613,
-			"identifier": "monument",
-			"updated_at": "2015-10-21 08:57:22"
-		}, {
-			"colony_id": 14179384,
-			"identifier": "rune_stone",
-			"updated_at": "2015-10-05 17:56:15"
-		}, {
-			"colony_id": 14179385,
-			"identifier": "energy_stone",
-			"updated_at": "2015-10-05 17:56:15"
-		}, {
-			"colony_id": 15518016,
-			"identifier": "rune_plate",
-			"updated_at": "2015-10-21 08:57:22"
-		}, {
-			"colony_id": 14179387,
-			"identifier": "malayan_tapir",
-			"updated_at": "2015-10-05 17:56:15"
-		}, {
-			"colony_id": 13927081,
-			"identifier": "turkey_feather",
-			"updated_at": "2015-10-21 08:57:22"
-		}, {
-			"colony_id": 13757101,
-			"identifier": "magic_circle",
-			"updated_at": "2015-11-06 08:57:43"
-		}, {
-			"colony_id": 13108831,
-			"identifier": "sweet_heart",
-			"updated_at": "2015-11-06 08:57:42"
-		}, {
-			"colony_id": 14179383,
-			"identifier": "bamboo",
-			"updated_at": "2015-10-21 08:57:22"
-		}, {
-			"colony_id": 15518017,
-			"identifier": "horn",
-			"updated_at": "2015-10-21 08:57:22"
-		}, {
-			"colony_id": 15518018,
-			"identifier": "knight_shield",
-			"updated_at": "2015-10-21 08:57:22"
+			"updated_at": "2015-12-25 09:49:18"
 		}, {
 			"colony_id": 14179380,
+			"identifier": "xmas_gift",
+			"updated_at": "2015-12-25 09:49:18"
+		}, {
+			"colony_id": 12229513,
+			"identifier": "pipe",
+			"updated_at": "2015-12-25 09:49:16"
+		}, {
+			"colony_id": 13514319,
+			"identifier": "moon_cake",
+			"updated_at": "2015-12-25 09:49:17"
+		}, {
+			"colony_id": 10193943,
+			"identifier": "magic_rune",
+			"updated_at": "2015-12-25 09:49:15"
+		}, {
+			"colony_id": 9177245,
+			"identifier": "sachet",
+			"updated_at": "2015-12-25 09:49:12"
+		}, {
+			"colony_id": 14179383,
+			"identifier": "blige_plug",
+			"updated_at": "2015-12-25 09:49:18"
+		}, {
+			"colony_id": 15518016,
+			"identifier": "monument",
+			"updated_at": "2015-12-25 09:49:18"
+		}, {
+			"colony_id": 14179386,
+			"identifier": "rune_stone",
+			"updated_at": "2015-12-25 09:49:18"
+		}, {
+			"colony_id": 14179387,
+			"identifier": "energy_stone",
+			"updated_at": "2015-12-25 09:49:18"
+		}, {
+			"colony_id": 15518017,
+			"identifier": "rune_plate",
+			"updated_at": "2015-12-25 09:49:18"
+		}, {
+			"colony_id": 14448576,
+			"identifier": "malayan_tapir",
+			"updated_at": "2015-12-25 09:49:18"
+		}, {
+			"colony_id": 14123536,
+			"identifier": "turkey_feather",
+			"updated_at": "2015-12-25 09:49:18"
+		}, {
+			"colony_id": 14123535,
+			"identifier": "magic_circle",
+			"updated_at": "2015-12-25 09:49:18"
+		}, {
+			"colony_id": 13483766,
+			"identifier": "sweet_heart",
+			"updated_at": "2015-12-25 09:49:17"
+		}, {
+			"colony_id": 14179384,
+			"identifier": "bamboo",
+			"updated_at": "2015-12-25 09:49:18"
+		}, {
+			"colony_id": 15518018,
+			"identifier": "horn",
+			"updated_at": "2015-12-25 09:49:19"
+		}, {
+			"colony_id": 15744189,
+			"identifier": "knight_shield",
+			"updated_at": "2015-12-25 09:49:19"
+		}, {
+			"colony_id": 14179382,
 			"identifier": "dictionary",
-			"updated_at": "2015-10-21 08:57:22"
+			"updated_at": "2015-12-25 09:49:18"
 		}],
 		"missions": [{
 			"aborted": false,
@@ -3697,6 +3635,21 @@
 			"updated_at": "2015-12-06 11:55:37"
 		}],
 		"activities": [{
+			"date": "2015-12-26 16:00:00",
+			"running": 0,
+			"updated_at": "2015-12-27 07:23:08",
+			"walking": 2748
+		}, {
+			"date": "2015-12-25 16:00:00",
+			"running": 39,
+			"updated_at": "2015-12-27 07:23:08",
+			"walking": 3418
+		}, {
+			"date": "2015-12-24 16:00:00",
+			"running": 0,
+			"updated_at": "2015-12-27 07:23:08",
+			"walking": 4148
+		}, {
 			"date": "2015-12-22 16:00:00",
 			"running": 0,
 			"updated_at": "2015-12-23 06:04:06",
@@ -4773,230 +4726,224 @@
 		"achievements": [{
 			"completed": true,
 			"identifier": "first.planet",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-06 15:58:57"
 		}, {
 			"completed": true,
 			"identifier": "population.5",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-06 15:58:57"
 		}, {
 			"completed": true,
 			"identifier": "coins.1k",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-06 15:58:57"
 		}, {
 			"completed": true,
 			"identifier": "first.replicator",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-06 15:58:57"
 		}, {
 			"completed": true,
 			"identifier": "license",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-06 15:58:57"
 		}, {
 			"completed": true,
 			"identifier": "first.friend",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-06 16:00:58"
 		}, {
 			"completed": true,
 			"identifier": "planet.3",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-06 23:17:07"
 		}, {
 			"completed": true,
 			"identifier": "coins.5k",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-07 00:21:28"
 		}, {
 			"completed": true,
 			"identifier": "population.25",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-07 04:00:51"
 		}, {
 			"completed": true,
 			"identifier": "population.50",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-07 10:27:51"
 		}, {
 			"completed": true,
 			"identifier": "coins.10k",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-07 12:19:41"
 		}, {
 			"completed": true,
 			"identifier": "planet.6",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-07 14:18:17"
 		}, {
 			"completed": true,
 			"identifier": "planet.9",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-08 16:24:43"
 		}, {
 			"completed": true,
 			"identifier": "replicator.3",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-08 16:24:43"
 		}, {
 			"completed": true,
 			"identifier": "planet.12",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-10 07:25:27"
 		}, {
 			"completed": true,
 			"identifier": "population.100",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-10 07:25:27"
 		}, {
 			"completed": true,
 			"identifier": "coins.50k",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-10 08:51:52"
 		}, {
 			"completed": true,
 			"identifier": "planet.15",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-11 23:30:38"
 		}, {
 			"completed": true,
 			"identifier": "coins.100k",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-13 14:31:12"
 		}, {
 			"completed": true,
 			"identifier": "planet.18",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-14 08:11:20"
 		}, {
 			"completed": true,
 			"identifier": "coins.200k",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-15 14:33:13"
 		}, {
 			"completed": true,
 			"identifier": "planet.21",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-16 09:48:01"
 		}, {
 			"completed": true,
 			"identifier": "population.200",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-16 09:48:01"
 		}, {
 			"completed": true,
 			"identifier": "replicator.7",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-18 09:12:20"
 		}, {
 			"completed": true,
 			"identifier": "planet.24",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-20 02:17:20"
 		}, {
 			"completed": true,
 			"identifier": "coins.500k",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-20 11:11:29"
 		}, {
 			"completed": true,
 			"identifier": "goal.steps.3",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-21 13:16:44"
 		}, {
 			"completed": true,
 			"identifier": "coins.1000k",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-23 03:23:09"
 		}, {
 			"completed": true,
 			"identifier": "planet.27",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-23 06:05:38"
 		}, {
 			"completed": true,
 			"identifier": "planet.30",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-26 06:44:09"
 		}, {
 			"completed": true,
 			"identifier": "planet.33",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-29 15:54:08"
 		}, {
 			"completed": true,
 			"identifier": "goal.steps.7",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-06-29 15:54:08"
 		}, {
 			"completed": true,
 			"identifier": "goal.steps.14",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-07-01 22:50:41"
 		}, {
 			"completed": true,
 			"identifier": "planet.36",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-07-03 06:27:09"
 		}, {
 			"completed": true,
 			"identifier": "replicator.12",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-07-06 23:44:18"
 		}, {
 			"completed": true,
 			"identifier": "planet.39",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-07-07 01:07:37"
 		}, {
 			"completed": true,
 			"identifier": "planet.42",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-07-13 08:18:30"
 		}, {
 			"completed": true,
 			"identifier": "population.400",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-07-16 11:39:36"
 		}, {
 			"completed": true,
 			"identifier": "planet.45",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-07-19 04:50:51"
 		}, {
 			"completed": true,
 			"identifier": "planet.48",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-07-24 00:00:17"
 		}, {
 			"completed": true,
 			"identifier": "population.600",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-08-11 02:31:37"
 		}, {
 			"completed": true,
 			"identifier": "replicator.18",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-08-24 15:47:49"
 		}, {
 			"completed": true,
 			"identifier": "goal.steps.30",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-09-05 13:34:23"
 		}, {
 			"completed": true,
 			"identifier": "population.850",
-			"progress": 1.0,
+			"progress": 1,
 			"updated_at": "2015-09-23 06:24:52"
 		}],
-		"messages": [
-		52,
-		51,
-		50,
-		38,
-		32,
-		25]
+		"messages": [54, 52, 51, 50, 38, 32, 25]
 	}
 }
