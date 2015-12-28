@@ -149,88 +149,93 @@ func MakeRequest(playerInfo PlayerInfo) {
 	// 3. 加入邀请的舰队
 	// 4. 留言说明几分钟退出
 	// 5. 退出舰队
-	// for _, playerInfo := range config.PlayerInfo {
-	currentRound := _getRound(playerInfo)
-	log.Warning("=====================「%v」的第%v次循环 =====================", playerInfo.Name, currentRound)
+	for _, playerInfo := range config.PlayerInfo {
+		currentRound := _getRound(playerInfo)
+		log.Warning("=====================「%v」的第%v次循环 =====================", playerInfo.Name, currentRound)
 
-	// 获取传说列表
-	var resp *http.Response
-	var err error
+		// 获取传说列表
+		var resp *http.Response
+		var err error
 
-	// 每十轮判断是否有好友申请
-	if currentRound%2 == 0 {
-		_checkFriendInvitation(playerInfo)
-	}
-
-	// 获取传说列表
-	resp, err = _requestEpicList(playerInfo)
-	if err != nil {
-		log.Error("获取传说列表失败: %v", err)
-		continue
-	}
-
-	hasInvitation := _checkInvitationCount(resp, playerInfo)
-	if hasInvitation == false {
-		log.Notice("当前没有邀请的传说, 等待下一次刷新")
-		continue
-	}
-	if resp.Body != nil {
-		resp.Body.Close()
-	}
-
-	// 如果有传说, 随便获取一个传说列表, 找到邀请的传说
-	resp, err = _requestFleetList(playerInfo)
-	if err != nil {
-		log.Error("获取舰队列表失败: %v", err)
-		continue
-	}
-
-	fleet := _getInvitationFleet(resp, playerInfo)
-	if fleet == nil {
-		log.Notice("当前没有邀请的舰队, 等待下次刷新")
-		continue
-	}
-	if resp.Body != nil {
-		resp.Body.Close()
-	}
-
-	appliedOk := _applyInvitedFleet(playerInfo, fleet)
-	if appliedOk == false {
-		log.Notice("加入舰队[%v:%v]失败, 等待下次刷新", fleet.Name, fleet.Id)
-		continue
-	}
-
-	// BI: 更新加入同一舰队的数量
-	_incrJoinedTimes(fleet.Id, playerInfo)
-
-	_leaveComment(playerInfo, fleet, COMMENT_JOINED)
-
-	// 5分钟之后自动退出
-	time.Sleep(WaitDuration)
-
-	_leaveComment(playerInfo, fleet, COMMENT_LEAVE)
-
-	var leaveComments LeaveComments
-	if _, err := toml.DecodeFile("comments.toml", &leaveComments); err != nil {
-		log.Error("解析留言列表有问题: %v", err)
-	} else {
-		leaveComment := leaveComments.List[rand.New(rand.NewSource(time.Now().UnixNano())).Intn(len(leaveComments.List))]
-		_leaveComment(playerInfo, fleet, leaveComment)
-	}
-
-	leaveCount := 0
-	for leaveCount < 5 {
-		if leaveOk := _leaveFleet(playerInfo, fleet); leaveOk == true {
-			break
-		} else {
-			log.Error("尝试第%v次离开舰队失败，稍后尝试", leaveCount)
-			leaveCount += 1
-			time.Sleep(time.Duration(5) * time.Second)
+		// 每十轮判断是否有好友申请
+		if currentRound%2 == 0 {
+			_checkFriendInvitation(playerInfo)
 		}
-	}
 
-	// }
-	_incrRound(playerInfo)
+		// 获取传说列表
+		resp, err = _requestEpicList(playerInfo)
+		if err != nil {
+			log.Error("获取传说列表失败: %v", err)
+			_incrRound(playerInfo)
+			continue
+		}
+
+		hasInvitation := _checkInvitationCount(resp, playerInfo)
+		if hasInvitation == false {
+			log.Notice("当前没有邀请的传说, 等待下一次刷新")
+			_incrRound(playerInfo)
+			continue
+		}
+		if resp.Body != nil {
+			resp.Body.Close()
+		}
+
+		// 如果有传说, 随便获取一个传说列表, 找到邀请的传说
+		resp, err = _requestFleetList(playerInfo)
+		if err != nil {
+			log.Error("获取舰队列表失败: %v", err)
+			_incrRound(playerInfo)
+			continue
+		}
+
+		fleet := _getInvitationFleet(resp, playerInfo)
+		if fleet == nil {
+			log.Notice("当前没有邀请的舰队, 等待下次刷新")
+			_incrRound(playerInfo)
+			continue
+		}
+		if resp.Body != nil {
+			resp.Body.Close()
+		}
+
+		appliedOk := _applyInvitedFleet(playerInfo, fleet)
+		if appliedOk == false {
+			log.Notice("加入舰队[%v:%v]失败, 等待下次刷新", fleet.Name, fleet.Id)
+			_incrRound(playerInfo)
+			continue
+		}
+
+		// BI: 更新加入同一舰队的数量
+		_incrJoinedTimes(fleet.Id, playerInfo)
+
+		_leaveComment(playerInfo, fleet, COMMENT_JOINED)
+
+		// 5分钟之后自动退出
+		time.Sleep(WaitDuration)
+
+		_leaveComment(playerInfo, fleet, COMMENT_LEAVE)
+
+		var leaveComments LeaveComments
+		if _, err := toml.DecodeFile("comments.toml", &leaveComments); err != nil {
+			log.Error("解析留言列表有问题: %v", err)
+		} else {
+			leaveComment := leaveComments.List[rand.New(rand.NewSource(time.Now().UnixNano())).Intn(len(leaveComments.List))]
+			_leaveComment(playerInfo, fleet, leaveComment)
+		}
+
+		leaveCount := 0
+		for leaveCount < 5 {
+			if leaveOk := _leaveFleet(playerInfo, fleet); leaveOk == true {
+				break
+			} else {
+				log.Error("尝试第%v次离开舰队失败，稍后尝试", leaveCount)
+				leaveCount += 1
+				time.Sleep(time.Duration(5) * time.Second)
+			}
+		}
+
+		_incrRound(playerInfo)
+	}
 
 }
 
@@ -698,11 +703,8 @@ func main() {
 	}
 
 	for true {
-
-		for _, playerInfo := range config.PlayerInfo {
-			MakeRequest(playerInfo)
-			time.Sleep(RoundDuration)
-		}
+		MakeRequest()
+		time.Sleep(RoundDuration)
 
 	}
 
