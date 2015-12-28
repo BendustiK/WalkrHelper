@@ -136,7 +136,7 @@ var format = logging.MustStringFormatter(
 	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
 )
 
-func MakeRequest(playerInfo PlayerInfo) {
+func MakeRequest() {
 	defer func() {
 		if r := recover(); r != nil {
 			msg := goerrors.Wrap(r, 2).ErrorStack()
