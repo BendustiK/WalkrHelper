@@ -65,6 +65,13 @@ type ConfirmFriendRequest struct {
 	Platform      string `json:"platform"`
 }
 
+// 0. 当前传说任务
+type CurrentEpicResponse struct {
+	Success bool   `json:"success"`
+	FleetId int    `json:"id,omitempty"`
+	Name    string `json:"name,omitempty"`
+}
+
 // 1. 传说列表Resp
 type EpicListResponse struct {
 	Epics []Epic `json:"epics"`
@@ -112,7 +119,7 @@ type Friend struct {
 }
 
 type BoolResponse struct {
-	Success bool
+	Success bool `json:"success"`
 }
 
 type PlayerInfo struct {
@@ -161,6 +168,9 @@ func MakeRequest() {
 		if currentRound%2 == 0 {
 			_checkFriendInvitation(playerInfo)
 		}
+
+		// 如果循环开始还有运行的传说，则退出
+		_leaveCurrentEpicIfExists(playerInfo)
 
 		// 获取传说列表
 		resp, err = _requestEpicList(playerInfo)
@@ -223,16 +233,7 @@ func MakeRequest() {
 			_leaveComment(playerInfo, fleet, leaveComment)
 		}
 
-		leaveCount := 0
-		for leaveCount < 5 {
-			if leaveOk := _leaveFleet(playerInfo, fleet); leaveOk == true {
-				break
-			} else {
-				log.Error("尝试第%v次离开舰队失败，稍后尝试", leaveCount)
-				leaveCount += 1
-				time.Sleep(time.Duration(5) * time.Second)
-			}
-		}
+		_doLeaveFleet(playerInfo, fleet)
 
 		_incrRound(playerInfo)
 	}
@@ -336,6 +337,52 @@ func _confirmFriend(playerInfo PlayerInfo, friendId int) bool {
 
 	}
 	return false
+}
+
+func _leaveCurrentEpicIfExists(playerInfo PlayerInfo) bool {
+	client := &http.Client{}
+	v := url.Values{}
+	v.Add("locale", playerInfo.Locale)
+	v.Add("platform", playerInfo.Platform)
+	v.Add("auth_token", playerInfo.AuthToken)
+	v.Add("client_version", playerInfo.ClientVersion)
+
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/current?%v", v.Encode())
+	req, err := _generateRequest(playerInfo, host, "GET", nil)
+	if err != nil {
+		return false
+	}
+
+	if resp, err := client.Do(req); err == nil {
+		defer resp.Body.Close()
+
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			log.Error("读取返回数据失败: %v", err)
+			return false
+		}
+
+		var record CurrentEpicResponse
+		if err := json.Unmarshal([]byte(body), &record); err != nil {
+			log.Error("解析当前舰队信息失败: %v", err)
+			return false
+		}
+
+		if record.Success == true && record.FleetId != 0 {
+			log.Notice("当前有执行中的舰队['%v':%v], 即将离开舰队", record.Name, record.FleetId)
+
+			// 循环开始之前有舰队存在，退出当前舰队
+			_doLeaveFleet(playerInfo, &Fleet{Id: record.FleetId, Name: record.Name})
+		} else {
+			log.Debug("当前没有执行中的舰队, 即将查看邀请列表")
+		}
+
+		return true
+	} else {
+		log.Error("获取当前舰队信息失败: %v", err)
+		return false
+	}
+
 }
 
 func _requestEpicList(playerInfo PlayerInfo) (*http.Response, error) {
@@ -472,6 +519,19 @@ func _leaveComment(playerInfo PlayerInfo, fleet *Fleet, comment string) bool {
 	}
 
 	return false
+}
+
+func _doLeaveFleet(playerInfo PlayerInfo, fleet *Fleet) {
+	leaveCount := 1
+	for leaveCount <= 5 {
+		if leaveOk := _leaveFleet(playerInfo, fleet); leaveOk == true {
+			break
+		} else {
+			log.Error("尝试第%v次离开舰队失败，稍后尝试", leaveCount)
+			leaveCount += 1
+			time.Sleep(time.Duration(5) * time.Second)
+		}
+	}
 }
 
 func _leaveFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
