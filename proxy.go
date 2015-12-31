@@ -8,12 +8,81 @@ import (
 	"log"
 	"net"
 	"net/http"
-	"net/url"
 	"regexp"
 	"strings"
 
 	"github.com/elazarl/goproxy"
 )
+
+const mobileconfigContent = `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadCertificateFileName</key>
+			<string>ca.crt</string>
+			<key>PayloadContent</key>
+			<data>
+			LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNTakNDQWJX
+			Z0F3SUJBZ0lCQURBTEJna3Foa2lHOXcwQkFRVXdTakVqTUNFR0Ex
+			VUVDaE1hWjJsMGFIVmkKTG1OdmJTOWxiR0Y2WVhKc0wyZHZjSEp2
+			ZUhreEl6QWhCZ05WQkFNVEdtZHBkR2gxWWk1amIyMHZaV3hoZW1G
+			eQpiQzluYjNCeWIzaDVNQjRYRFRBd01ERXdNVEF3TURBd01Gb1hE
+			VFE1TVRJek1USXpOVGsxT1Zvd1NqRWpNQ0VHCkExVUVDaE1hWjJs
+			MGFIVmlMbU52YlM5bGJHRjZZWEpzTDJkdmNISnZlSGt4SXpBaEJn
+			TlZCQU1UR21kcGRHaDEKWWk1amIyMHZaV3hoZW1GeWJDOW5iM0J5
+			YjNoNU1JR2RNQXNHQ1NxR1NJYjNEUUVCQVFPQmpRQXdnWWtDZ1lF
+			QQp2ejlCYkNhSmp4czczVHZjcTNsZVAzMmhBR2VyUTFSZ3ZsWjY4
+			WjRuWm1vVkhmbCsyTnIvbTBkbVcrR2RPZnBUCmNzL0t6ZkpqWUdy
+			Lzg0eDUyNGZpdVI4R2RaMEhPdFhKenlGNXNlb1duYkJJdXlyMVBi
+			RXBnUmhHUU1xcU9VdWoKWUV4ZUxiZk5IUElvSjhYWjFWenl2M1l4
+			amJtaldBK1MvdU9lOUhXdERiTUNBd0VBQWFOR01FUXdEZ1lEVlIw
+			UApBUUgvQkFRREFnQ2tNQk1HQTFVZEpRUU1NQW9HQ0NzR0FRVUZC
+			d01CTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3CkRBWURWUjBSQkFV
+			d0E0SUJLakFMQmdrcWhraUc5dzBCQVFVRGdZRUFJY0w4aHVTbUdN
+			b21wTnVqc3ZlUFRVbk0Kb0VVS3RYNEVoLytzK0RTZlYvVHlJMEkr
+			M0dpUHBMcGxFZ0ZXdW9CSUpHaW9zMHIxZEtoNU4wVEdqeFgvUm1H
+			bQpxbzdFNGpqSnVvOEdzNVU4L2ZnVGhabXNoYXgybHdMdGJSTndo
+			dlVWcjY1R2RhaExzWno4SStoeVNMdWF0VnZSCnFISHEvRlFPUklp
+			TnlOcHEvSGc9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+			</data>
+			<key>PayloadDescription</key>
+			<string>Provides device authentication (certificate or identity).</string>
+			<key>PayloadDisplayName</key>
+			<string>walkrgame.cert</string>
+			<key>PayloadIdentifier</key>
+			<string>com.shining.bt.credential</string>
+			<key>PayloadOrganization</key>
+			<string>com.shining</string>
+			<key>PayloadType</key>
+			<string>com.apple.security.root</string>
+			<key>PayloadUUID</key>
+			<string>E92365B3-FE72-4AA6-B23F-401109CD4DFD</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Cert file for walkr</string>
+	<key>PayloadDisplayName</key>
+	<string>ShiningBT</string>
+	<key>PayloadIdentifier</key>
+	<string>com.shining.bt</string>
+	<key>PayloadOrganization</key>
+	<string>com.shining</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>BCE8EE2F-6388-47A2-B029-CAE1FA3355CF</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
+`
 
 // 领取舰桥能量
 type ConvertedEnergyResponse struct {
@@ -73,8 +142,9 @@ func main() {
 	proxy.NonproxyHandler = http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
 		w.Header().Set("Content-Type", "multipart/form-data")
 		w.Header().Set("Content-Disposition:", "attachment;filename=\""+"shiningbt.mobileconfig\"")
-		req.URL, _ = url.Parse("/shiningbt.mobileconfig")
-		http.FileServer(http.Dir(".")).ServeHTTP(w, req)
+		// req.URL, _ = url.Parse("/shiningbt.mobileconfig")
+		w.Write([]byte(mobileconfigContent))
+		// http.FileServer(http.Dir(".")).ServeHTTP(w, req)
 	})
 
 	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*universe.walkrgame.com.*$"))).HandleConnect(goproxy.AlwaysMitm)
@@ -132,6 +202,8 @@ func main() {
 		return resp
 
 	})
+
+	// TODO: 这里应该加一个验证，用来启动或者停止
 	localIp := "127.0.0.1"
 	if conn, err := net.Dial("udp", "baidu.com:80"); err == nil {
 		defer conn.Close()
