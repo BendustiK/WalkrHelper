@@ -5,6 +5,10 @@
 
 echo "正在生成32位的Proxy"
 GOOS=windows GOARCH=386 go build -ldflags "-s -w"  -o proxy32.exe proxy.go
+if which upx 2>/dev/null; then
+  echo "正在使用UPX压缩"
+	upx proxy32.exe
+fi
 
 echo "正在打包"
 # zip -r proxy.zip proxy64.exe proxy32.exe shiningbt.mobileconfig
