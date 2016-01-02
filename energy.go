@@ -27,8 +27,8 @@ type PlayerInfo struct {
 	Platform        string `json:"platform"`
 	Locale          string `json:"-"`
 	Cookie          string `json:"-"`
-	IfNoneMatch     string `json:"-"`
 	ConvertedEnergy int    `json:"converted_energy,string"`
+	EpicHelper      bool   `json:"-"`
 }
 
 type PlayerInfos struct {
@@ -133,9 +133,6 @@ func _generateRequest(playerInfo PlayerInfo, host string, method string, request
 	}
 
 	req.Header.Set("Cookie", playerInfo.Cookie)
-	if playerInfo.IfNoneMatch != "" {
-		req.Header.Add("If-None-Match", playerInfo.IfNoneMatch)
-	}
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Host", "universe.walkrgame.com")
 	req.Header.Add("Accept", "*/*")

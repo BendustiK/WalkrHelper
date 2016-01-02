@@ -129,8 +129,8 @@ type PlayerInfo struct {
 	Platform        string `json:"platform"`
 	Locale          string `json:"locale"`
 	Cookie          string `json:"-"`
-	IfNoneMatch     string `json:"-"`
 	ConvertedEnergy int    `json:"-"`
+	EpicHelper      bool   `json:"-"`
 }
 
 type PlayerInfos struct {
@@ -143,20 +143,28 @@ var format = logging.MustStringFormatter(
 	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
 )
 
-func MakeRequest() {
-	defer func() {
-		if r := recover(); r != nil {
-			msg := goerrors.Wrap(r, 2).ErrorStack()
-			log.Error("程序挂了: %v", msg)
+func MakeRequest(playerInfo PlayerInfo, ch chan int) {
+	for {
+		select {
+		case <-ch:
+			fmt.Println("exiting...")
+			ch <- 1
+			break
+		default:
 		}
-	}()
+		defer func() {
+			if r := recover(); r != nil {
+				msg := goerrors.Wrap(r, 2).ErrorStack()
+				log.Error("程序挂了: %v", msg)
+			}
+		}()
 
-	// 1. 获取传说列表
-	// 2. 获取舰队列表
-	// 3. 加入邀请的舰队
-	// 4. 留言说明几分钟退出
-	// 5. 退出舰队
-	for _, playerInfo := range config.PlayerInfo {
+		// 1. 获取传说列表
+		// 2. 获取舰队列表
+		// 3. 加入邀请的舰队
+		// 4. 留言说明几分钟退出
+		// 5. 退出舰队
+		// for _, playerInfo := range config.PlayerInfo {
 		currentRound := _getRound(playerInfo)
 		log.Warning("=====================「%v」的第%v次循环 =====================", playerInfo.Name, currentRound)
 
@@ -236,6 +244,7 @@ func MakeRequest() {
 		_doLeaveFleet(playerInfo, fleet)
 
 		_incrRound(playerInfo)
+
 	}
 
 }
@@ -673,9 +682,6 @@ func _generateRequest(playerInfo PlayerInfo, host string, method string, request
 	}
 
 	req.Header.Set("Cookie", playerInfo.Cookie)
-	if playerInfo.IfNoneMatch != "" {
-		req.Header.Add("If-None-Match", playerInfo.IfNoneMatch)
-	}
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Host", "universe.walkrgame.com")
 	req.Header.Add("Accept", "*/*")
@@ -701,6 +707,8 @@ func _getRound(playerInfo PlayerInfo) int {
 }
 func _incrRound(playerInfo PlayerInfo) {
 	redis.Incr(fmt.Sprintf("epic:%v:round", playerInfo.PlayerId()))
+
+	time.Sleep(RoundDuration)
 }
 
 func _getJoinedTimes(fleetId int, playerInfo PlayerInfo) int {
@@ -762,11 +770,23 @@ func main() {
 		return
 	}
 
-	for true {
-		MakeRequest()
-		time.Sleep(RoundDuration)
-
+	epicHelper := []PlayerInfo{}
+	for _, info := range config.PlayerInfo {
+		if info.EpicHelper == true {
+			epicHelper = append(epicHelper, info)
+		}
 	}
+
+	if len(epicHelper) == 0 {
+		log.Error("没有配置帮飞号信息")
+		return
+	}
+
+	ch := make(chan int, len(epicHelper))
+	for _, playerInfo := range epicHelper {
+		go MakeRequest(playerInfo, ch)
+	}
+	<-ch
 
 }
 

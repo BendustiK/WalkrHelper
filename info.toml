@@ -5,8 +5,8 @@
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTRmOTVmOWI3YjA1NjBjNmExZDg0ZDQ3ZDM5Mzc2YTMwBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--b7f3f3b606833fb6804fba134cf6ec11b282c079; __cfduid=d978958516b17a4c645154210bd58d5be1451552838"
-	IfNoneMatch = "3137a7608cc8e68089cac133130eef8b"
 	ConvertedEnergy = 0
+	EpicHelper = true
 
 [[PlayerInfo]]
 	Name = "豆喵子"
@@ -15,8 +15,8 @@
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTVhZGE2MGMzNzUxY2M0NjAxMmM0YzZkMDJiMTQ0NjYzBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--71742b31f176efac8ec0110ed3c619fac87f66e9; __cfduid=d534cd265cc169f784f80d48af2bafdf21444184209"
-	IfNoneMatch = "4ecbdbb0c9bfd061cfcbaccaa7a9bffa"
 	ConvertedEnergy = 0
+	EpicHelper = true
 
 [[PlayerInfo]]
 	Name = "宅家豆浆"
@@ -25,8 +25,8 @@
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWJjYjRiNjhlZGYyMWQzMTdlZGNiOGQ5ZWE5ZDJjODZkBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--deaeb4fc961b1659fd6161a254f7dc33308f6991; __cfduid=db6ae664c9929a7a2c1e400207b4e63c71443003916"
-	IfNoneMatch = "0b88a736758073d10aca6ed18851ba15"
 	ConvertedEnergy = 0
+	EpicHelper = true
 	
 [[PlayerInfo]]
 	Name = "宅家白小猫"
@@ -35,8 +35,8 @@
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWU4NzdjMGViZTM0YzEwZDkxMDA5ZjYxYmEyYWZhNzVhBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--45107041393731414997b02f6a158adf5cb13081; __cfduid=d0f1cef52baf17d4647b6a674a0f9df681444279622"
-	IfNoneMatch = "be72b64d7690ddabc24445f689b07d18"
 	ConvertedEnergy = 0
+	EpicHelper = false
 	
 [[PlayerInfo]]
 	Name = "宅家飞碟"
@@ -45,8 +45,8 @@
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWM4MjZlY2Q3ZGM1NjcxOWNmZjZhZTAzNTJhY2UxNzVkBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--ec3366d69081bf6199571e572df8d9c3624e1a8b; __cfduid=d8a93a59248eee274519aa0cd1c90d7e21444280520"
-	IfNoneMatch = "f158c0be4aa2dd39ccee5fb4fc7ecb9d"
 	ConvertedEnergy = 0
+	EpicHelper = false
 	
 [[PlayerInfo]]
 	Name = "宅家拉佛"
@@ -55,8 +55,8 @@
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWYwZGY2MDNlNmM5ZTdkMjA4OWQyNjk1NTVjZWFhYWU2BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--6e63077e6d5dbdf80b2030440f3402ca800300c1; __cfduid=de0eabb3c2a3bd360ac4d168bb59a7f7a1444647143"
-	IfNoneMatch = "f158c0be4aa2dd39ccee5fb4fc7ecb9d"
 	ConvertedEnergy = 0
+	EpicHelper = false
 	
 [[PlayerInfo]]
 	Name = "宅家琪萨"
@@ -65,8 +65,8 @@
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTU4ODIxMGExZGExZWMzNDY3MGQwZDM0OTYyY2M4NDUwBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--919ef308fc20bb139f2ad107545bc768e00937f9; __cfduid=d5a8c09fb0e64413426b1b8fd6ad9e6621444711078"
-	IfNoneMatch = "f158c0be4aa2dd39ccee5fb4fc7ecb9d"
 	ConvertedEnergy = 0
+	EpicHelper = false
 	
 [[PlayerInfo]]
 	Name = "宅家豆腐"
@@ -75,8 +75,8 @@
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWQ2MWM2YWQ3ZTQyN2NkMjlkNjIxYWI1NzEzNjRmYmRlBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--182e955907490fd69366f753231bb7876a404f1b; __cfduid=d385a1676f696030d3430f735eb9b54101445334119"
-	IfNoneMatch = "f158c0be4aa2dd39ccee5fb4fc7ecb9d"
 	ConvertedEnergy = 0
+	EpicHelper = false
 	
 [[PlayerInfo]]
 	Name = "宅家豆汁"
@@ -85,8 +85,8 @@
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWI5Y2Y5ZTQyOGM1NWIzYjA5ODVkY2M1MTlmZTMyYmJhBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--e430b23e01e49eed7ba8280b18e169a9e4a5470a; __cfduid=d9bedef3b5764bb7bca057d3fd8a106fd1446451594"
-	IfNoneMatch = "eeffc0ec523790a4977aab85d39ad16e"
 	ConvertedEnergy = 0
+	EpicHelper = false
 	
 [[PlayerInfo]]
 	Name = "宅家豆腐脑"
@@ -95,5 +95,5 @@
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTYxMTdjNTdjNWYxYjU3M2VkYTgwMjBkMzAyOTliOGExBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--7d6dadef55f04b566d7edb20679e1375ddb27f9b; __cfduid=dda7bf0ce2b731360ff46d66db2e06f131448440750"
-	IfNoneMatch = "7a2e2bbd7dad25da236936575c13c056"
 	ConvertedEnergy = 0
+	EpicHelper = false
