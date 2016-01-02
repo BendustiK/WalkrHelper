@@ -16,7 +16,7 @@
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTVhZGE2MGMzNzUxY2M0NjAxMmM0YzZkMDJiMTQ0NjYzBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--71742b31f176efac8ec0110ed3c619fac87f66e9; __cfduid=d534cd265cc169f784f80d48af2bafdf21444184209"
 	ConvertedEnergy = 0
-	EpicHelper = true
+	EpicHelper = false
 
 [[PlayerInfo]]
 	Name = "宅家豆浆"
