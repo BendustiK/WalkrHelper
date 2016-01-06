@@ -209,16 +209,17 @@ func main() {
 		defer conn.Close()
 		localIp = strings.Split(conn.LocalAddr().String(), ":")[0]
 	}
+	port := 9897
 
 	fmt.Println("你的IP地址是: ", localIp)
 	fmt.Println("!!!!!! 第一次使用工具的时候, 请按照[条目0]安装一个描述文件 !!!!!!")
-	fmt.Println("0. 在玩儿Walkr的iPad/iPhone上使用Safari打开 [http://" + localIp + ":8888], 会提示下载一个描述文件, 一路安装即可")
+	fmt.Println("0. 在玩儿Walkr的iPad/iPhone上使用Safari打开 [http://" + localIp + ":" + fmt.Sprintf("%v", port) + "], 会提示下载一个描述文件, 一路安装即可")
 	fmt.Println("=========================== 无辜的分割线 ===========================")
-	fmt.Println("1. 安装之后在Wifi的代理设置为[手动], 服务器地址为 [" + localIp + "], 端口为 [8888]")
+	fmt.Println("1. 安装之后在Wifi的代理设置为[手动], 服务器地址为 [" + localIp + "], 端口为 [" + fmt.Sprintf("%v", port) + "]")
 	fmt.Println("2. 打开游戏进入舰桥, 如果能显示能量并且可以领取, 就说明成功")
 	fmt.Println("!!!!!! 不用的时候一定关掉[软件]以及[设备上的代理], 否则可能上不了网 !!!!!!")
 
-	log.Fatal(http.ListenAndServe(":8888", proxy))
+	log.Fatal(http.ListenAndServe(":"+fmt.Sprintf("%v", port), proxy))
 }
 
 func UrlMatches(regexps ...*regexp.Regexp) goproxy.ReqConditionFunc {
