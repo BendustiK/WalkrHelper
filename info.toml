@@ -9,16 +9,6 @@
 	EpicHelper = true
 
 [[PlayerInfo]]
-	Name = "豆喵子"
-	AuthToken = "370945:fcAGgjjCzt2pFEBNonnzWnr65fGyNYvCg9SUHFncsDQ"
-	ClientVersion = "2.1.4"
-	Locale = "zh-CN"
-	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTVhZGE2MGMzNzUxY2M0NjAxMmM0YzZkMDJiMTQ0NjYzBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--71742b31f176efac8ec0110ed3c619fac87f66e9; __cfduid=d534cd265cc169f784f80d48af2bafdf21444184209"
-	ConvertedEnergy = 0
-	EpicHelper = false
-
-[[PlayerInfo]]
 	Name = "宅家豆浆"
 	AuthToken = "473033:SST_rigzrx1dND5Pvg-xGxsrkbfyomRPMDzsSagbrqQ"
 	ClientVersion = "2.1.4"
