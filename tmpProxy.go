@@ -144,9 +144,7 @@ func main() {
 		// http.FileServer(http.Dir(".")).ServeHTTP(w, req)
 	})
 
-	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*universe.walkrgame.com.*$"))).HandleConnect(goproxy.AlwaysMitm)
-	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*api.walkrhub.com.*$"))).HandleConnect(goproxy.AlwaysMitm)
-	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*api.walkrconnect.com.*$"))).HandleConnect(goproxy.AlwaysMitm)
+	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*[universe.walkrgame.com|api.walkrhub.com|api.walkrconnect.com].*$"))).HandleConnect(goproxy.AlwaysMitm)
 	
 
 	// TODO: 这里应该加一个验证，用来启动或者停止
