@@ -12,7 +12,7 @@ fi
 
 echo "正在打包"
 # zip -r proxy.zip proxy64.exe proxy32.exe shiningbt.mobileconfig
-zip -r proxy.zip proxy32.exe shiningbt.mobileconfig
+zip -r proxy.zip proxy32.exe
 
 echo "清理无用数据"
 rm -r proxy32.exe
