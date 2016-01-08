@@ -17,6 +17,16 @@
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTA0ZGE5ZWMyNzhiNDU4NjZjOWFiNGI4NmY0MDQxNGE5BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--82ad33ec1a8882aadfdc10fb0f71146edae8e607"
 	ConvertedEnergy = 0
 	EpicHelper = true
+
+[[PlayerInfo]]
+	Name = "豆喵子"
+	AuthToken = "370945:pLtw4CprTG4qgn4Qyx3RM549owsHoUoxyGnhsYtNp44"
+	ClientVersion = "2.1.5"
+	Locale = "zh-CN"
+	Platform = "ios"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTEyODMzZjcyOWNlNTIzMGI5MjFlNTc1MGZjZjk5ODA2BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--fb02d97c49abb6612cd8827e977c6f413ea94632"
+	ConvertedEnergy = 0
+	EpicHelper = true
 	
 [[PlayerInfo]]
 	Name = "宅家白小猫"
