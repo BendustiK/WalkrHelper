@@ -40,11 +40,11 @@
 	
 [[PlayerInfo]]
 	Name = "宅家拉佛"
-	AuthToken = "548754:DTXqwxKJshh_B9xjbXV3RFoxT5TA6rreK3-JBARkxiz"
-	ClientVersion = "2.1.4"
+	AuthToken = "548754:m-fAbVDYY26UKE8dbSecdy2j912Qomnxq2kyUn98uCs"
+	ClientVersion = "2.1.5"
 	Locale = "zh-CN"
 	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWYwZGY2MDNlNmM5ZTdkMjA4OWQyNjk1NTVjZWFhYWU2BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--6e63077e6d5dbdf80b2030440f3402ca800300c1; __cfduid=de0eabb3c2a3bd360ac4d168bb59a7f7a1444647143"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWQxOGYzZTRiOWJmMTgzODA0Zjg0MDNlMjAzZmRhODdiBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--b0bb1d453c948262bd7f583adabbe6e4c1c600e8"
 	ConvertedEnergy = 0
 	EpicHelper = false
 	
