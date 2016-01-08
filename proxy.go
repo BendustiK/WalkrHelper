@@ -147,8 +147,8 @@ func main() {
 		// http.FileServer(http.Dir(".")).ServeHTTP(w, req)
 	})
 
-	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*universe.walkrgame.com.*$"))).HandleConnect(goproxy.AlwaysMitm)
-	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*universe.walkrgame.com.*$"))).DoFunc(func(req *http.Request, ctx *goproxy.ProxyCtx) (*http.Request, *http.Response) {
+	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*[universe.walkrgame.com|api.walkrhub.com|api.walkrconnect.com].*$"))).HandleConnect(goproxy.AlwaysMitm)
+	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*[universe.walkrgame.com|api.walkrhub.com|api.walkrconnect.com].*$"))).DoFunc(func(req *http.Request, ctx *goproxy.ProxyCtx) (*http.Request, *http.Response) {
 		req.Header.Add("Cache-Control", "no-cache,no-store")
 		req.Header.Add("Pragma", "no-cache")
 		req.Header.Del("If-None-Match")
