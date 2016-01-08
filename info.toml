@@ -50,40 +50,40 @@
 	
 [[PlayerInfo]]
 	Name = "宅家琪萨"
-	AuthToken = "549457:ACQ6b2sKxckyB1PmZdyoishsvVP7VZNoEqgDzuwMUP4"
-	ClientVersion = "2.1.4"
+	AuthToken = "549457:fxuC2CtPE_6nLszTNjJFj9GknoMisyysjtEYvyehRNY"
+	ClientVersion = "2.1.5"
 	Locale = "zh-CN"
 	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTU4ODIxMGExZGExZWMzNDY3MGQwZDM0OTYyY2M4NDUwBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--919ef308fc20bb139f2ad107545bc768e00937f9; __cfduid=d5a8c09fb0e64413426b1b8fd6ad9e6621444711078"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTY2YmNhZWZmNmM1YTlkYTg0NGJjNDg3MjJkMmEyM2Y4BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--817baacf6faf70b15ea445e54705df87573349d7"
 	ConvertedEnergy = 0
 	EpicHelper = false
 	
 [[PlayerInfo]]
 	Name = "宅家豆汁"
-	AuthToken = "557451:FSzj-3dv4CTLzChySdrd12aV8TCd6AmFsBsebaJb3Gz"
-	ClientVersion = "2.1.4"
+	AuthToken = "557451:sRgrz3KK3buNoys1E4tdHgXLBbTfRTJNYekyU66y3_Y"
+	ClientVersion = "2.1.5"
 	Locale = "zh-CN"
 	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWI5Y2Y5ZTQyOGM1NWIzYjA5ODVkY2M1MTlmZTMyYmJhBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--e430b23e01e49eed7ba8280b18e169a9e4a5470a; __cfduid=d9bedef3b5764bb7bca057d3fd8a106fd1446451594"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTI3MzM0NTcxMWFjMGI5NGFkZWE5ZTA0MWJhNzBmODM0BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--034c81f793cb97db69a91500e69217eca04197dc"
 	ConvertedEnergy = 0
 	EpicHelper = false
 	
 [[PlayerInfo]]
 	Name = "宅家豆腐脑"
-	AuthToken = "595538:G_5fCx4jE3sZXjCSXbBcBsW_eDnAU6HffGe6BvJhnTw"
-	ClientVersion = "2.1.4"
+	AuthToken = "595538:UkDsnuK9SRQQaN4Jx_vQVf9s6bsBFxc1fG8ipiXu78w"
+	ClientVersion = "2.1.5"
 	Locale = "zh-CN"
 	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTYxMTdjNTdjNWYxYjU3M2VkYTgwMjBkMzAyOTliOGExBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--7d6dadef55f04b566d7edb20679e1375ddb27f9b; __cfduid=dda7bf0ce2b731360ff46d66db2e06f131448440750"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWI3MmYwNjNkODk2OWJmODNmNjRlZGUwNjllNDcxNGZkBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--66f545d246549e29eae6cab1b7f01a427c468b9e"
 	ConvertedEnergy = 0
 	EpicHelper = false
 
 [[PlayerInfo]]
 	Name = "宅家豆腐"
-	AuthToken = "556918:syGGPx_zWMbAr4kiGrT6RJ-wye366TgH8h1hLFw4xdx"
-	ClientVersion = "2.1.4"
+	AuthToken = "556918:9sgkyD1XCnUqtbYsBpa3XNZxJzx-yaPwtS7w1sAxqzQ"
+	ClientVersion = "2.1.5"
 	Locale = "zh-CN"
 	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWQ2MWM2YWQ3ZTQyN2NkMjlkNjIxYWI1NzEzNjRmYmRlBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--182e955907490fd69366f753231bb7876a404f1b; __cfduid=d385a1676f696030d3430f735eb9b54101445334119"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTI2ODk1YzZhNzg4ZjMxMDZmMmJmZWE2MTVkOTBmMWUwBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--c3bb411d1e8d691e221ffcc06653b28a21724427"
 	ConvertedEnergy = 0
 	EpicHelper = false
