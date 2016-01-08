@@ -20,21 +20,21 @@
 	
 [[PlayerInfo]]
 	Name = "宅家白小猫"
-	AuthToken = "477860:afL1_oamjPKvzjVEseBtASF7SwQhBKuEs-U41fyELHz"
-	ClientVersion = "2.1.4"
+	AuthToken = "477860:e2iz5Ts3-sVwThW-cu9VLLUSwWqk3fi5i-1aCrSa3aE"
+	ClientVersion = "2.1.5"
 	Locale = "zh-CN"
 	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWU4NzdjMGViZTM0YzEwZDkxMDA5ZjYxYmEyYWZhNzVhBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--45107041393731414997b02f6a158adf5cb13081; __cfduid=d0f1cef52baf17d4647b6a674a0f9df681444279622"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTZlZGUwOWU1MTBkMjI0ZjJmMWNiNjg5YzI0MTJlN2Y4BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--8de5111e28004718450c7c199687643bb2720a71"
 	ConvertedEnergy = 0
 	EpicHelper = false
 	
 [[PlayerInfo]]
 	Name = "宅家飞碟"
-	AuthToken = "543972:u1r8n_TzzmamsuC8AT142-T48sSWrJxo4RYPac-5VXY"
-	ClientVersion = "2.1.4"
+	AuthToken = "543972:_sn5uAg-19_4Wsx4du9N7XFjzSNL6yva4mPLksvxvvx"
+	ClientVersion = "2.1.5"
 	Locale = "zh-CN"
 	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWM4MjZlY2Q3ZGM1NjcxOWNmZjZhZTAzNTJhY2UxNzVkBjsAVEkiC2xvY2FsZQY7AEZJIgdlbgY7AFQ%3D--ec3366d69081bf6199571e572df8d9c3624e1a8b; __cfduid=d8a93a59248eee274519aa0cd1c90d7e21444280520"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTZmNTFhMWI5ZmIzZWQ4OWYwNDhhMjEzYmIyZmJiODI5BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--4a2044c55aa1a01cffa3b7ff48a8970574da3a49"
 	ConvertedEnergy = 0
 	EpicHelper = false
 	
