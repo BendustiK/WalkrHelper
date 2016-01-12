@@ -26,7 +26,7 @@
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTEyODMzZjcyOWNlNTIzMGI5MjFlNTc1MGZjZjk5ODA2BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--fb02d97c49abb6612cd8827e977c6f413ea94632"
 	ConvertedEnergy = 0
-	EpicHelper = true
+	EpicHelper = false
 	
 [[PlayerInfo]]
 	Name = "宅家白小猫"
