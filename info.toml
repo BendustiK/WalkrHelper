@@ -97,3 +97,13 @@
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTI2ODk1YzZhNzg4ZjMxMDZmMmJmZWE2MTVkOTBmMWUwBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--c3bb411d1e8d691e221ffcc06653b28a21724427"
 	ConvertedEnergy = 0
 	EpicHelper = false
+
+[[PlayerInfo]]
+	Name = "Twitter晒宁鼻涕"
+	AuthToken = "633899:8YsvGbwUuvd3MNgFMmSKdmDkwARPgqxJfUKzEfgYgzk"
+	ClientVersion = "2.1.5"
+	Locale = "zh-CN"
+	Platform = "ios"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTVmNTNkZjQ2NGQ5NTFhNTZiYmM4ZjVhOGYwMTRlNzgzBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--94e577c1eafb4e5f6d149a48e3eb106c97bb5806; __cfduid=dc68112e41fc63109ac37c59604dfcbcd1452528865"
+	ConvertedEnergy = 0
+	EpicHelper = false
