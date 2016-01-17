@@ -19,6 +19,11 @@ import (
 )
 
 var RoundDuration = 10 * time.Minute
+var config PlayerInfos
+var log = logging.MustGetLogger("Walkr")
+var format = logging.MustStringFormatter(
+	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
+)
 
 type PlayerInfo struct {
 	Name            string `json:"-"`
@@ -38,13 +43,6 @@ type PlayerInfos struct {
 type BoolResponse struct {
 	Success bool
 }
-
-// var round = 1
-var config PlayerInfos
-var log = logging.MustGetLogger("Walkr")
-var format = logging.MustStringFormatter(
-	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
-)
 
 func _generateEnergy(playerInfo PlayerInfo) PlayerInfo {
 	playerInfo.ConvertedEnergy = rand.New(rand.NewSource(time.Now().UnixNano())).Intn(10000) + 50000

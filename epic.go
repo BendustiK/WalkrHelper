@@ -23,9 +23,15 @@ import (
 	"github.com/op/go-logging"
 )
 
+var config PlayerInfos
+var log = logging.MustGetLogger("Walkr")
+var format = logging.MustStringFormatter(
+	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
+)
+
 var RoundDuration = 2 * time.Minute
 var WaitDuration = 5 * time.Minute
-var MAX_JOIN_TIMES = 5
+var MaxJoinedTimes = 5
 var FleetInvitationCount = make(map[int]int)
 var redis *goredis.Client
 
@@ -136,12 +142,6 @@ type PlayerInfo struct {
 type PlayerInfos struct {
 	PlayerInfo []PlayerInfo
 }
-
-var config PlayerInfos
-var log = logging.MustGetLogger("Walkr")
-var format = logging.MustStringFormatter(
-	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
-)
 
 func MakeRequest(playerInfo PlayerInfo, ch chan int) {
 	for {
@@ -636,7 +636,7 @@ func _getInvitationFleet(resp *http.Response, playerInfo PlayerInfo) *Fleet {
 		if fleet.IsInvited == true {
 			fleet.Quality = _getJoinedTimes(fleet.Id, playerInfo)
 
-			if fleet.Quality <= MAX_JOIN_TIMES {
+			if fleet.Quality <= MaxJoinedTimes {
 				fleets = append(fleets, fleet)
 
 				// BI: Round信息
