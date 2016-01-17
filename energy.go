@@ -288,8 +288,6 @@ func _getRound(playerInfo PlayerInfo) int {
 }
 func _incrRound(playerInfo PlayerInfo) {
 	redis.Incr(fmt.Sprintf("energy:%v:round", playerInfo.PlayerId()))
-
-	time.Sleep(RoundDuration)
 }
 
 func (this *PlayerInfo) PlayerId() int {
