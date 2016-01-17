@@ -190,8 +190,8 @@ func main() {
 				record.Data.IsChecked = false
 				record.Data.IsFirstTime = false
 				// 能量块
-				record.Data.Reward.Type = "cubes"
-				record.Data.Reward.Value = "60000"
+				// record.Data.Reward.Type = "cubes"
+				// record.Data.Reward.Value = "60000"
 				// record.Data.Contribution.Value = 1
 				// DFR
 				// record.Data.Reward.Type = "replicator"
