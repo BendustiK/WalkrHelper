@@ -14,45 +14,13 @@ import (
 
 	"github.com/BurntSushi/toml"
 	goerrors "github.com/go-errors/errors"
-	goredis "gopkg.in/redis.v2"
 
 	"github.com/op/go-logging"
 )
 
 var RoundDuration = 2 * time.Minute
 var WaitDuration = 5 * time.Minute
-var MAX_JOIN_TIMES = 5
 var FleetInvitationCount = make(map[int]int)
-var redis *goredis.Client
-
-var redisConf = &goredis.Options{
-	Network:      "tcp",
-	Addr:         "localhost:6379",
-	Password:     "",
-	DB:           0,
-	DialTimeout:  5 * time.Second,
-	ReadTimeout:  5 * time.Second,
-	WriteTimeout: 5 * time.Second,
-	PoolSize:     20,
-	IdleTimeout:  60 * time.Second,
-}
-
-const (
-	COMMENT_JOINED = "我进来啦，我会在五分钟之后自动退队。如果退队的时候还没有捐献完毕，不要着急，重新邀请就好。不过请记住，同一舰队邀请数量达到五次，我会忽略邀请的。谢谢!"
-	COMMENT_LEAVE  = "关于离开舰队, 大家有话说."
-)
-
-type LeaveComments struct {
-	List []string
-}
-
-type CommentRequest struct {
-	AuthToken     string `json:"auth_token"`
-	ClientVersion string `json:"client_version"`
-	Platform      string `json:"platform"`
-	Locale        string `json:"locale"`
-	Text          string `json:"text"`
-}
 
 type ConfirmFriendRequest struct {
 	AuthToken     string `json:"auth_token"`
@@ -61,44 +29,6 @@ type ConfirmFriendRequest struct {
 	Platform      string `json:"platform"`
 }
 
-// 1. 传说列表Resp
-type EpicListResponse struct {
-	Epics []Epic `json:"epics"`
-}
-type Epic struct {
-	Id               int    `json:"id"`
-	Name             string `json:"name"`
-	InvitationCounts int    `json:"invitation_counts"`
-}
-
-// 2. 飞传说中的舰队列表Resp
-type FleetListResponse struct {
-	Fleets []Fleet `json:"fleets"`
-}
-type Fleet struct {
-	Id        int     `json:"id"`
-	Name      string  `json:"name"`
-	IsInvited bool    `json:"is_invited"`
-	Captain   Captain `json:"captain"`
-	Quality   int
-}
-type Captain struct {
-	Name string `json:"name"`
-}
-
-// 3. 舰队详细信息
-type FleetDetailInfo struct {
-	Id      int      `json:"id"`
-	Name    string   `json:"name"`
-	EpicId  int      `json:"epic_id"`
-	Members []Member `json:"members"`
-}
-type Member struct {
-	Id   int    `json:"id"`
-	Name string `json:"name"`
-}
-
-// 4. 好友申请
 type NewFriendListResponse struct {
 	Data []Friend `json:"data"`
 }
@@ -288,8 +218,6 @@ func main() {
 	stdOutputFormatter := logging.NewBackendFormatter(stdOutput, format)
 
 	logging.SetBackend(stdOutputFormatter)
-
-	redis = goredis.NewClient(redisConf)
 
 	// 读取参数来获得配置文件的名称
 	argCount := len(os.Args)
