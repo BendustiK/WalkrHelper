@@ -9,7 +9,6 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"net/http"
-	"net/url"
 	"os"
 	"strconv"
 	"strings"
@@ -76,11 +75,6 @@ type Friend struct {
 	Name string `json:"name"`
 }
 
-func _generateEnergy(playerInfo PlayerInfo) PlayerInfo {
-	playerInfo.ConvertedEnergy = rand.New(rand.NewSource(time.Now().UnixNano())).Intn(10000) + 50000
-	return playerInfo
-}
-
 func MakeRequest(playerInfo PlayerInfo, ch chan int) {
 	for {
 		select {
@@ -99,7 +93,7 @@ func MakeRequest(playerInfo PlayerInfo, ch chan int) {
 			}
 		}()
 		// log.Notice("===================== 第%v轮 =====================", curRound)
-		_checkFriendInvitation(playerInfo)
+		// _checkFriendInvitation(playerInfo)
 
 		_convertEnegeryToPilots(playerInfo)
 
@@ -158,104 +152,109 @@ func _convertEnegeryToPilots(playerInfo PlayerInfo) bool {
 	}
 }
 
-func _requestNewFriendList(playerInfo PlayerInfo) (*http.Response, error) {
-	log.Debug("查看「%v」是否有好友申请", playerInfo.Name)
-
-	client := &http.Client{}
-	v := url.Values{}
-	v.Add("platform", playerInfo.Platform)
-	v.Add("auth_token", playerInfo.AuthToken)
-	v.Add("client_version", playerInfo.ClientVersion)
-
-	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/users/friend_invitations?%v", v.Encode())
-
-	req, err := _generateRequest(playerInfo, host, "GET", nil)
-	if req == nil {
-		return nil, err
-	}
-
-	return client.Do(req)
-
+func _generateEnergy(playerInfo PlayerInfo) PlayerInfo {
+	playerInfo.ConvertedEnergy = rand.New(rand.NewSource(time.Now().UnixNano())).Intn(10000) + 50000
+	return playerInfo
 }
 
-func _checkFriendInvitation(playerInfo PlayerInfo) bool {
-	resp, err := _requestNewFriendList(playerInfo)
-	if err != nil {
-		return false
-	}
+// func _requestNewFriendList(playerInfo PlayerInfo) (*http.Response, error) {
+// 	log.Debug("查看「%v」是否有好友申请", playerInfo.Name)
 
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		log.Error("读取返回数据失败: %v", err)
-		return false
-	}
+// 	client := &http.Client{}
+// 	v := url.Values{}
+// 	v.Add("platform", playerInfo.Platform)
+// 	v.Add("auth_token", playerInfo.AuthToken)
+// 	v.Add("client_version", playerInfo.ClientVersion)
 
-	var records NewFriendListResponse
-	if err := json.Unmarshal([]byte(body), &records); err != nil {
-		log.Error("解析好友列表数据失败: %v", err)
-		return false
-	}
+// 	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/users/friend_invitations?%v", v.Encode())
 
-	if len(records.Data) == 0 {
-		log.Debug("「%v」没有新的好友申请", playerInfo.Name)
-		return false
-	}
+// 	req, err := _generateRequest(playerInfo, host, "GET", nil)
+// 	if req == nil {
+// 		return nil, err
+// 	}
 
-	for _, friend := range records.Data {
-		log.Debug("「%v」新的好友申请['%v':%v]", playerInfo.Name, friend.Name, friend.Id)
-		if _confirmFriend(playerInfo, friend.Id) == true {
-			log.Debug("「%v」添加好友['%v':%v]成功", playerInfo.Name, friend.Name, friend.Id)
-		} else {
-			log.Error("「%v」添加好友['%v':%v]失败", playerInfo.Name, friend.Name, friend.Id)
-		}
-	}
+// 	return client.Do(req)
 
-	return true
-}
+// }
 
-func _confirmFriend(playerInfo PlayerInfo, friendId int) bool {
-	client := &http.Client{}
+// func _checkFriendInvitation(playerInfo PlayerInfo) bool {
+// 	resp, err := _requestNewFriendList(playerInfo)
+// 	if err != nil {
+// 		return false
+// 	}
 
-	confirmFriendRequestJson := ConfirmFriendRequest{
-		AuthToken:     playerInfo.AuthToken,
-		ClientVersion: playerInfo.ClientVersion,
-		Platform:      playerInfo.Platform,
-		UserId:        friendId,
-	}
-	b, err := json.Marshal(confirmFriendRequestJson)
-	if err != nil {
-		log.Error("Json Marshal error for %v", err)
-		return false
-	}
+// 	body, err := ioutil.ReadAll(resp.Body)
+// 	if err != nil {
+// 		log.Error("读取返回数据失败: %v", err)
+// 		return false
+// 	}
 
-	host := "https://universe.walkrgame.com/api/v1/users/confirm_friend"
-	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
-	if err != nil {
-		return false
-	}
+// 	var records NewFriendListResponse
+// 	if err := json.Unmarshal([]byte(body), &records); err != nil {
+// 		log.Error("解析好友列表数据失败: %v", err)
+// 		return false
+// 	}
 
-	if resp, err := client.Do(req); err == nil {
-		defer resp.Body.Close()
+// 	if len(records.Data) == 0 {
+// 		log.Debug("「%v」没有新的好友申请", playerInfo.Name)
+// 		return false
+// 	}
 
-		body, err := ioutil.ReadAll(resp.Body)
-		if err != nil {
-			log.Error("读取返回数据失败: %v", err)
-			return false
-		}
+// 	for _, friend := range records.Data {
+// 		log.Debug("「%v」新的好友申请['%v':%v]", playerInfo.Name, friend.Name, friend.Id)
+// 		if _confirmFriend(playerInfo, friend.Id) == true {
+// 			log.Debug("「%v」添加好友['%v':%v]成功", playerInfo.Name, friend.Name, friend.Id)
+// 		} else {
+// 			log.Error("「%v」添加好友['%v':%v]失败", playerInfo.Name, friend.Name, friend.Id)
+// 		}
+// 	}
 
-		var record BoolResponse
-		if err := json.Unmarshal([]byte(body), &record); err != nil {
-			log.Error("通过好友失败: %v", err)
-			return false
-		}
+// 	return true
+// }
 
-		return record.Success
-	} else {
-		log.Error("请求添加用户失败: %v", err)
+// func _confirmFriend(playerInfo PlayerInfo, friendId int) bool {
+// 	client := &http.Client{}
 
-	}
-	return false
-}
+// 	confirmFriendRequestJson := ConfirmFriendRequest{
+// 		AuthToken:     playerInfo.AuthToken,
+// 		ClientVersion: playerInfo.ClientVersion,
+// 		Platform:      playerInfo.Platform,
+// 		UserId:        friendId,
+// 	}
+// 	b, err := json.Marshal(confirmFriendRequestJson)
+// 	if err != nil {
+// 		log.Error("Json Marshal error for %v", err)
+// 		return false
+// 	}
+
+// 	host := "https://universe.walkrgame.com/api/v1/users/confirm_friend"
+// 	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
+// 	if err != nil {
+// 		return false
+// 	}
+
+// 	if resp, err := client.Do(req); err == nil {
+// 		defer resp.Body.Close()
+
+// 		body, err := ioutil.ReadAll(resp.Body)
+// 		if err != nil {
+// 			log.Error("读取返回数据失败: %v", err)
+// 			return false
+// 		}
+
+// 		var record BoolResponse
+// 		if err := json.Unmarshal([]byte(body), &record); err != nil {
+// 			log.Error("通过好友失败: %v", err)
+// 			return false
+// 		}
+
+// 		return record.Success
+// 	} else {
+// 		log.Error("请求添加用户失败: %v", err)
+
+// 	}
+// 	return false
+// }
 func _generateRequest(playerInfo PlayerInfo, host string, method string, requestBytes *bytes.Buffer) (*http.Request, error) {
 	var req *http.Request
 	var err error
@@ -277,6 +276,8 @@ func _generateRequest(playerInfo PlayerInfo, host string, method string, request
 
 	return req, nil
 }
+
+// BI相关
 func _getRound(playerInfo PlayerInfo) int {
 	currentRound, err := strconv.Atoi(redis.Get(fmt.Sprintf("energy:%v:round", playerInfo.PlayerId())).Val())
 	if err != nil || currentRound <= 0 {
@@ -290,6 +291,7 @@ func _incrRound(playerInfo PlayerInfo) {
 
 	time.Sleep(RoundDuration)
 }
+
 func (this *PlayerInfo) PlayerId() int {
 	playerId, _ := strconv.Atoi(strings.Split(this.AuthToken, ":")[0])
 	return playerId
