@@ -113,7 +113,7 @@ func _convertEnegeryToPilots(playerInfo PlayerInfo) bool {
 
 	client := &http.Client{}
 
-	host := "https://universe.walkrgame.com/api/v1/pilots/convert"
+	host := "https://api.walkrhub.com/api/v1/pilots/convert"
 	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		log.Error("创建「%v」的请求出错: %v", err)
@@ -269,7 +269,7 @@ func _generateRequest(playerInfo PlayerInfo, host string, method string, request
 
 	req.Header.Set("Cookie", playerInfo.Cookie)
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Host", "universe.walkrgame.com")
+	req.Header.Add("Host", "api.walkrhub.com")
 	req.Header.Add("Accept", "*/*")
 	req.Header.Add("User-Agent", "Space Walk/2.1.4 (iPhone; iOS 9.1; Scale/2.00)")
 	req.Header.Add("Accept-Language", "zh-Hans-CN;q=1, en-CN;q=0.9")

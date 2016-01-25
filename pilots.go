@@ -97,7 +97,7 @@ func _requestNewFriendList(playerInfo PlayerInfo) (*http.Response, error) {
 	v.Add("auth_token", playerInfo.AuthToken)
 	v.Add("client_version", playerInfo.ClientVersion)
 
-	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/users/friend_invitations?%v", v.Encode())
+	host := fmt.Sprintf("https://api.walkrhub.com/api/v1/users/friend_invitations?%v", v.Encode())
 
 	req, err := _generateRequest(playerInfo, host, "GET", nil)
 	if req == nil {
@@ -158,7 +158,7 @@ func _confirmFriend(playerInfo PlayerInfo, friendId int) bool {
 		return false
 	}
 
-	host := "https://universe.walkrgame.com/api/v1/users/confirm_friend"
+	host := "https://api.walkrhub.com/api/v1/users/confirm_friend"
 	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
@@ -204,7 +204,7 @@ func _generateRequest(playerInfo PlayerInfo, host string, method string, request
 		req.Header.Add("If-None-Match", playerInfo.IfNoneMatch)
 	}
 	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Host", "universe.walkrgame.com")
+	req.Header.Add("Host", "api.walkrhub.com")
 	req.Header.Add("Accept", "*/*")
 	req.Header.Add("User-Agent", "Space Walk/2.1.4 (iPhone; iOS 9.1; Scale/2.00)")
 	req.Header.Add("Accept-Language", "zh-Hans-CN;q=1")
