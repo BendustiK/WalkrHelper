@@ -815,27 +815,27 @@ func main() {
 	}
 	_saveCommentsToRedis()
 
-	for i := 0; i < 10; i++ {
-		log.Debug("Comment: %v", _getRandomComment())
+	// for i := 0; i < 10; i++ {
+	// 	log.Debug("Comment: %v", _getRandomComment())
+	// }
+
+	epicHelper := []PlayerInfo{}
+	for _, info := range config.PlayerInfo {
+		if info.EpicHelper == true {
+			epicHelper = append(epicHelper, info)
+		}
 	}
 
-	// epicHelper := []PlayerInfo{}
-	// for _, info := range config.PlayerInfo {
-	// 	if info.EpicHelper == true {
-	// 		epicHelper = append(epicHelper, info)
-	// 	}
-	// }
+	if len(epicHelper) == 0 {
+		log.Error("没有配置帮飞号信息")
+		return
+	}
 
-	// if len(epicHelper) == 0 {
-	// 	log.Error("没有配置帮飞号信息")
-	// 	return
-	// }
-
-	// ch := make(chan int, len(epicHelper))
-	// for _, playerInfo := range epicHelper {
-	// 	go MakeRequest(playerInfo, ch)
-	// }
-	// <-ch
+	ch := make(chan int, len(epicHelper))
+	for _, playerInfo := range epicHelper {
+		go MakeRequest(playerInfo, ch)
+	}
+	<-ch
 
 }
 
