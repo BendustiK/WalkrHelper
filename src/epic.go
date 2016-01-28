@@ -490,12 +490,6 @@ func _applyInvitedFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 
 		log.Notice("「%v」已经加入舰队[%v:%v], 等待起飞", playerInfo.Name, fleet.Name, fleet.Id)
 
-		// BI: 加入的舰队信息
-		_setFleetTime(fleet, "joinedTime", playerInfo)
-
-		// BI: Round信息
-		redis.HMSet(_roundInfoKey(playerInfo), "joinedFleetId", fmt.Sprintf("%v", fleet.Id), "joinedTime", fmt.Sprintf("%v", time.Now().UTC().Unix()))
-
 		return record.Success
 	} else {
 		log.Error("请求加入舰队失败: %v", err)
@@ -545,7 +539,6 @@ func _leaveComment(playerInfo PlayerInfo, fleet *Fleet, comment string) bool {
 
 		log.Notice("「%v」已经留言(%v)", playerInfo.Name, comment)
 
-		_saveComment(fleet, comment, playerInfo)
 		return record.Success
 	} else {
 		log.Error("请求用户留言失败: %v", err)
@@ -600,11 +593,6 @@ func _leaveFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 
 		log.Notice("「%v」退出舰队[%v:%v]成功", playerInfo.Name, fleet.Name, fleet.Id)
 
-		// BI: 为舰队设置离开标志
-		_setFleetTime(fleet, "leaveTime", playerInfo)
-		// BI: Round信息
-		redis.HMSet(_roundInfoKey(playerInfo), "leaveTime", fmt.Sprintf("%v", time.Now().UTC().Unix()))
-
 		return record.Success
 	} else {
 		log.Error("「%v」请求离开舰队失败: %v", playerInfo.Name, err)
@@ -631,9 +619,6 @@ func _checkInvitationCount(resp *http.Response, playerInfo PlayerInfo) bool {
 
 	for _, epic := range records.Epics {
 		log.Debug("传说[%v], 邀请数量[%v]", epic.Name, epic.InvitationCounts)
-
-		// BI: Round信息
-		redis.HIncrBy(_roundInfoKey(playerInfo), "initationCount", int64(epic.InvitationCounts))
 
 		if epic.InvitationCounts > 0 {
 			isInvitation = true
@@ -664,9 +649,6 @@ func _getInvitationFleet(resp *http.Response, playerInfo PlayerInfo) *Fleet {
 			if fleet.Quality <= MaxJoinedTimes {
 				fleets = append(fleets, fleet)
 
-				// BI: Round信息
-				redis.HIncrBy(_roundInfoKey(playerInfo), "validInvitationCount", 1)
-
 			} else {
 				log.Error("舰队[%v:%v] by (%v): 已经到达自动帮飞次数上限, 加入黑名单", fleet.Name, fleet.Id, fleet.Captain.Name)
 
@@ -681,12 +663,6 @@ func _getInvitationFleet(resp *http.Response, playerInfo PlayerInfo) *Fleet {
 
 		firstFleet := &fleets[0]
 		log.Notice("舰队[%v:%v] by (%v): 正在邀请, 优先度(%v)", firstFleet.Name, firstFleet.Id, firstFleet.Captain.Name, firstFleet.Quality)
-
-		// BI: 设置邀请的舰队信息
-		_saveFleetInfo(firstFleet, playerInfo)
-
-		// BI: Round信息
-		redis.HSet(_roundInfoKey(playerInfo), "chosenFleetId", fmt.Sprintf("%v", firstFleet.Id))
 
 		return firstFleet
 	}
@@ -747,24 +723,6 @@ func _getJoinedTimes(fleetId int, playerInfo PlayerInfo) int {
 
 func _incrJoinedTimes(fleetId int, playerInfo PlayerInfo) {
 	redis.HIncrBy(fmt.Sprintf("epic:%v:fleet:times", playerInfo.PlayerId()), fmt.Sprintf("%v", fleetId), 1)
-}
-
-func _roundInfoKey(playerInfo PlayerInfo) string {
-	return fmt.Sprintf("epic:%v:round:%v:info", playerInfo.PlayerId(), _getRound(playerInfo))
-}
-
-func _saveFleetInfo(fleet *Fleet, playerInfo PlayerInfo) {
-	fleetKey := fmt.Sprintf("epic:%v:fleet:%v:info", playerInfo.PlayerId(), fleet.Id)
-	redis.HMSet(fleetKey, "id", fmt.Sprintf("%v", fleet.Id), "fleetName", fleet.Name, "captainName", fleet.Captain.Name, "quality", fmt.Sprintf("%v", fleet.Quality), "round", fmt.Sprintf("%v", _getRound(playerInfo)), "invitedTime", fmt.Sprintf("%v", time.Now().UTC().Unix()), "joinedTime", "0", "leaveTime", "0")
-}
-func _setFleetTime(fleet *Fleet, field string, playerInfo PlayerInfo) {
-	fleetKey := fmt.Sprintf("epic:%v:fleet:%v:info", playerInfo.PlayerId(), fleet.Id)
-	redis.HSet(fleetKey, field, fmt.Sprintf("%v", time.Now().UTC().Unix()))
-}
-
-func _saveComment(fleet *Fleet, comment string, playerInfo PlayerInfo) {
-	fleetKey := fmt.Sprintf("epic:%v:fleet:%v:comments", playerInfo.PlayerId(), fleet.Id)
-	redis.LPush(fleetKey, comment)
 }
 
 func _md5String(str string) string {
