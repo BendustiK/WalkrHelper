@@ -2,12 +2,13 @@ package main
 
 import (
 	"bytes"
+	"crypto/md5"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"math/rand"
 	"net/http"
 	"net/url"
 	"os"
@@ -15,6 +16,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"utils"
 
 	"github.com/BurntSushi/toml"
 	goerrors "github.com/go-errors/errors"
@@ -24,6 +26,7 @@ import (
 )
 
 var config PlayerInfos
+var leaveComments LeaveComments
 var log = logging.MustGetLogger("Walkr")
 var format = logging.MustStringFormatter(
 	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
@@ -233,11 +236,7 @@ func MakeRequest(playerInfo PlayerInfo, ch chan int) {
 
 		_leaveComment(playerInfo, fleet, COMMENT_LEAVE)
 
-		var leaveComments LeaveComments
-		if _, err := toml.DecodeFile("comments.toml", &leaveComments); err != nil {
-			log.Error("解析留言列表有问题: %v", err)
-		} else {
-			leaveComment := leaveComments.List[rand.New(rand.NewSource(time.Now().UnixNano())).Intn(len(leaveComments.List))]
+		if leaveComment := _getRandomComment(); leaveComment != "" {
 			_leaveComment(playerInfo, fleet, leaveComment)
 		}
 
@@ -247,6 +246,32 @@ func MakeRequest(playerInfo PlayerInfo, ch chan int) {
 
 	}
 
+}
+
+func _getRandomComment() string {
+	commentCountingKey := "epic:comments:counting"
+	leaveComment := ""
+	if countingMap, err := redis.HGetAllMap(commentCountingKey).Result(); err == nil {
+		maxCount := 0
+		dataMap := make(map[string]int, 0)
+		for comment, countStr := range countingMap {
+			count, _ := strconv.Atoi(countStr)
+			if count > maxCount {
+				maxCount = count
+			}
+			dataMap[comment] = count
+		}
+		for comment, count := range dataMap {
+			dataMap[comment] = maxCount - count
+		}
+
+		leaveComment := utils.GetRandomDataByWeight(dataMap)
+		// leaveComment = leaveComments.List[rand.New(rand.NewSource(time.Now().UnixNano())).Intn(len(leaveComments.List))]
+
+		redis.HIncrBy(commentCountingKey, leaveComment, 1)
+	}
+
+	return leaveComment
 }
 
 func _requestNewFriendList(playerInfo PlayerInfo) (*http.Response, error) {
@@ -742,6 +767,20 @@ func _saveComment(fleet *Fleet, comment string, playerInfo PlayerInfo) {
 	redis.LPush(fleetKey, comment)
 }
 
+func _md5String(str string) string {
+	md5h := md5.New()
+	md5h.Write([]byte(str))
+	md5v := md5h.Sum([]byte(""))
+	return hex.EncodeToString(md5v)
+}
+
+func _saveCommentsToRedis() {
+	commentCountingKey := "epic:comments:counting"
+	for _, comment := range leaveComments.List {
+		redis.HIncrBy(commentCountingKey, comment, 0)
+	}
+}
+
 func main() {
 	// 初始化Log
 	stdOutput := logging.NewLogBackend(os.Stderr, "", 0)
@@ -769,6 +808,12 @@ func main() {
 		log.Error("配置文件有问题: %v", err)
 		return
 	}
+
+	if _, err := toml.DecodeFile("comments.toml", &leaveComments); err != nil {
+		log.Error("解析留言列表有问题: %v", err)
+		return
+	}
+	_saveCommentsToRedis()
 
 	epicHelper := []PlayerInfo{}
 	for _, info := range config.PlayerInfo {
