@@ -463,7 +463,7 @@ func _applyInvitedFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 			return false
 		}
 
-		log.Notice("已经加入舰队[%v:%v], 等待起飞", fleet.Name, fleet.Id)
+		log.Notice("「%v」已经加入舰队[%v:%v], 等待起飞", playerInfo.Name, fleet.Name, fleet.Id)
 
 		// BI: 加入的舰队信息
 		_setFleetTime(fleet, "joinedTime", playerInfo)
@@ -518,7 +518,7 @@ func _leaveComment(playerInfo PlayerInfo, fleet *Fleet, comment string) bool {
 			return false
 		}
 
-		log.Notice("已经留言(%v)", comment)
+		log.Notice("「%v」已经留言(%v)", playerInfo.Name, comment)
 
 		_saveComment(fleet, comment, playerInfo)
 		return record.Success
@@ -569,11 +569,11 @@ func _leaveFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 
 		var record BoolResponse
 		if err := json.Unmarshal([]byte(body), &record); err != nil {
-			log.Error("离开舰队失败: %v", err)
+			log.Error("「%v」离开舰队失败: %v", playerInfo.Name, err)
 			return false
 		}
 
-		log.Notice("退出舰队[%v:%v]成功", fleet.Name, fleet.Id)
+		log.Notice("「%v」退出舰队[%v:%v]成功", playerInfo.Name, fleet.Name, fleet.Id)
 
 		// BI: 为舰队设置离开标志
 		_setFleetTime(fleet, "leaveTime", playerInfo)
@@ -582,7 +582,7 @@ func _leaveFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 
 		return record.Success
 	} else {
-		log.Error("请求离开舰队失败: %v", err)
+		log.Error("「%v」请求离开舰队失败: %v", playerInfo.Name, err)
 
 	}
 
