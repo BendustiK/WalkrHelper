@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -11,6 +10,7 @@ import (
 	"net/url"
 	"os"
 	"time"
+	"utils"
 
 	"github.com/BurntSushi/toml"
 	goerrors "github.com/go-errors/errors"
@@ -99,7 +99,7 @@ func _requestNewFriendList(playerInfo PlayerInfo) (*http.Response, error) {
 
 	host := fmt.Sprintf("https://api.walkrhub.com/api/v1/users/friend_invitations?%v", v.Encode())
 
-	req, err := _generateRequest(playerInfo, host, "GET", nil)
+	req, err := utils.GenerateWalkrRequest(host, "GET", playerInfo.Cookie, nil)
 	if req == nil {
 		return nil, err
 	}
@@ -159,7 +159,7 @@ func _confirmFriend(playerInfo PlayerInfo, friendId int) bool {
 	}
 
 	host := "https://api.walkrhub.com/api/v1/users/confirm_friend"
-	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
+	req, err := utils.GenerateWalkrRequest(host, "POST", playerInfo.Cookie, bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
 	}
@@ -185,31 +185,6 @@ func _confirmFriend(playerInfo PlayerInfo, friendId int) bool {
 
 	}
 	return false
-}
-
-func _generateRequest(playerInfo PlayerInfo, host string, method string, requestBytes *bytes.Buffer) (*http.Request, error) {
-	var req *http.Request
-	var err error
-	if requestBytes == nil {
-		req, err = http.NewRequest(method, host, nil)
-	} else {
-		req, err = http.NewRequest(method, host, requestBytes)
-	}
-	if err != nil {
-		return nil, errors.New("创建Request失败")
-	}
-
-	req.Header.Set("Cookie", playerInfo.Cookie)
-	if playerInfo.IfNoneMatch != "" {
-		req.Header.Add("If-None-Match", playerInfo.IfNoneMatch)
-	}
-	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Host", "api.walkrhub.com")
-	req.Header.Add("Accept", "*/*")
-	req.Header.Add("User-Agent", "Space Walk/2.1.4 (iPhone; iOS 9.1; Scale/2.00)")
-	req.Header.Add("Accept-Language", "zh-Hans-CN;q=1")
-
-	return req, nil
 }
 
 func main() {

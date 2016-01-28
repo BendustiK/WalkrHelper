@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -13,6 +12,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"utils"
 
 	"github.com/BurntSushi/toml"
 	goerrors "github.com/go-errors/errors"
@@ -114,7 +114,7 @@ func _convertEnegeryToPilots(playerInfo PlayerInfo) bool {
 	client := &http.Client{}
 
 	host := "https://api.walkrhub.com/api/v1/pilots/convert"
-	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
+	req, err := utils.GenerateWalkrRequest(host, "POST", playerInfo.Cookie, bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		log.Error("创建「%v」的请求出错: %v", err)
 		return false
@@ -155,126 +155,6 @@ func _convertEnegeryToPilots(playerInfo PlayerInfo) bool {
 func _generateEnergy(playerInfo PlayerInfo) PlayerInfo {
 	playerInfo.ConvertedEnergy = rand.New(rand.NewSource(time.Now().UnixNano())).Intn(10000) + 50000
 	return playerInfo
-}
-
-// func _requestNewFriendList(playerInfo PlayerInfo) (*http.Response, error) {
-// 	log.Debug("查看「%v」是否有好友申请", playerInfo.Name)
-
-// 	client := &http.Client{}
-// 	v := url.Values{}
-// 	v.Add("platform", playerInfo.Platform)
-// 	v.Add("auth_token", playerInfo.AuthToken)
-// 	v.Add("client_version", playerInfo.ClientVersion)
-
-// 	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/users/friend_invitations?%v", v.Encode())
-
-// 	req, err := _generateRequest(playerInfo, host, "GET", nil)
-// 	if req == nil {
-// 		return nil, err
-// 	}
-
-// 	return client.Do(req)
-
-// }
-
-// func _checkFriendInvitation(playerInfo PlayerInfo) bool {
-// 	resp, err := _requestNewFriendList(playerInfo)
-// 	if err != nil {
-// 		return false
-// 	}
-
-// 	body, err := ioutil.ReadAll(resp.Body)
-// 	if err != nil {
-// 		log.Error("读取返回数据失败: %v", err)
-// 		return false
-// 	}
-
-// 	var records NewFriendListResponse
-// 	if err := json.Unmarshal([]byte(body), &records); err != nil {
-// 		log.Error("解析好友列表数据失败: %v", err)
-// 		return false
-// 	}
-
-// 	if len(records.Data) == 0 {
-// 		log.Debug("「%v」没有新的好友申请", playerInfo.Name)
-// 		return false
-// 	}
-
-// 	for _, friend := range records.Data {
-// 		log.Debug("「%v」新的好友申请['%v':%v]", playerInfo.Name, friend.Name, friend.Id)
-// 		if _confirmFriend(playerInfo, friend.Id) == true {
-// 			log.Debug("「%v」添加好友['%v':%v]成功", playerInfo.Name, friend.Name, friend.Id)
-// 		} else {
-// 			log.Error("「%v」添加好友['%v':%v]失败", playerInfo.Name, friend.Name, friend.Id)
-// 		}
-// 	}
-
-// 	return true
-// }
-
-// func _confirmFriend(playerInfo PlayerInfo, friendId int) bool {
-// 	client := &http.Client{}
-
-// 	confirmFriendRequestJson := ConfirmFriendRequest{
-// 		AuthToken:     playerInfo.AuthToken,
-// 		ClientVersion: playerInfo.ClientVersion,
-// 		Platform:      playerInfo.Platform,
-// 		UserId:        friendId,
-// 	}
-// 	b, err := json.Marshal(confirmFriendRequestJson)
-// 	if err != nil {
-// 		log.Error("Json Marshal error for %v", err)
-// 		return false
-// 	}
-
-// 	host := "https://universe.walkrgame.com/api/v1/users/confirm_friend"
-// 	req, err := _generateRequest(playerInfo, host, "POST", bytes.NewBuffer([]byte(b)))
-// 	if err != nil {
-// 		return false
-// 	}
-
-// 	if resp, err := client.Do(req); err == nil {
-// 		defer resp.Body.Close()
-
-// 		body, err := ioutil.ReadAll(resp.Body)
-// 		if err != nil {
-// 			log.Error("读取返回数据失败: %v", err)
-// 			return false
-// 		}
-
-// 		var record BoolResponse
-// 		if err := json.Unmarshal([]byte(body), &record); err != nil {
-// 			log.Error("通过好友失败: %v", err)
-// 			return false
-// 		}
-
-// 		return record.Success
-// 	} else {
-// 		log.Error("请求添加用户失败: %v", err)
-
-// 	}
-// 	return false
-// }
-func _generateRequest(playerInfo PlayerInfo, host string, method string, requestBytes *bytes.Buffer) (*http.Request, error) {
-	var req *http.Request
-	var err error
-	if requestBytes == nil {
-		req, err = http.NewRequest(method, host, nil)
-	} else {
-		req, err = http.NewRequest(method, host, requestBytes)
-	}
-	if err != nil {
-		return nil, errors.New("创建Request失败")
-	}
-
-	req.Header.Set("Cookie", playerInfo.Cookie)
-	req.Header.Add("Content-Type", "application/json")
-	req.Header.Add("Host", "api.walkrhub.com")
-	req.Header.Add("Accept", "*/*")
-	req.Header.Add("User-Agent", "Space Walk/2.1.4 (iPhone; iOS 9.1; Scale/2.00)")
-	req.Header.Add("Accept-Language", "zh-Hans-CN;q=1, en-CN;q=0.9")
-
-	return req, nil
 }
 
 // BI相关
