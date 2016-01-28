@@ -265,7 +265,7 @@ func _getRandomComment() string {
 			dataMap[comment] = maxCount - count
 		}
 
-		leaveComment := utils.GetRandomDataByWeight(dataMap)
+		leaveComment = utils.GetRandomDataByWeight(dataMap)
 		// leaveComment = leaveComments.List[rand.New(rand.NewSource(time.Now().UnixNano())).Intn(len(leaveComments.List))]
 
 		redis.HIncrBy(commentCountingKey, leaveComment, 1)
@@ -815,23 +815,27 @@ func main() {
 	}
 	_saveCommentsToRedis()
 
-	epicHelper := []PlayerInfo{}
-	for _, info := range config.PlayerInfo {
-		if info.EpicHelper == true {
-			epicHelper = append(epicHelper, info)
-		}
+	for i := 0; i < 10; i++ {
+		log.Debug("Comment: %v", _getRandomComment())
 	}
 
-	if len(epicHelper) == 0 {
-		log.Error("没有配置帮飞号信息")
-		return
-	}
+	// epicHelper := []PlayerInfo{}
+	// for _, info := range config.PlayerInfo {
+	// 	if info.EpicHelper == true {
+	// 		epicHelper = append(epicHelper, info)
+	// 	}
+	// }
 
-	ch := make(chan int, len(epicHelper))
-	for _, playerInfo := range epicHelper {
-		go MakeRequest(playerInfo, ch)
-	}
-	<-ch
+	// if len(epicHelper) == 0 {
+	// 	log.Error("没有配置帮飞号信息")
+	// 	return
+	// }
+
+	// ch := make(chan int, len(epicHelper))
+	// for _, playerInfo := range epicHelper {
+	// 	go MakeRequest(playerInfo, ch)
+	// }
+	// <-ch
 
 }
 

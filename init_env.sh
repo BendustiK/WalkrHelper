@@ -1,4 +1,11 @@
-#!/bin/bash -e
+#! /bin/bash
 
-current_path=`pwd`
-export GOPATH=$GOPATH:$current_path
+echo Setting GOPATH ...
+DIR=`pwd`
+if [ ${DIR} != ${GOPATH} ]
+then
+    export OLDGOPATH=$GOPATH
+    export GOPATH=$GOPATH:$DIR
+    echo "Set GOPATH=${GOPATH}"
+fi
+echo Finished!
