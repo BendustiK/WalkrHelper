@@ -8,6 +8,7 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"math"
 	"net/http"
 	"net/url"
 	"os"
@@ -261,9 +262,8 @@ func _getRandomComment() string {
 			dataMap[comment] = count
 		}
 		for comment, count := range dataMap {
-			dataMap[comment] = maxCount - count
+			dataMap[comment] = int(math.Pow(float64(maxCount-count), 2)) + 1 // 加1是为了防止大家都平分的情况下导致没有记录选择出来
 		}
-
 		leaveComment = utils.GetRandomDataByWeight(dataMap)
 		// leaveComment = leaveComments.List[rand.New(rand.NewSource(time.Now().UnixNano())).Intn(len(leaveComments.List))]
 
@@ -750,8 +750,9 @@ func main() {
 	}
 	_saveCommentsToRedis()
 
-	// for i := 0; i < 10; i++ {
+	// for i := 0; i < 100000; i++ {
 	// 	log.Debug("Comment: %v", _getRandomComment())
+
 	// }
 
 	epicHelper := []PlayerInfo{}

@@ -18,7 +18,7 @@ func GetRandomDataByWeight(dataMap map[string]int) string {
 		}
 
 		for id, weight := range dataMap {
-			if weight >= cw {
+			if weight > 0 && weight >= cw {
 				return id
 			}
 		}
