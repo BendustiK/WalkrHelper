@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"time"
 
 	goredis "gopkg.in/redis.v2"
@@ -28,17 +27,12 @@ func main() {
 
 	for _, key := range redis.Keys("energy:*:round").Val() {
 		fmt.Println(key)
-		playerId := strings.Split(key, ":")[1]
-		cnt, _ := redis.Get(key).Int64()
-		redis.HIncrBy("energy:round", playerId, cnt)
-
+		redis.Del(key)
 	}
 
 	for _, key := range redis.Keys("epic:*:round").Val() {
 		fmt.Println(key)
-		playerId := strings.Split(key, ":")[1]
-		cnt, _ := redis.Get(key).Int64()
-		redis.HIncrBy("epic:round", playerId, cnt)
+		redis.Del(key)
 
 	}
 
