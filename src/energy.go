@@ -159,7 +159,9 @@ func _generateEnergy(playerInfo PlayerInfo) PlayerInfo {
 
 // BI相关
 func _getRound(playerInfo PlayerInfo) int {
-	currentRound, err := strconv.Atoi(redis.Get(fmt.Sprintf("energy:%v:round", playerInfo.PlayerId())).Val())
+	roundKey := "energy:round"
+
+	currentRound, err := strconv.Atoi(redis.HGet(roundKey, playerInfo.PlayerId()).Val())
 	if err != nil || currentRound <= 0 {
 		currentRound = 1
 	}
@@ -167,7 +169,9 @@ func _getRound(playerInfo PlayerInfo) int {
 	return currentRound
 }
 func _incrRound(playerInfo PlayerInfo) {
-	redis.Incr(fmt.Sprintf("energy:%v:round", playerInfo.PlayerId()))
+	roundKey := "energy:round"
+	redis.HIncrBy(roundKey, playerInfo.PlayerId(), 1)
+
 }
 
 func (this *PlayerInfo) PlayerId() int {

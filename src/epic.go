@@ -676,15 +676,19 @@ func (this *PlayerInfo) PlayerId() int {
 
 // BI相关
 func _getRound(playerInfo PlayerInfo) int {
-	currentRound, err := strconv.Atoi(redis.Get(fmt.Sprintf("epic:%v:round", playerInfo.PlayerId())).Val())
+	roundKey := "epic:round"
+
+	currentRound, err := strconv.Atoi(redis.HGet(roundKey, playerInfo.PlayerId()).Val())
 	if err != nil || currentRound <= 0 {
 		currentRound = 1
 	}
 
 	return currentRound
+
 }
 func _incrRound(playerInfo PlayerInfo) {
-	redis.Incr(fmt.Sprintf("epic:%v:round", playerInfo.PlayerId()))
+	roundKey := "epic:round"
+	redis.HIncrBy(roundKey, playerInfo.PlayerId(), 1)
 
 	time.Sleep(RoundDuration)
 }
