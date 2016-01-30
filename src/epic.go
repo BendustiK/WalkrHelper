@@ -688,7 +688,7 @@ func _getRound(playerInfo PlayerInfo) int {
 }
 func _incrRound(playerInfo PlayerInfo) {
 	roundKey := "epic:round"
-	redis.HIncrBy(roundKey, playerInfo.PlayerId(), 1)
+	redis.HIncrBy(roundKey, strconv.Itoa(playerInfo.PlayerId()), 1)
 
 	time.Sleep(RoundDuration)
 }
