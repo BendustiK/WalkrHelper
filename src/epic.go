@@ -678,7 +678,7 @@ func (this *PlayerInfo) PlayerId() int {
 func _getRound(playerInfo PlayerInfo) int {
 	roundKey := "epic:round"
 
-	currentRound, err := strconv.Atoi(redis.HGet(roundKey, playerInfo.PlayerId()).Val())
+	currentRound, err := strconv.Atoi(redis.HGet(roundKey, strconv.Itoa(playerInfo.PlayerId())).Val())
 	if err != nil || currentRound <= 0 {
 		currentRound = 1
 	}

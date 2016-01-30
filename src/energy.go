@@ -161,7 +161,7 @@ func _generateEnergy(playerInfo PlayerInfo) PlayerInfo {
 func _getRound(playerInfo PlayerInfo) int {
 	roundKey := "energy:round"
 
-	currentRound, err := strconv.Atoi(redis.HGet(roundKey, playerInfo.PlayerId()).Val())
+	currentRound, err := strconv.Atoi(redis.HGet(roundKey, strconv.Itoa(playerInfo.PlayerId())).Val())
 	if err != nil || currentRound <= 0 {
 		currentRound = 1
 	}
