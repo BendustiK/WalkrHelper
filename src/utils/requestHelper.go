@@ -22,7 +22,7 @@ func GenerateWalkrRequest(host string, method string, cookie string, requestByte
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Host", "api.walkrhub.com")
 	req.Header.Add("Accept", "*/*")
-	req.Header.Add("User-Agent", "Space Walk/2.1.4 (iPhone; iOS 9.1; Scale/2.00)")
+	req.Header.Add("User-Agent", "Space Walk/2.1.6 (iPhone; iOS 9.2.1; Scale/2.00)")
 	req.Header.Add("Accept-Language", "zh-Hans-CN;q=1, en-CN;q=0.9")
 
 	return req, nil

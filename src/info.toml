@@ -1,7 +1,7 @@
 [[PlayerInfo]]
 	Name = "晒宁鼻涕"
 	AuthToken = "370797:cuAqf4RbsJhgkVPvwHB8os2MDdFBy15tFST7BrkM6C8"
-	ClientVersion = "2.1.5"
+	ClientVersion = "2.1.6"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTI4ZDI1YTdjMmMxN2RhYWQ5MWI1YTY1YWRkYTAzYmI5BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--dc32dbded54691404024ecc64e36497551940ae8"
@@ -11,7 +11,7 @@
 [[PlayerInfo]]
 	Name = "宅家豆浆"
 	AuthToken = "473033:BHfwd8tMFV98KA5s_qGsP-kJBVrKe8EZTTgy1-3vV1c"
-	ClientVersion = "2.1.5"
+	ClientVersion = "2.1.6"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTA0ZGE5ZWMyNzhiNDU4NjZjOWFiNGI4NmY0MDQxNGE5BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--82ad33ec1a8882aadfdc10fb0f71146edae8e607"
@@ -21,7 +21,7 @@
 [[PlayerInfo]]
 	Name = "豆喵子"
 	AuthToken = "370945:pLtw4CprTG4qgn4Qyx3RM549owsHoUoxyGnhsYtNp44"
-	ClientVersion = "2.1.5"
+	ClientVersion = "2.1.6"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTEyODMzZjcyOWNlNTIzMGI5MjFlNTc1MGZjZjk5ODA2BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--fb02d97c49abb6612cd8827e977c6f413ea94632"
@@ -31,7 +31,7 @@
 [[PlayerInfo]]
 	Name = "宅家白小猫"
 	AuthToken = "477860:e2iz5Ts3-sVwThW-cu9VLLUSwWqk3fi5i-1aCrSa3aE"
-	ClientVersion = "2.1.5"
+	ClientVersion = "2.1.6"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTZlZGUwOWU1MTBkMjI0ZjJmMWNiNjg5YzI0MTJlN2Y4BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--8de5111e28004718450c7c199687643bb2720a71"
@@ -41,7 +41,7 @@
 [[PlayerInfo]]
 	Name = "宅家飞碟"
 	AuthToken = "543972:_sn5uAg-19_4Wsx4du9N7XFjzSNL6yva4mPLksvxvvx"
-	ClientVersion = "2.1.5"
+	ClientVersion = "2.1.6"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTZmNTFhMWI5ZmIzZWQ4OWYwNDhhMjEzYmIyZmJiODI5BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--4a2044c55aa1a01cffa3b7ff48a8970574da3a49"
@@ -51,7 +51,7 @@
 [[PlayerInfo]]
 	Name = "宅家拉佛"
 	AuthToken = "548754:m-fAbVDYY26UKE8dbSecdy2j912Qomnxq2kyUn98uCs"
-	ClientVersion = "2.1.5"
+	ClientVersion = "2.1.6"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWQxOGYzZTRiOWJmMTgzODA0Zjg0MDNlMjAzZmRhODdiBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--b0bb1d453c948262bd7f583adabbe6e4c1c600e8"
@@ -61,7 +61,7 @@
 [[PlayerInfo]]
 	Name = "宅家琪萨"
 	AuthToken = "549457:fxuC2CtPE_6nLszTNjJFj9GknoMisyysjtEYvyehRNY"
-	ClientVersion = "2.1.5"
+	ClientVersion = "2.1.6"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTY2YmNhZWZmNmM1YTlkYTg0NGJjNDg3MjJkMmEyM2Y4BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--817baacf6faf70b15ea445e54705df87573349d7"
@@ -71,7 +71,7 @@
 [[PlayerInfo]]
 	Name = "宅家豆汁"
 	AuthToken = "557451:sRgrz3KK3buNoys1E4tdHgXLBbTfRTJNYekyU66y3_Y"
-	ClientVersion = "2.1.5"
+	ClientVersion = "2.1.6"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTI3MzM0NTcxMWFjMGI5NGFkZWE5ZTA0MWJhNzBmODM0BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--034c81f793cb97db69a91500e69217eca04197dc"
@@ -81,7 +81,7 @@
 [[PlayerInfo]]
 	Name = "宅家豆腐脑"
 	AuthToken = "595538:UkDsnuK9SRQQaN4Jx_vQVf9s6bsBFxc1fG8ipiXu78w"
-	ClientVersion = "2.1.5"
+	ClientVersion = "2.1.6"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWI3MmYwNjNkODk2OWJmODNmNjRlZGUwNjllNDcxNGZkBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--66f545d246549e29eae6cab1b7f01a427c468b9e"
@@ -91,7 +91,7 @@
 [[PlayerInfo]]
 	Name = "宅家豆腐"
 	AuthToken = "556918:9sgkyD1XCnUqtbYsBpa3XNZxJzx-yaPwtS7w1sAxqzQ"
-	ClientVersion = "2.1.5"
+	ClientVersion = "2.1.6"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTI2ODk1YzZhNzg4ZjMxMDZmMmJmZWE2MTVkOTBmMWUwBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--c3bb411d1e8d691e221ffcc06653b28a21724427"
@@ -100,8 +100,8 @@
 
 [[PlayerInfo]]
 	Name = "Twitter晒宁鼻涕"
-	AuthToken = "633899:8YsvGbwUuvd3MNgFMmSKdmDkwARPgqxJfUKzEfgYgzk"
-	ClientVersion = "2.1.5"
+	AuthToken = "633899:kbHH5uJjBBtJyxq-MohmiXyJniSGKZcgxUt89qBVJ-4"
+	ClientVersion = "2.1.6"
 	Locale = "zh-CN"
 	Platform = "ios"
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTVmNTNkZjQ2NGQ5NTFhNTZiYmM4ZjVhOGYwMTRlNzgzBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--94e577c1eafb4e5f6d149a48e3eb106c97bb5806; __cfduid=dc68112e41fc63109ac37c59604dfcbcd1452528865"
