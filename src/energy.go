@@ -113,7 +113,7 @@ func _convertEnegeryToPilots(playerInfo PlayerInfo) bool {
 
 	client := &http.Client{}
 
-	host := "https://api.walkrhub.com/api/v1/pilots/convert"
+	host := "https://universe.walkrgame.com/api/v1/pilots/convert"
 	req, err := utils.GenerateWalkrRequest(host, "POST", playerInfo.Cookie, bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		log.Error("创建「%v」的请求出错: %v", err)

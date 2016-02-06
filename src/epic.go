@@ -282,7 +282,7 @@ func _requestNewFriendList(playerInfo PlayerInfo) (*http.Response, error) {
 	v.Add("auth_token", playerInfo.AuthToken)
 	v.Add("client_version", playerInfo.ClientVersion)
 
-	host := fmt.Sprintf("https://api.walkrhub.com/api/v1/users/friend_invitations?%v", v.Encode())
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/users/friend_invitations?%v", v.Encode())
 
 	req, err := utils.GenerateWalkrRequest(host, "GET", playerInfo.Cookie, nil)
 	if req == nil {
@@ -343,7 +343,7 @@ func _confirmFriend(playerInfo PlayerInfo, friendId int) bool {
 		return false
 	}
 
-	host := "https://api.walkrhub.com/api/v1/users/confirm_friend"
+	host := "https://universe.walkrgame.com/api/v1/users/confirm_friend"
 	req, err := utils.GenerateWalkrRequest(host, "POST", playerInfo.Cookie, bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
@@ -380,7 +380,7 @@ func _leaveCurrentEpicIfExists(playerInfo PlayerInfo) bool {
 	v.Add("auth_token", playerInfo.AuthToken)
 	v.Add("client_version", playerInfo.ClientVersion)
 
-	host := fmt.Sprintf("https://api.walkrhub.com/api/v1/fleets/current?%v", v.Encode())
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/current?%v", v.Encode())
 	req, err := utils.GenerateWalkrRequest(host, "GET", playerInfo.Cookie, nil)
 	if err != nil {
 		return false
@@ -426,7 +426,7 @@ func _requestEpicList(playerInfo PlayerInfo) (*http.Response, error) {
 	v.Add("auth_token", playerInfo.AuthToken)
 	v.Add("client_version", playerInfo.ClientVersion)
 
-	host := fmt.Sprintf("https://api.walkrhub.com/api/v1/epics?%v", v.Encode())
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/epics?%v", v.Encode())
 	req, err := utils.GenerateWalkrRequest(host, "GET", playerInfo.Cookie, nil)
 	if err != nil {
 		return nil, err
@@ -449,7 +449,7 @@ func _requestFleetList(playerInfo PlayerInfo) (*http.Response, error) {
 	v.Add("name", "")
 	v.Add("offset", "0")
 
-	host := fmt.Sprintf("https://api.walkrhub.com/api/v1/fleets?%v", v.Encode())
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets?%v", v.Encode())
 	req, err := utils.GenerateWalkrRequest(host, "GET", playerInfo.Cookie, nil)
 	if err != nil {
 		return nil, err
@@ -466,7 +466,7 @@ func _applyInvitedFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 		return false
 	}
 
-	host := fmt.Sprintf("https://api.walkrhub.com/api/v1/fleets/%v/apply", fleet.Id)
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/apply", fleet.Id)
 	req, err := utils.GenerateWalkrRequest(host, "POST", playerInfo.Cookie, bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
@@ -514,7 +514,7 @@ func _leaveComment(playerInfo PlayerInfo, fleet *Fleet, comment string) bool {
 		return false
 	}
 
-	host := fmt.Sprintf("https://api.walkrhub.com/api/v1/fleets/%v/comment", fleet.Id)
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/comment", fleet.Id)
 	req, err := utils.GenerateWalkrRequest(host, "POST", playerInfo.Cookie, bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		log.Error("请求留言失败 %v", err)
@@ -569,7 +569,7 @@ func _leaveFleet(playerInfo PlayerInfo, fleet *Fleet) bool {
 		return false
 	}
 
-	host := fmt.Sprintf("https://api.walkrhub.com/api/v1/fleets/%v/leave", fleet.Id)
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/fleets/%v/leave", fleet.Id)
 	req, err := utils.GenerateWalkrRequest(host, "POST", playerInfo.Cookie, bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false

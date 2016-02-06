@@ -97,7 +97,7 @@ func _requestNewFriendList(playerInfo PlayerInfo) (*http.Response, error) {
 	v.Add("auth_token", playerInfo.AuthToken)
 	v.Add("client_version", playerInfo.ClientVersion)
 
-	host := fmt.Sprintf("https://api.walkrhub.com/api/v1/users/friend_invitations?%v", v.Encode())
+	host := fmt.Sprintf("https://universe.walkrgame.com/api/v1/users/friend_invitations?%v", v.Encode())
 
 	req, err := utils.GenerateWalkrRequest(host, "GET", playerInfo.Cookie, nil)
 	if req == nil {
@@ -158,7 +158,7 @@ func _confirmFriend(playerInfo PlayerInfo, friendId int) bool {
 		return false
 	}
 
-	host := "https://api.walkrhub.com/api/v1/users/confirm_friend"
+	host := "https://universe.walkrgame.com/api/v1/users/confirm_friend"
 	req, err := utils.GenerateWalkrRequest(host, "POST", playerInfo.Cookie, bytes.NewBuffer([]byte(b)))
 	if err != nil {
 		return false
