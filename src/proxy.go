@@ -240,7 +240,7 @@ func main() {
 		} else {
 			body, err := ioutil.ReadAll(resp.Body)
 			if err != nil || string(body) != "1" {
-				fmt.Println("启动失败3")
+				fmt.Println("启动失败3: %v", string(body))
 				return
 			}
 		}
