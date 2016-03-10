@@ -2,16 +2,20 @@ package main
 
 import (
 	"bytes"
+	"crypto/md5"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net"
 	"net/http"
+	"net/url"
 	"regexp"
 	"strings"
 
 	"github.com/elazarl/goproxy"
+	"github.com/pborman/uuid"
 )
 
 const mobileconfigContent = `<?xml version="1.0" encoding="UTF-8"?>
@@ -83,6 +87,9 @@ const mobileconfigContent = `<?xml version="1.0" encoding="UTF-8"?>
 </dict>
 </plist>
 `
+
+const RemoteAddr = "106.185.47.93"
+const PackageFor = "dahe"
 
 // 领取舰桥能量
 type ConvertedEnergyResponse struct {
@@ -210,9 +217,37 @@ func main() {
 
 	})
 
-	// TODO: 这里应该加一个验证，用来启动或者停止
+	// 这里应该加一个验证，用来启动或者停止
+	currentUUID := uuid.NewUUID().String()
+	md5h := md5.New()
+	md5h.Write([]byte(PackageFor + "-" + currentUUID))
+	md5str := hex.EncodeToString(md5h.Sum([]byte("")))
+
+	client := &http.Client{}
+	v := url.Values{}
+	v.Add("u", PackageFor)
+	v.Add("id", currentUUID)
+	v.Add("md", md5str)
+
+	host := fmt.Sprintf("http://%v:9896/verify?%v", RemoteAddr, v.Encode())
+	if req, err := http.NewRequest("GET", host, nil); err != nil {
+		fmt.Println("启动失败1")
+		return
+	} else {
+		if resp, err := client.Do(req); err != nil {
+			fmt.Println("启动失败2")
+			return
+		} else {
+			body, err := ioutil.ReadAll(resp.Body)
+			if err != nil || string(body) != "1" {
+				fmt.Println("启动失败3")
+				return
+			}
+		}
+	}
+
 	localIp := "127.0.0.1"
-	if conn, err := net.Dial("udp", "baidu.com:80"); err == nil {
+	if conn, err := net.Dial("udp", fmt.Sprintf("http://%v:9896", RemoteAddr)); err == nil {
 		defer conn.Close()
 		localIp = strings.Split(conn.LocalAddr().String(), ":")[0]
 	}

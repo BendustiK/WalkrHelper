@@ -1,0 +1,67 @@
+package main
+
+import (
+	"crypto/md5"
+	"encoding/hex"
+	"log"
+	"net/http"
+	"time"
+
+	goredis "gopkg.in/redis.v2"
+)
+
+var redis *goredis.Client
+
+var redisConf = &goredis.Options{
+	Network:      "tcp",
+	Addr:         "localhost:6379",
+	Password:     "",
+	DB:           0,
+	DialTimeout:  5 * time.Second,
+	ReadTimeout:  5 * time.Second,
+	WriteTimeout: 5 * time.Second,
+	PoolSize:     20,
+	IdleTimeout:  60 * time.Second,
+}
+
+func verifyResponse(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	userName := r.FormValue("u")
+	uuid := r.FormValue("id")
+	md5sum := r.FormValue("md")
+
+	md5h := md5.New()
+	md5h.Write([]byte(userName + "-" + uuid))
+	md5str := hex.EncodeToString(md5h.Sum([]byte("")))
+	if md5str != md5sum {
+		w.Write([]byte("0"))
+		return
+	}
+
+	if usedMd5, err := redis.HGet("verify:uuid", userName).Result(); err != nil {
+		w.Write([]byte("0"))
+		return
+	} else {
+		if usedMd5 == "" {
+			redis.HSet("verify:uuid", userName, md5sum)
+		} else {
+			if usedMd5 != md5sum {
+				w.Write([]byte("0"))
+				return
+			}
+		}
+	}
+
+	w.Write([]byte("1"))
+	return
+
+}
+func main() {
+	redis = goredis.NewClient(redisConf)
+
+	http.HandleFunc("/verify", verifyResponse)
+	err := http.ListenAndServe(":9896", nil)
+	if err != nil {
+		log.Fatal("ListenAndServe:", err)
+	}
+}
