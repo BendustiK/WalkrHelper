@@ -89,7 +89,9 @@ const mobileconfigContent = `<?xml version="1.0" encoding="UTF-8"?>
 `
 
 const RemoteAddr = "106.185.47.93"
-const PackageFor = "dahe"
+const PackageFor = "doraemon"
+const EpicHack = false
+const Version = "2"
 
 // 领取舰桥能量
 type ConvertedEnergyResponse struct {
@@ -190,35 +192,38 @@ func main() {
 	})
 
 	// https://universe.walkrgame.com/api/v1/fleets/443091/check_reward
-	proxy.OnResponse(goproxy.UrlMatches(regexp.MustCompile("^.*v1/fleets/(.*)/check_reward$"))).DoFunc(func(resp *http.Response, ctx *goproxy.ProxyCtx) *http.Response {
-		if body, err := ioutil.ReadAll(resp.Body); err == nil {
-			var record CheckEpicRewardResponse
-			if err := json.Unmarshal([]byte(body), &record); err == nil {
-				record.Data.IsChecked = false
-				record.Data.IsFirstTime = false
-				// 能量块
-				record.Data.Reward.Type = "cubes"
-				record.Data.Reward.Value = "60000"
-				record.Data.Contribution.Value = 1
-				// DFR
-				// record.Data.Reward.Type = "replicator"
-				// record.Data.Reward.Value = fmt.Sprintf("map-%v", rand.New(rand.NewSource(time.Now().UnixNano())).Intn(100)+210000)
-				dx, _ := json.Marshal(record)
-				resp.Body = ioutil.NopCloser(bytes.NewBuffer(dx))
+	if EpicHack == true {
+		proxy.OnResponse(goproxy.UrlMatches(regexp.MustCompile("^.*v1/fleets/(.*)/check_reward$"))).DoFunc(func(resp *http.Response, ctx *goproxy.ProxyCtx) *http.Response {
+			if body, err := ioutil.ReadAll(resp.Body); err == nil {
+				var record CheckEpicRewardResponse
+				if err := json.Unmarshal([]byte(body), &record); err == nil {
+					record.Data.IsChecked = false
+					record.Data.IsFirstTime = false
+					// 能量块
+					record.Data.Reward.Type = "cubes"
+					record.Data.Reward.Value = "60000"
+					record.Data.Contribution.Value = 1
+					// DFR
+					// record.Data.Reward.Type = "replicator"
+					// record.Data.Reward.Value = fmt.Sprintf("map-%v", rand.New(rand.NewSource(time.Now().UnixNano())).Intn(100)+210000)
+					dx, _ := json.Marshal(record)
+					resp.Body = ioutil.NopCloser(bytes.NewBuffer(dx))
+				} else {
+					fmt.Println("Unmarshal Err", err)
+
+				}
 			} else {
-				fmt.Println("Unmarshal Err", err)
-
+				fmt.Println("Read body Err", err)
 			}
-		} else {
-			fmt.Println("Read body Err", err)
-		}
 
-		return resp
+			return resp
 
-	})
+		})
+	}
 
 	// 这里应该加一个验证，用来启动或者停止
-	currentUUID := uuid.NewUUID().String()
+	authed := false
+	currentUUID := strings.Split(uuid.NewUUID().String(), "-")[4]
 	md5h := md5.New()
 	md5h.Write([]byte(PackageFor + "-" + currentUUID))
 	md5str := hex.EncodeToString(md5h.Sum([]byte("")))
@@ -228,40 +233,42 @@ func main() {
 	v.Add("u", PackageFor)
 	v.Add("id", currentUUID)
 	v.Add("md", md5str)
+	v.Add("v", Version)
 
 	host := fmt.Sprintf("http://%v:9896/verify?%v", RemoteAddr, v.Encode())
 	if req, err := http.NewRequest("GET", host, nil); err != nil {
-		fmt.Println("启动失败1")
-		return
+		fmt.Println(fmt.Sprintf("启动失败: %v", err))
 	} else {
 		if resp, err := client.Do(req); err != nil {
-			fmt.Println("启动失败2")
-			return
+			fmt.Println(fmt.Sprintf("启动失败: %v", err))
 		} else {
 			body, err := ioutil.ReadAll(resp.Body)
 			if err != nil || string(body) != "1" {
-				fmt.Println("启动失败3: %v", string(body))
-				return
+				fmt.Println(fmt.Sprintf("启动失败: %v", err))
+			} else {
+				authed = true
 			}
 		}
 	}
+	if authed == true {
+		localIp := "127.0.0.1"
+		if conn, err := net.Dial("udp", fmt.Sprintf("http://%v:9896", RemoteAddr)); err == nil {
+			defer conn.Close()
+			localIp = strings.Split(conn.LocalAddr().String(), ":")[0]
+		}
+		port := 9897
 
-	localIp := "127.0.0.1"
-	if conn, err := net.Dial("udp", fmt.Sprintf("http://%v:9896", RemoteAddr)); err == nil {
-		defer conn.Close()
-		localIp = strings.Split(conn.LocalAddr().String(), ":")[0]
+		fmt.Println("你的IP地址是: ", localIp)
+		fmt.Println("!!!!!! 第一次使用工具的时候, 请按照[条目0]安装一个描述文件 !!!!!!")
+		fmt.Println("0. 在玩儿Walkr的iPad/iPhone上使用Safari打开 [http://" + localIp + ":" + fmt.Sprintf("%v", port) + "], 会提示下载一个描述文件, 一路安装即可")
+		fmt.Println("=========================== 无辜的分割线 ===========================")
+		fmt.Println("1. 安装之后在Wifi的代理设置为[手动], 服务器地址为 [" + localIp + "], 端口为 [" + fmt.Sprintf("%v", port) + "]")
+		fmt.Println("2. 打开游戏进入舰桥, 如果能显示能量并且可以领取, 就说明成功")
+		fmt.Println("!!!!!! 不用的时候一定关掉[软件]以及[设备上的代理], 否则可能上不了网 !!!!!!")
+
+		log.Fatal(http.ListenAndServe(":"+fmt.Sprintf("%v", port), proxy))
 	}
-	port := 9897
 
-	fmt.Println("你的IP地址是: ", localIp)
-	fmt.Println("!!!!!! 第一次使用工具的时候, 请按照[条目0]安装一个描述文件 !!!!!!")
-	fmt.Println("0. 在玩儿Walkr的iPad/iPhone上使用Safari打开 [http://" + localIp + ":" + fmt.Sprintf("%v", port) + "], 会提示下载一个描述文件, 一路安装即可")
-	fmt.Println("=========================== 无辜的分割线 ===========================")
-	fmt.Println("1. 安装之后在Wifi的代理设置为[手动], 服务器地址为 [" + localIp + "], 端口为 [" + fmt.Sprintf("%v", port) + "]")
-	fmt.Println("2. 打开游戏进入舰桥, 如果能显示能量并且可以领取, 就说明成功")
-	fmt.Println("!!!!!! 不用的时候一定关掉[软件]以及[设备上的代理], 否则可能上不了网 !!!!!!")
-
-	log.Fatal(http.ListenAndServe(":"+fmt.Sprintf("%v", port), proxy))
 }
 
 func UrlMatches(regexps ...*regexp.Regexp) goproxy.ReqConditionFunc {

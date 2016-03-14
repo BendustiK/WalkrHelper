@@ -11,6 +11,8 @@ import (
 	goredis "gopkg.in/redis.v2"
 )
 
+const ValidVersion = "2"
+
 var log = logging.MustGetLogger("Walkr")
 var format = logging.MustStringFormatter(
 	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
@@ -35,6 +37,13 @@ func verifyResponse(w http.ResponseWriter, r *http.Request) {
 	userName := r.FormValue("u")
 	uuid := r.FormValue("id")
 	md5sum := r.FormValue("md")
+	version := r.FormValue("v")
+
+	if version != ValidVersion {
+		log.Error("用户[%v]请求的版本失败: %v", userName, version)
+		w.Write([]byte("验证版本失败"))
+		return
+	}
 
 	md5h := md5.New()
 	md5h.Write([]byte(userName + "-" + uuid))
@@ -42,13 +51,13 @@ func verifyResponse(w http.ResponseWriter, r *http.Request) {
 	log.Debug("请求: 用户[%v], UUID[%v], MD5[%v], 验证MD5[%v]", userName, uuid, md5sum, md5str)
 	if md5str != md5sum {
 		log.Error("用户[%v]请求MD5认证失败", userName)
-		w.Write([]byte("0"))
+		w.Write([]byte("验证用户认证"))
 		return
 	}
 
 	if usedMd5, err := redis.HGet("verify:uuid", userName).Result(); err != nil && err.Error() != goredis.Nil.Error() {
 		log.Error("用户[%v]请求时Redis错误: %v", err)
-		w.Write([]byte("0"))
+		w.Write([]byte("服务器出错"))
 		return
 	} else {
 		if usedMd5 == "" {
@@ -56,7 +65,7 @@ func verifyResponse(w http.ResponseWriter, r *http.Request) {
 		} else {
 			if usedMd5 != md5sum {
 				log.Error("用户[%v]验证已使用过的MD5认证失败", userName)
-				w.Write([]byte("0"))
+				w.Write([]byte("验证用户失败"))
 				return
 			}
 		}
