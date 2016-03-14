@@ -4,7 +4,7 @@
 # GOOS=windows GOARCH=amd64 go build  -o proxy64.exe proxy.go
 
 echo "正在生成32位的Proxy"
-GOOS=windows GOARCH=386 go build -ldflags "-s -w"  -o proxy32.exe proxy.go
+GOOS=windows GOARCH=386 go build -ldflags "-s -w"  -o proxy32.exe src/proxy.go
 if which upx 2>/dev/null; then
   echo "正在使用UPX压缩"
 	upx proxy32.exe
