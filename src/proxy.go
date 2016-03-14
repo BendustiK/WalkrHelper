@@ -90,7 +90,7 @@ const mobileconfigContent = `<?xml version="1.0" encoding="UTF-8"?>
 `
 
 const RemoteAddr = "106.185.47.93"
-const PackageFor = "doraemon"
+const PackageFor = "doreamon"
 const EpicHack = false
 const Version = "2"
 
@@ -253,9 +253,12 @@ func main() {
 	}
 	if authed == true {
 		localIp := "127.0.0.1"
-		if conn, err := net.Dial("udp", fmt.Sprintf("http://%v:9896", RemoteAddr)); err == nil {
+		if conn, err := net.Dial("udp", fmt.Sprintf("%v:9896", RemoteAddr)); err == nil {
 			defer conn.Close()
 			localIp = strings.Split(conn.LocalAddr().String(), ":")[0]
+		} else {
+
+			fmt.Println(err)
 		}
 		port := 9897
 
