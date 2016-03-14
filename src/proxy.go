@@ -13,6 +13,7 @@ import (
 	"net/url"
 	"regexp"
 	"strings"
+	"time"
 
 	"github.com/elazarl/goproxy"
 	"github.com/pborman/uuid"
@@ -244,7 +245,7 @@ func main() {
 		} else {
 			body, err := ioutil.ReadAll(resp.Body)
 			if err != nil || string(body) != "1" {
-				fmt.Println(fmt.Sprintf("启动失败: %v", err))
+				fmt.Println(fmt.Sprintf("启动失败: %v", string(body)))
 			} else {
 				authed = true
 			}
@@ -267,6 +268,8 @@ func main() {
 		fmt.Println("!!!!!! 不用的时候一定关掉[软件]以及[设备上的代理], 否则可能上不了网 !!!!!!")
 
 		log.Fatal(http.ListenAndServe(":"+fmt.Sprintf("%v", port), proxy))
+	} else {
+		time.Sleep(5 * time.Second)
 	}
 
 }
