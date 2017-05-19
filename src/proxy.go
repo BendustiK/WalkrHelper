@@ -26,63 +26,239 @@ const mobileconfigContent = `<?xml version="1.0" encoding="UTF-8"?>
 	<key>PayloadContent</key>
 	<array>
 		<dict>
+			<key>PayloadDescription</key>
+			<string>Configures restrictions</string>
+			<key>PayloadDisplayName</key>
+			<string>Restrictions</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.applicationaccess.ABA528C3-F64D-47E2-81BB-6D06DC650E6D</string>
+			<key>PayloadType</key>
+			<string>com.apple.applicationaccess</string>
+			<key>PayloadUUID</key>
+			<string>ABA528C3-F64D-47E2-81BB-6D06DC650E6D</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>allowActivityContinuation</key>
+			<true/>
+			<key>allowAddingGameCenterFriends</key>
+			<true/>
+			<key>allowAirPlayIncomingRequests</key>
+			<true/>
+			<key>allowAppCellularDataModification</key>
+			<true/>
+			<key>allowAppInstallation</key>
+			<true/>
+			<key>allowAppRemoval</key>
+			<true/>
+			<key>allowAssistant</key>
+			<true/>
+			<key>allowAssistantWhileLocked</key>
+			<true/>
+			<key>allowAutoCorrection</key>
+			<true/>
+			<key>allowAutomaticAppDownloads</key>
+			<true/>
+			<key>allowBluetoothModification</key>
+			<true/>
+			<key>allowBookstore</key>
+			<true/>
+			<key>allowBookstoreErotica</key>
+			<true/>
+			<key>allowCamera</key>
+			<true/>
+			<key>allowChat</key>
+			<true/>
+			<key>allowCloudBackup</key>
+			<true/>
+			<key>allowCloudDocumentSync</key>
+			<true/>
+			<key>allowCloudPhotoLibrary</key>
+			<true/>
+			<key>allowDefinitionLookup</key>
+			<true/>
+			<key>allowDeviceNameModification</key>
+			<true/>
+			<key>allowDictation</key>
+			<true/>
+			<key>allowEnablingRestrictions</key>
+			<true/>
+			<key>allowEnterpriseAppTrust</key>
+			<true/>
+			<key>allowEnterpriseBookBackup</key>
+			<true/>
+			<key>allowEnterpriseBookMetadataSync</key>
+			<true/>
+			<key>allowEraseContentAndSettings</key>
+			<true/>
+			<key>allowExplicitContent</key>
+			<true/>
+			<key>allowFingerprintForUnlock</key>
+			<true/>
+			<key>allowFingerprintModification</key>
+			<true/>
+			<key>allowGameCenter</key>
+			<true/>
+			<key>allowGlobalBackgroundFetchWhenRoaming</key>
+			<true/>
+			<key>allowInAppPurchases</key>
+			<true/>
+			<key>allowKeyboardShortcuts</key>
+			<true/>
+			<key>allowManagedAppsCloudSync</key>
+			<true/>
+			<key>allowMultiplayerGaming</key>
+			<true/>
+			<key>allowMusicService</key>
+			<true/>
+			<key>allowNews</key>
+			<true/>
+			<key>allowNotificationsModification</key>
+			<true/>
+			<key>allowOpenFromManagedToUnmanaged</key>
+			<true/>
+			<key>allowOpenFromUnmanagedToManaged</key>
+			<true/>
+			<key>allowPairedWatch</key>
+			<true/>
+			<key>allowPassbookWhileLocked</key>
+			<true/>
+			<key>allowPasscodeModification</key>
+			<true/>
+			<key>allowPhotoStream</key>
+			<true/>
+			<key>allowPredictiveKeyboard</key>
+			<true/>
+			<key>allowRadioService</key>
+			<true/>
+			<key>allowRemoteAppPairing</key>
+			<true/>
+			<key>allowRemoteScreenObservation</key>
+			<true/>
+			<key>allowSafari</key>
+			<true/>
+			<key>allowScreenShot</key>
+			<true/>
+			<key>allowSharedStream</key>
+			<true/>
+			<key>allowSpellCheck</key>
+			<true/>
+			<key>allowSpotlightInternetResults</key>
+			<true/>
+			<key>allowUIAppInstallation</key>
+			<true/>
+			<key>allowUIConfigurationProfileInstallation</key>
+			<true/>
+			<key>allowUntrustedTLSPrompt</key>
+			<true/>
+			<key>allowVideoConferencing</key>
+			<true/>
+			<key>allowVoiceDialing</key>
+			<true/>
+			<key>allowWallpaperModification</key>
+			<true/>
+			<key>allowiTunes</key>
+			<true/>
+			<key>forceAirDropUnmanaged</key>
+			<false/>
+			<key>forceAssistantProfanityFilter</key>
+			<false/>
+			<key>forceEncryptedBackup</key>
+			<false/>
+			<key>forceITunesStorePasswordEntry</key>
+			<false/>
+			<key>forceWatchWristDetection</key>
+			<false/>
+			<key>forceWiFiWhitelisting</key>
+			<false/>
+			<key>ratingApps</key>
+			<integer>1000</integer>
+			<key>ratingMovies</key>
+			<integer>1000</integer>
+			<key>ratingRegion</key>
+			<string>us</string>
+			<key>ratingTVShows</key>
+			<integer>1000</integer>
+			<key>safariAcceptCookies</key>
+			<integer>2</integer>
+			<key>safariAllowAutoFill</key>
+			<true/>
+			<key>safariAllowJavaScript</key>
+			<true/>
+			<key>safariAllowPopups</key>
+			<true/>
+			<key>safariForceFraudWarning</key>
+			<false/>
+		</dict>
+		<dict>
 			<key>PayloadCertificateFileName</key>
-			<string>ca.crt</string>
+			<string>goproxy.github.io.cer</string>
 			<key>PayloadContent</key>
 			<data>
-			LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNTakNDQWJX
-			Z0F3SUJBZ0lCQURBTEJna3Foa2lHOXcwQkFRVXdTakVqTUNFR0Ex
-			VUVDaE1hWjJsMGFIVmkKTG1OdmJTOWxiR0Y2WVhKc0wyZHZjSEp2
-			ZUhreEl6QWhCZ05WQkFNVEdtZHBkR2gxWWk1amIyMHZaV3hoZW1G
-			eQpiQzluYjNCeWIzaDVNQjRYRFRBd01ERXdNVEF3TURBd01Gb1hE
-			VFE1TVRJek1USXpOVGsxT1Zvd1NqRWpNQ0VHCkExVUVDaE1hWjJs
-			MGFIVmlMbU52YlM5bGJHRjZZWEpzTDJkdmNISnZlSGt4SXpBaEJn
-			TlZCQU1UR21kcGRHaDEKWWk1amIyMHZaV3hoZW1GeWJDOW5iM0J5
-			YjNoNU1JR2RNQXNHQ1NxR1NJYjNEUUVCQVFPQmpRQXdnWWtDZ1lF
-			QQp2ejlCYkNhSmp4czczVHZjcTNsZVAzMmhBR2VyUTFSZ3ZsWjY4
-			WjRuWm1vVkhmbCsyTnIvbTBkbVcrR2RPZnBUCmNzL0t6ZkpqWUdy
-			Lzg0eDUyNGZpdVI4R2RaMEhPdFhKenlGNXNlb1duYkJJdXlyMVBi
-			RXBnUmhHUU1xcU9VdWoKWUV4ZUxiZk5IUElvSjhYWjFWenl2M1l4
-			amJtaldBK1MvdU9lOUhXdERiTUNBd0VBQWFOR01FUXdEZ1lEVlIw
-			UApBUUgvQkFRREFnQ2tNQk1HQTFVZEpRUU1NQW9HQ0NzR0FRVUZC
-			d01CTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3CkRBWURWUjBSQkFV
-			d0E0SUJLakFMQmdrcWhraUc5dzBCQVFVRGdZRUFJY0w4aHVTbUdN
-			b21wTnVqc3ZlUFRVbk0Kb0VVS3RYNEVoLytzK0RTZlYvVHlJMEkr
-			M0dpUHBMcGxFZ0ZXdW9CSUpHaW9zMHIxZEtoNU4wVEdqeFgvUm1H
-			bQpxbzdFNGpqSnVvOEdzNVU4L2ZnVGhabXNoYXgybHdMdGJSTndo
-			dlVWcjY1R2RhaExzWno4SStoeVNMdWF0VnZSCnFISHEvRlFPUklp
-			TnlOcHEvSGc9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+			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
+			uf9Dwz69YA==
 			</data>
 			<key>PayloadDescription</key>
-			<string>Provides device authentication (certificate or identity).</string>
+			<string>Adds a CA root certificate</string>
 			<key>PayloadDisplayName</key>
-			<string>walkrgame.cert</string>
+			<string>com.shining.bt</string>
 			<key>PayloadIdentifier</key>
-			<string>com.shining.bt.credential</string>
-			<key>PayloadOrganization</key>
-			<string>com.shining</string>
+			<string>com.apple.security.root.FBB28585-ACC6-4542-8042-014A423660E3</string>
 			<key>PayloadType</key>
 			<string>com.apple.security.root</string>
 			<key>PayloadUUID</key>
-			<string>E92365B3-FE72-4AA6-B23F-401109CD4DFD</string>
+			<string>FBB28585-ACC6-4542-8042-014A423660E3</string>
 			<key>PayloadVersion</key>
 			<integer>1</integer>
 		</dict>
 	</array>
-	<key>PayloadDescription</key>
-	<string>Cert file for walkr</string>
 	<key>PayloadDisplayName</key>
-	<string>ShiningBT</string>
+	<string>WalkrHelper</string>
 	<key>PayloadIdentifier</key>
-	<string>com.shining.bt</string>
-	<key>PayloadOrganization</key>
-	<string>com.shining</string>
+	<string>WalkrHelper.BCE2B675-8973-454E-8346-D6257E7AC2F0</string>
 	<key>PayloadRemovalDisallowed</key>
 	<false/>
 	<key>PayloadType</key>
 	<string>Configuration</string>
 	<key>PayloadUUID</key>
-	<string>BCE8EE2F-6388-47A2-B029-CAE1FA3355CF</string>
+	<string>666BFE3A-0E44-48FB-9ED2-9A464D8026F4</string>
 	<key>PayloadVersion</key>
 	<integer>1</integer>
 </dict>
@@ -91,7 +267,8 @@ const mobileconfigContent = `<?xml version="1.0" encoding="UTF-8"?>
 
 const RemoteAddr = "106.185.47.93"
 const PackageFor = "doreamon"
-const EpicHack = false
+const EpicHack = true
+const NeedAuth = false
 const Version = "2"
 
 // 领取舰桥能量
@@ -157,8 +334,8 @@ func main() {
 		// http.FileServer(http.Dir(".")).ServeHTTP(w, req)
 	})
 
-	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*[universe.walkrgame.com|api.walkrhub.com|api.walkrconnect.com].*$"))).HandleConnect(goproxy.AlwaysMitm)
-	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*[universe.walkrgame.com|api.walkrhub.com|api.walkrconnect.com].*$"))).DoFunc(func(req *http.Request, ctx *goproxy.ProxyCtx) (*http.Request, *http.Response) {
+	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*[universe.walkrgame.com|api.walkrhub.com|api.walkrconnect.com|api.walkrorbit.com].*$"))).HandleConnect(goproxy.AlwaysMitm)
+	proxy.OnRequest(goproxy.ReqHostMatches(regexp.MustCompile("^.*[universe.walkrgame.com|api.walkrhub.com|api.walkrconnect.com|api.walkrorbit.com].*$"))).DoFunc(func(req *http.Request, ctx *goproxy.ProxyCtx) (*http.Request, *http.Response) {
 		req.Header.Add("Cache-Control", "no-cache,no-store")
 		req.Header.Add("Pragma", "no-cache")
 		req.Header.Del("If-None-Match")
@@ -201,9 +378,9 @@ func main() {
 					record.Data.IsChecked = false
 					record.Data.IsFirstTime = false
 					// 能量块
-					record.Data.Reward.Type = "cubes"
-					record.Data.Reward.Value = "60000"
-					record.Data.Contribution.Value = 1
+					// record.Data.Reward.Type = "cubes"
+					// record.Data.Reward.Value = "10000"
+					record.Data.Contribution.Value = 30000000
 					// DFR
 					// record.Data.Reward.Type = "replicator"
 					// record.Data.Reward.Value = fmt.Sprintf("map-%v", rand.New(rand.NewSource(time.Now().UnixNano())).Intn(100)+210000)
@@ -224,34 +401,37 @@ func main() {
 
 	// 这里应该加一个验证，用来启动或者停止
 	authed := false
-	currentUUID := strings.Split(uuid.NewUUID().String(), "-")[4]
-	md5h := md5.New()
-	md5h.Write([]byte(PackageFor + "-" + currentUUID))
-	md5str := hex.EncodeToString(md5h.Sum([]byte("")))
+	if NeedAuth == true {
+		currentUUID := strings.Split(uuid.NewUUID().String(), "-")[4]
+		md5h := md5.New()
+		md5h.Write([]byte(PackageFor + "-" + currentUUID))
+		md5str := hex.EncodeToString(md5h.Sum([]byte("")))
 
-	client := &http.Client{}
-	v := url.Values{}
-	v.Add("u", PackageFor)
-	v.Add("id", currentUUID)
-	v.Add("md", md5str)
-	v.Add("v", Version)
+		client := &http.Client{}
+		v := url.Values{}
+		v.Add("u", PackageFor)
+		v.Add("id", currentUUID)
+		v.Add("md", md5str)
+		v.Add("v", Version)
 
-	host := fmt.Sprintf("http://%v:9896/verify?%v", RemoteAddr, v.Encode())
-	if req, err := http.NewRequest("GET", host, nil); err != nil {
-		fmt.Println(fmt.Sprintf("启动失败: %v", err))
-	} else {
-		if resp, err := client.Do(req); err != nil {
+		host := fmt.Sprintf("http://%v:9896/verify?%v", RemoteAddr, v.Encode())
+		if req, err := http.NewRequest("GET", host, nil); err != nil {
 			fmt.Println(fmt.Sprintf("启动失败: %v", err))
 		} else {
-			body, err := ioutil.ReadAll(resp.Body)
-			if err != nil || string(body) != "1" {
-				fmt.Println(fmt.Sprintf("启动失败: %v", string(body)))
+			if resp, err := client.Do(req); err != nil {
+				fmt.Println(fmt.Sprintf("启动失败: %v", err))
 			} else {
-				authed = true
+				body, err := ioutil.ReadAll(resp.Body)
+				if err != nil || string(body) != "1" {
+					fmt.Println(fmt.Sprintf("启动失败: %v", string(body)))
+				} else {
+					authed = true
+				}
 			}
 		}
 	}
-	if authed == true {
+	// 如果需要验证
+	if !NeedAuth || authed {
 		localIp := "127.0.0.1"
 		if conn, err := net.Dial("udp", fmt.Sprintf("%v:9896", RemoteAddr)); err == nil {
 			defer conn.Close()
