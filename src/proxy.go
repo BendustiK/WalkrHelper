@@ -378,9 +378,9 @@ func main() {
 					record.Data.IsChecked = false
 					record.Data.IsFirstTime = false
 					// 能量块
-					// record.Data.Reward.Type = "cubes"
-					// record.Data.Reward.Value = "10000"
-					record.Data.Contribution.Value = 30000000
+					record.Data.Reward.Type = "cubes"
+					record.Data.Reward.Value = "2000"
+					record.Data.Contribution.Value = 100000
 					// DFR
 					// record.Data.Reward.Type = "replicator"
 					// record.Data.Reward.Value = fmt.Sprintf("map-%v", rand.New(rand.NewSource(time.Now().UnixNano())).Intn(100)+210000)
