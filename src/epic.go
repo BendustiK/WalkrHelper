@@ -32,7 +32,7 @@ var format = logging.MustStringFormatter(
 	"%{color}%{time:15:04:05.000} %{shortfile} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}",
 )
 
-var RoundDuration = 2 * time.Minute
+var RoundDuration = 1 * time.Minute
 var WaitDuration = 5 * time.Minute
 var MaxJoinedTimes = 5
 var FleetInvitationCount = make(map[int]int)
