@@ -1,20 +1,20 @@
 [[PlayerInfo]]
 	Name = "晒宁鼻涕"
-	AuthToken = "370797:QZpHsZR63Q5pkrLXEy7n2snXDxyo-ShgdkCwaev4iiQ"
+	AuthToken = "370797:x1fQmUPpn3zsQ9ai2BsyhJsti3cW9P11687bg-Szak4"
 	ClientVersion = "3.0.13"
 	Locale = "zh-CN"
 	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTgzYmRhMmY1YTNkNTZlMTI4NWEzMTY2NmJjY2VhMzI1BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--d33622c97838bfc9151b76de10f915c9e664dbe6; __cfduid=d25a6258016253da8ec5339eda5e06cd11493996171"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJThmMmI2MjIxODE2NTQ3MTU2Y2YwY2MwMDY1ZjM2ZmEzBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--559378aa000d7003bede7144b949479f58a90e84"
 	ConvertedEnergy = 0
 	EpicHelper = true
 
 [[PlayerInfo]]
 	Name = "Twitter晒宁鼻涕"
-	AuthToken = "633899:-9oZLBxA8S6uxBNUaBqLLD_9sGMzrKyqLz2bANaZpU8"
+	AuthToken = "633899:-j_gaeRPzy1fSywpanHK2wkfs4DPt2_syeVMkzx9kXw"
 	ClientVersion = "3.0.13"
 	Locale = "zh-CN"
 	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTgzYmRhMmY1YTNkNTZlMTI4NWEzMTY2NmJjY2VhMzI1BjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--d33622c97838bfc9151b76de10f915c9e664dbe6; __cfduid=d25a6258016253da8ec5339eda5e06cd11493996171"
+	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJThmMmI2MjIxODE2NTQ3MTU2Y2YwY2MwMDY1ZjM2ZmEzBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--559378aa000d7003bede7144b949479f58a90e84"
 	ConvertedEnergy = 0
 	EpicHelper = false
 
