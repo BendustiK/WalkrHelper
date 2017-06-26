@@ -17,13 +17,3 @@
 	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJThmMmI2MjIxODE2NTQ3MTU2Y2YwY2MwMDY1ZjM2ZmEzBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--559378aa000d7003bede7144b949479f58a90e84"
 	ConvertedEnergy = 0
 	EpicHelper = false
-
-[[PlayerInfo]]
-	Name = "豆喵子"
-	AuthToken = "370945:gQv87zdqPXyn31sEFkMcjsn6fAzzk4mNVKyBaV9wkkU"
-	ClientVersion = "3.0.13"
-	Locale = "zh-CN"
-	Platform = "ios"
-	Cookie = "_spacewalk-server_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTAyYWFhZTkwOWIwMmY3MmI2MDY0OTNkZGE4ZDA3NTZhBjsAVEkiC2xvY2FsZQY7AEZJIgp6aC1DTgY7AFQ%3D--8016d9d0a18ef506abae3c1dff1d9b0a8f44dccc; __cfduid=d1b3d06fb04663ca1fb7b035498d491901495977909"
-	ConvertedEnergy = 0
-	EpicHelper = true
