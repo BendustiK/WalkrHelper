@@ -191,8 +191,8 @@ func MakeRequest(playerInfo PlayerInfo, ch chan int) {
 			continue
 		}
 
-		hasInvitation := _checkInvitationCount(resp, playerInfo)
-		if hasInvitation == false {
+		invitationEpicIds := _checkInvitationEpics(resp, playerInfo)
+		if len(invitationEpicIds) == 0 {
 			log.Notice("当前没有邀请的传说, 等待下一次刷新")
 			_incrRound(playerInfo)
 			continue
@@ -202,7 +202,7 @@ func MakeRequest(playerInfo PlayerInfo, ch chan int) {
 		}
 
 		// 如果有传说, 随便获取一个传说列表, 找到邀请的传说
-		resp, err = _requestFleetList(playerInfo)
+		resp, err = _requestFleetList(invitationEpicIds[0], playerInfo)
 		if err != nil {
 			log.Error("获取舰队列表失败: %v", err)
 			_incrRound(playerInfo)
@@ -436,7 +436,7 @@ func _requestEpicList(playerInfo PlayerInfo) (*http.Response, error) {
 
 }
 
-func _requestFleetList(playerInfo PlayerInfo) (*http.Response, error) {
+func _requestFleetList(invitationEpicId int, playerInfo PlayerInfo) (*http.Response, error) {
 	client := &http.Client{}
 	v := url.Values{}
 	v.Add("locale", playerInfo.Locale)
@@ -444,7 +444,7 @@ func _requestFleetList(playerInfo PlayerInfo) (*http.Response, error) {
 	v.Add("auth_token", playerInfo.AuthToken)
 	v.Add("client_version", playerInfo.ClientVersion)
 	v.Add("country_code", "US")
-	v.Add("epic_id", "14")
+	v.Add("epic_id", fmt.Sprintf("%v", invitationEpicId))
 	v.Add("limit", "30")
 	v.Add("name", "")
 	v.Add("offset", "0")
@@ -627,6 +627,32 @@ func _checkInvitationCount(resp *http.Response, playerInfo PlayerInfo) bool {
 	return isInvitation
 }
 
+func _checkInvitationEpics(resp *http.Response, playerInfo PlayerInfo) []int {
+	var invitationEpicIds []int
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Error("读取返回数据失败: %v", err)
+		return invitationEpicIds
+	}
+
+	var records EpicListResponse
+	if err := json.Unmarshal([]byte(body), &records); err != nil {
+		log.Error("解析传说列表数据失败: %v", err)
+		return invitationEpicIds
+	}
+
+	for _, epic := range records.Epics {
+		log.Debug("传说[%v], 邀请数量[%v]", epic.Name, epic.InvitationCounts)
+
+		if epic.InvitationCounts > 0 {
+			invitationEpicIds = append(invitationEpicIds, epic.Id)
+		}
+	}
+
+	return invitationEpicIds
+}
+
 func _getInvitationFleet(resp *http.Response, playerInfo PlayerInfo) *Fleet {
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
@@ -642,6 +668,7 @@ func _getInvitationFleet(resp *http.Response, playerInfo PlayerInfo) *Fleet {
 
 	var fleets Fleets
 	for _, fleet := range records.Fleets {
+		log.Debug("%+v", fleet)
 		if fleet.IsInvited == true {
 			fleet.Quality = _getJoinedTimes(fleet.Id, playerInfo)
 
